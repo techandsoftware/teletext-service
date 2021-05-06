@@ -1,0 +1,22 @@
+{
+  "name": "teletext-viewer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "rollup -c -w"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "eslint": "^7.25.0",
+    "rollup": "^2.47.0",
+    "rollup-plugin-browsersync": "^1.3.1"
+  },
+  "dependencies": {
+    "@techandsoftware/teletext": "file:../teletext",
+    "@techandsoftware/teletext-plugin-smooth-mosaic": "^0.1.2"
+  }
+}

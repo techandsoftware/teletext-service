@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- SPDX-FileCopyrightText: © 2021 Tech and Software Ltd. -->
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      background-color: magenta;
+      color: white;
+    }
+    #teletextscreen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="teletextscreen"></div>
+
+  <input id="pageNumber" type="number" minlength="3" maxlength="3" size="3" value="100" min="100" max="899" autocomplete="off" >
+
+  <button id="revealButton">REVEAL</button>
+
+  <button id="mixButton">Mix</button>
+
+  <button id="castButton">Cast</button>
+
+  <p>Foo</p>
+
+  <footer>
+    <script type="module">
+      import { App } from './dist/Viewer.js';
+      const app = new App();
+    </script>
+  </footer>
+
+</body>
+
+</html>
