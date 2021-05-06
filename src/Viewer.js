@@ -20,6 +20,7 @@ export class App {
         this._smoothPluginIsLoaded = false;
 
         this._pageNumber = "100";
+        this._subPageNumber = 0;
         this._magazine = null;
         this._magazineData = null;
 
@@ -28,6 +29,7 @@ export class App {
 
     _initEventListeners() {
         window.addEventListener('keypress', e => handleKeyPress.call(this, e));
+        window.addEventListener('keydown', e => handleKeyDown.call(this, e));
 
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#revealButton').addEventListener('click', () => {
@@ -77,10 +79,10 @@ export class App {
             }
         }
         if (this._magazine == magazine && this._pageNumber in this._magazineData.pages) {
-            const outputLines = this._getFirstSubPage();
-            if (outputLines != null) {
+            this._subPageNumber = this._getFirstSubPage();
+            if (this._subPageNumber != null) {
                 this._ttx.clearScreen();
-                this._ttx.setPageFromOutputLines(outputLines);
+                this._ttx.setPageFromOutputLines(this._getSubPage());
             }
         } else {
             console.info('No page', this._pageNumber);
@@ -88,10 +90,49 @@ export class App {
     }
 
     _getFirstSubPage() {
-        for (const subpage of [...this._magazineData.pages[this._pageNumber].subpages]) {
-            if (subpage != null) return subpage.outputLines.split("\n");
+        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        for (let i = 0; i < subpages.length; i++) {
+            if (subpages[i] != null) return i;
         }
         return null;
+    }
+
+    _getSubPage() {
+        return this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber].outputLines.split("\n");
+    }
+
+    _nextSubPage() {
+        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        let nextSub = this._subPageNumber;
+        let gotSubPage = false;
+        while (!gotSubPage) {
+            nextSub++;
+            if (nextSub == subpages.length) nextSub = 0;
+            if (nextSub == this._subPageNumber) break;
+            if (subpages[nextSub] != null) gotSubPage = true;
+        }
+        if (gotSubPage) {
+            this._subPageNumber = nextSub;
+            this._ttx.clearScreen();
+            this._ttx.setPageFromOutputLines(this._getSubPage());
+        }
+    }
+
+    _previousSubPage() {
+        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        let prevSub = this._subPageNumber;
+        let gotSubPage = false;
+        while (!gotSubPage) {
+            prevSub--;
+            if (prevSub == -1) prevSub = subpages.length - 1;
+            if (prevSub == this._subPageNumber) break;
+            if (subpages[prevSub] != null) gotSubPage = true;
+        }
+        if (gotSubPage) {
+            this._subPageNumber = prevSub;
+            this._ttx.clearScreen();
+            this._ttx.setPageFromOutputLines(this._getSubPage());
+        }
     }
 }
 
@@ -158,6 +199,20 @@ async function handleKeyPress(e) {
             }
             break;
 
+        default:
+            console.log(e);
+    }
+    
+}
+
+function handleKeyDown(e) {
+    switch (e.key) {
+        case "ArrowLeft":
+            this._previousSubPage();
+            break;
+        case "ArrowRight":
+            this._nextSubPage();
+            break;
         default:
     }
 }
