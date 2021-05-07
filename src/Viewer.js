@@ -24,6 +24,8 @@ export class App {
         this._magazine = null;
         this._magazineData = null;
 
+        this._header = new Header('TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S');
+
         this._initEventListeners();
     }
 
@@ -81,8 +83,7 @@ export class App {
         if (this._magazine == magazine && this._pageNumber in this._magazineData.pages) {
             this._subPageNumber = this._getFirstSubPage();
             if (this._subPageNumber != null) {
-                this._ttx.clearScreen();
-                this._ttx.setPageFromOutputLines(this._getSubPage());
+                this._update();
             }
         } else {
             console.info('No page', this._pageNumber);
@@ -113,8 +114,7 @@ export class App {
         }
         if (gotSubPage) {
             this._subPageNumber = nextSub;
-            this._ttx.clearScreen();
-            this._ttx.setPageFromOutputLines(this._getSubPage());
+            this._update();
         }
     }
 
@@ -130,11 +130,53 @@ export class App {
         }
         if (gotSubPage) {
             this._subPageNumber = prevSub;
-            this._ttx.clearScreen();
-            this._ttx.setPageFromOutputLines(this._getSubPage());
+            this._update();
         }
     }
+
+    _update() {
+        this._ttx.clearScreen(false);
+        this._ttx.setPageFromOutputLines(this._getSubPage(), this._header.generate(this._pageNumber));
+    }
 }
+
+
+class Header {
+    constructor(string) {
+        this._template = string;
+        this._days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        this._months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    }
+
+    _tokens () {
+        const now = new Date();
+        return {
+            '%%a': this._days[now.getDay()],
+            '%%b': this._months[now.getMonth()],
+            '%d': String(now.getDate()).padStart(2, 0),
+            '%e': String(now.getDate()).padStart(2, " "),
+            '%m': String(now.getMonth() + 1).padStart(2, " "),
+            "%y": String(now.getFullYear()).substring(2, 2),
+            "%H": String(now.getHours()).padStart(2, 0),
+            "%M": String(now.getMinutes()).padStart(2, 0),
+            "%S": String(now.getSeconds()).padStart(2, 0)
+        };
+    }
+
+    generate(pageNumber) {
+        const tokens = this._tokens();
+        let t = this._template;
+        for (const token of Object.keys(tokens)) {
+            t = t.replace(token, tokens[token]);
+        }
+
+        if (typeof pageNumber != 'undefined')
+            t = t.replace("%%#", pageNumber);
+        return t;
+    }
+}
+
+
 
 async function handleKeyPress(e) {
     switch (e.key) {
