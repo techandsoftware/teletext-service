@@ -8,7 +8,7 @@ class Service {
         this.pages = {};
     }
 
-    setSubpage(page, subpage, outputLines) {
+    setSubpage(page, subpage, outputLines, encoding) {
         if (!(page in this.pages)) {
             this.pages[page] = {
                 subpages: []
@@ -16,10 +16,34 @@ class Service {
         }
 
         this.pages[page].subpages[subpage] = {
-            outputLines: outputLines
+            outputLines: outputLines,
+            encoding: encoding
         };
 
     }
+}
+
+class PageStatus {
+    constructor(code) {
+        this._bits = Number(`0x${code}`).toString(2).padStart(16, 0).split('');
+        // bits c12, c13, c14 from header mapped to language in teletext spec
+        this._languages = {
+            "000": "g0_latin__english",
+            "001": "g0_latin__german",
+            "010": "g0_latin__swedish_finnish_hungarian",
+            "011": "g0_latin__italian",
+            "100": "g0_latin__french",
+            "101": "g0_latin__portuguese_spanish",
+            "110": "g0_latin__czech_slovak",
+            "111": "g0_greek",
+        };
+    }
+
+    encoding() {
+        const langBits = this._bits.slice(6, 9).join('');
+        return this._languages[langBits];
+    }
+
 }
 
 
@@ -31,6 +55,7 @@ function getPagesFromTti(data) {
     let pageNumber = 100;
     let subPage = 1;
     let outputLines = [];
+    let encoding = null;
     for (const line of [...lines]) {
         const matches = line.match(/([A-Z]{2}),(.+)/);
         if (matches != null) {
@@ -40,7 +65,7 @@ function getPagesFromTti(data) {
                 const m = data.match(/(\d\d\d)(\d\d)/);
                 if (m != null) {
                     if (outputLines.length) {
-                        service.setSubpage(pageNumber, subPage, outputLines.join("\n"));
+                        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding);
                     }
                     pageNumber = m[1];
                     subPage = parseInt(m[2]);
@@ -48,10 +73,14 @@ function getPagesFromTti(data) {
                 }
             } else if (command == 'OL') {
                 outputLines.push(matches[0]);
+            } else if (command == 'PS') {
+                const ps = new PageStatus(data);
+                encoding = ps.encoding();
             }
         }
     }
-    if (outputLines.length) service.setSubpage(pageNumber, subPage, outputLines.join("\n"));
+    if (outputLines.length)
+        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding);
 }
 
 function go() {

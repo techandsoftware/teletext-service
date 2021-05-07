@@ -98,10 +98,6 @@ export class App {
         return null;
     }
 
-    _getSubPage() {
-        return this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber].outputLines.split("\n");
-    }
-
     _nextSubPage() {
         const subpages = this._magazineData.pages[this._pageNumber].subpages;
         let nextSub = this._subPageNumber;
@@ -135,8 +131,12 @@ export class App {
     }
 
     _update() {
+        const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
+        const outputLines = subpage.outputLines.split("\n");
+        const encoding = 'encoding' in subpage ? subpage.encoding : 'latin_g0';
         this._ttx.clearScreen(false);
-        this._ttx.setPageFromOutputLines(this._getSubPage(), this._header.generate(this._pageNumber));
+        this._ttx.setDefaultG0Charset(encoding, false);
+        this._ttx.setPageFromOutputLines(outputLines, this._header.generate(this._pageNumber));
     }
 }
 
@@ -242,7 +242,6 @@ async function handleKeyPress(e) {
             break;
 
         default:
-            console.log(e);
     }
     
 }
