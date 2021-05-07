@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'fs';
+import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import * as path from 'path';
 
 const DIR = 'public/teefax';
@@ -19,7 +19,10 @@ class Service {
             outputLines: outputLines,
             encoding: encoding
         };
+    }
 
+    clear() {
+        this.pages = {};
     }
 }
 
@@ -83,15 +86,21 @@ function getPagesFromTti(data) {
         service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding);
 }
 
-function go() {
-    let files = readdirSync(DIR);
-    files = files.filter(f => f.match(/P1\d\d.*\.tti/));
-    for (const file of files) {
-        const data = readFileSync(path.join(DIR, file), { encoding: 'UTF-8' });
-        getPagesFromTti(data);
+function go(outputDir) {
+    const allFiles = readdirSync(DIR);
+    for (const magazine of [1,2,3,4,5,6,7,8]) {
+        const filesRegEx = `P${magazine}\\d\\d.*\\.tti`;
+        let files = allFiles.filter(f => f.match(filesRegEx));
+        for (const file of files) {
+            const data = readFileSync(path.join(DIR, file), { encoding: 'UTF-8' });
+            getPagesFromTti(data);
+        }
+
+        writeFileSync(path.join(outputDir, `${magazine}.json`), JSON.stringify(service, null, 2));
+        service.clear();
     }
-    console.log(JSON.stringify(service, null, 2));
 }
 
 
-go();
+const outputDir = typeof process.argv[2] == 'undefined' ? '.' : process.argv[2];
+go(outputDir);
