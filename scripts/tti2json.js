@@ -56,12 +56,12 @@ class PageStatus {
 class Fastext {
     constructor(data) {
         const links = data.split(',');
-        this.red = links[0];
-        this.green = links[1];
-        this.yellow = links[2];
-        this.blue = links[3];
-        this.link5 = links[4];
-        this.index = links[5];
+        this.red = links[0].toUpperCase();
+        this.green = links[1].toUpperCase();
+        this.yellow = links[2].toUpperCase();
+        this.blue = links[3].toUpperCase();
+        this.link5 = links[4].toUpperCase();
+        this.index = links[5].toUpperCase();
 
         this._obj = {};
         for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
@@ -91,12 +91,12 @@ function getPagesFromTti(data) {
             const command = matches[1];
             const data = matches[2];
             if (command == 'PN') {
-                const m = data.match(/(\d\d\d)(\d\d)/);
+                const m = data.match(/(\d[0-9A-Fa-f]{2})(\d\d)/);
                 if (m != null) {
                     if (outputLines.length) {
                         service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding, fastext);
                     }
-                    pageNumber = m[1];
+                    pageNumber = m[1].toUpperCase();
                     subPage = parseInt(m[2]);
                     outputLines = [];
                     fastext = null;
@@ -118,7 +118,7 @@ function getPagesFromTti(data) {
 function go(outputDir) {
     const allFiles = readdirSync(DIR);
     for (const magazine of [1,2,3,4,5,6,7,8]) {
-        const filesRegEx = `P${magazine}\\d\\d.*\\.tti`;
+        const filesRegEx = `^P${magazine}.*\\.tti`;
         let files = allFiles.filter(f => f.match(filesRegEx));
         for (const file of files) {
             const data = readFileSync(path.join(DIR, file), { encoding: 'UTF-8' });

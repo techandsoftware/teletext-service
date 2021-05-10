@@ -78,7 +78,7 @@ export class App {
     }
 
     _newPage() {
-        const matches = this._pageNumber.match(/([12345678])[0-9A-F][0-9A-F]/);
+        const matches = this._pageNumber.match(/([12345678])[0-9A-Fa-f][0-9A-Fa-f]/);
         if (matches != null) {
             const magazine = matches[1];
             this._showPage(magazine);
