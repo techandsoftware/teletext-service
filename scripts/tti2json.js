@@ -8,7 +8,7 @@ class Service {
         this.pages = {};
     }
 
-    setSubpage(page, subpage, outputLines, encoding) {
+    setSubpage(page, subpage, outputLines, encoding, fastext) {
         if (!(page in this.pages)) {
             this.pages[page] = {
                 subpages: []
@@ -19,6 +19,8 @@ class Service {
             outputLines: outputLines,
             encoding: encoding
         };
+        if (fastext != null)
+            this.pages[page].subpages[subpage].fastext = fastext.object();
     }
 
     clear() {
@@ -51,6 +53,27 @@ class PageStatus {
 
 }
 
+class Fastext {
+    constructor(data) {
+        const links = data.split(',');
+        this.red = links[0];
+        this.green = links[1];
+        this.yellow = links[2];
+        this.blue = links[3];
+        this.link5 = links[4];
+        this.index = links[5];
+
+        this._obj = {};
+        for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
+            if (this[link] != 0) this._obj[link] = this[link];
+        }
+    }
+
+    object() {
+        return this._obj;
+    }
+}
+
 
 const service = new Service();
 
@@ -61,6 +84,7 @@ function getPagesFromTti(data) {
     let subPage = 1;
     let outputLines = [];
     let encoding = null;
+    let fastext = null;
     for (const line of [...lines]) {
         const matches = line.match(/([A-Z]{2}),(.+)/);
         if (matches != null) {
@@ -70,22 +94,25 @@ function getPagesFromTti(data) {
                 const m = data.match(/(\d\d\d)(\d\d)/);
                 if (m != null) {
                     if (outputLines.length) {
-                        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding);
+                        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding, fastext);
                     }
                     pageNumber = m[1];
                     subPage = parseInt(m[2]);
                     outputLines = [];
+                    fastext = null;
                 }
             } else if (command == 'OL') {
                 outputLines.push(matches[0]);
             } else if (command == 'PS') {
                 const ps = new PageStatus(data);
                 encoding = ps.encoding();
+            } else if (command == 'FL') {
+                fastext = new Fastext(data);
             }
         }
     }
     if (outputLines.length)
-        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding);
+        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding, fastext);
 }
 
 function go(outputDir) {

@@ -23,6 +23,7 @@ export class App {
         this._subPageNumber = 0;
         this._magazine = null;
         this._magazineData = null;
+        this._fastext = null;
 
         this._header = new Header('TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S');
 
@@ -39,6 +40,21 @@ export class App {
             });
             document.querySelector('#mixButton').addEventListener('click', () => {
                 window.dispatchEvent(new Event('ttx.mix'));
+            });
+            document.querySelector('#red').addEventListener('click', () => {
+                this._handleFastext('red');
+            });
+            document.querySelector('#green').addEventListener('click', () => {
+                this._handleFastext('green');
+            });
+            document.querySelector('#yellow').addEventListener('click', () => {
+                this._handleFastext('yellow');
+            });
+            document.querySelector('#blue').addEventListener('click', () => {
+                this._handleFastext('blue');
+            });
+            document.querySelector('#index').addEventListener('click', () => {
+                this._handleFastext('index');
             });
             document.querySelector('#pageNumber').addEventListener('change', e => {
                 if (e.target.value.length == 3) this._newPage();
@@ -62,7 +78,7 @@ export class App {
     }
 
     _newPage() {
-        const matches = this._pageNumber.match(/([12345678])\d\d/);
+        const matches = this._pageNumber.match(/([12345678])[0-9A-F][0-9A-F]/);
         if (matches != null) {
             const magazine = matches[1];
             this._showPage(magazine);
@@ -137,6 +153,17 @@ export class App {
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
         this._ttx.setPageFromOutputLines(outputLines, this._header.generate(this._pageNumber));
+        this._fastext = 'fastext' in subpage ? subpage.fastext : null;
+    }
+
+    _handleFastext(link) {
+        if (this._fastext != null) {
+            if (link in this._fastext) {
+                this._pageNumber = this._fastext[link];
+                this._updatePageNumber();
+                this._newPage();
+            }
+        }
     }
 }
 
@@ -239,6 +266,26 @@ async function handleKeyPress(e) {
                     console.error('App: Failed to use smooth mosaic plugin: import failed:', e.message);
                 }
             }
+            break;
+
+        case 'r':
+            this._handleFastext('red');
+            break;
+
+        case 'g':
+            this._handleFastext('green');
+            break;
+
+        case 'y':
+            this._handleFastext('yellow');
+            break;
+
+        case 'b':
+            this._handleFastext('blue');
+            break;
+
+        case 'i':
+            this._handleFastext('index');
             break;
 
         default:
