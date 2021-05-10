@@ -29,7 +29,8 @@ class Service {
 class PageStatus {
     constructor(code) {
         this._bits = Number(`0x${code}`).toString(2).padStart(16, 0).split('');
-        // bits c12, c13, c14 from header mapped to language in teletext spec
+
+        // bits c12, c13, c14 from header row mapped to language in teletext spec
         this._languages = {
             "000": "g0_latin__english",
             "001": "g0_latin__german",
@@ -43,7 +44,8 @@ class PageStatus {
     }
 
     encoding() {
-        const langBits = this._bits.slice(6, 9).join('');
+        // bits 6, 7, 8 = c14, c13, c12
+        const langBits = this._bits.slice(6, 9).reverse().join('');
         return this._languages[langBits];
     }
 
