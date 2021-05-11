@@ -5,48 +5,184 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    html, body {
+    html, body, main {
       height: 100%;
     }
     body {
-      background-color: magenta;
+      background: rgb(2,0,36);
+      background: linear-gradient(280deg, rgba(2,0,36,1) 0%, rgba(35,35,235,1) 86%, rgba(0,212,255,1) 100%); 
+      color: white;
+      background-attachment: fixed;
+    }
+    @media (min-width: 576px) {
+      #screenwrap {
+        width: min-content;
+      }
+    }
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  
+
+    button {
+      color: white;
+      background-color: transparent;
+      border-radius: 15px;
+      border: 0;
+      border-left: 0.4px solid #ffffff66;
+      background-color: transparent;
+      cursor: pointer;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      transition: all .1s ease; 
+    }
+    button:active {
+      color: black;
+      background-color: white;
+      box-shadow: 6px 6px 10px rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 576px) {
+      #teletextscreen svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    #fastext {
+      display: flex;
+      justify-content: space-between;
+    }
+    #fastext button {
+      width: 7rem;
+      border-left: 0;
+    }
+    #fastext button, #otherButtons button {
+      height: 2rem;
+    }
+    #otherButtons {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 50px;
+    }
+    #otherButtons button {
+      padding: 0 1rem 0 1rem;
+    }
+    #red {
+      background-color: #ff6060;
       color: white;
     }
-    #teletextscreen {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    #green {
+      background-color: #60ff60;
+      color: black;
+    }
+    #yellow {
+      background-color: #ffff60;
+      color: black;
+    }
+    #blue {
+      background-color: #6060ff;
+      color: white;
+    }
+
+
+    #remote {
+      height: min-content;
+      margin: 20px;
+    }
+    #remote button, input {
+      height: 3rem;
+    }
+    #remote button {
+      width: 3rem;
+      font-size: 14pt;
+    }
+    #pageNumberOuter {
+      vertical-align: middle;
+      xdisplay: flex;
+    }
+    #pageNumber {
+      width: 9.5rem;
+      text-align: center;
+      background-color: white;
+      color: black;
+      margin: 0;
+      padding: 1rem 0 1rem;
+      font-size: 14pt;
+      border-radius: 25px;
+    }
+    .centredrow {
+      text-align: center;
+    }
+    #index {
+      width: 4rem ! important;
+      font-size: 12pt ! important;
     }
   </style>
 </head>
 
 <body>
 
-  <div id="teletextscreen"></div>
+<main>
+  <div id="screenwrap">
+    <div id="teletextscreen"></div>
+    <div id="fastext">
+      <button id="red">Red</button>
+      <button id="green">Green</button>
+      <button id="yellow">Yellow</button>
+      <button id="blue">Blue</button>
+    </div>
+    <div id="otherButtons">
+      <button id="revealButton">Reveal</button>
+      <button id="mixButton">Mix</button>
+      <button id="castButton">Cast</button>
+    </div>
+  </div>
 
-  <input id="pageNumber" minlength="3" maxlength="3" size="3" autocomplete="off" >
-
-
-  <button id="red">RED</button>
-  <button id="green">GREEN</button>
-  <button id="yellow">YELLOW</button>
-  <button id="blue">BLUE</button>
-  <button id="index">INDEX</button>
-
-  <button id="revealButton">REVEAL</button>
-
-  <button id="mixButton">Mix</button>
-
-  <button id="castButton">Cast</button>
-
-  <p>Foo</p>
+  <table id="remote">
+    <tr class="centredrow">
+      <td colspan="3" id="pageNumberOuter">
+        <p id="pageNumber">- - -</p>
+      </td>
+    </tr>
+    <tr>
+      <td><button id="1">1</button></td>
+      <td><button id="2">2</button></td>
+      <td><button id="3">3</button></td>
+    </tr>
+    <tr>
+      <td><button id="4">4</button></td>
+      <td><button id="5">5</button></td>
+      <td><button id="6">6</button></td>
+    </tr>
+    <tr>
+      <td><button id="7">7</button></td>
+      <td><button id="8">8</button></td>
+      <td><button id="9">9</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button id="0">0</button></td>
+    </tr>
+    <tr class="centredrow">
+      <td colspan="3">
+        <button id="index">Index</button>
+      </td>
+    </tr>
+  </table>
+</main>
 
   <footer>
-    <script type="module">
-      import { App } from './dist/Viewer.js';
-      const app = new App();
-    </script>
+
   </footer>
+
+<script type="module">
+  import { App } from './dist/Viewer.js';
+  const app = new App();
+</script>
 
 </body>
 

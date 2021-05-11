@@ -35,30 +35,11 @@ export class App {
         window.addEventListener('keydown', e => handleKeyDown.call(this, e));
 
         window.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('#revealButton').addEventListener('click', () => {
-                window.dispatchEvent(new Event('ttx.reveal'));
-            });
-            document.querySelector('#mixButton').addEventListener('click', () => {
-                window.dispatchEvent(new Event('ttx.mix'));
-            });
-            document.querySelector('#red').addEventListener('click', () => {
-                this._handleFastext('red');
-            });
-            document.querySelector('#green').addEventListener('click', () => {
-                this._handleFastext('green');
-            });
-            document.querySelector('#yellow').addEventListener('click', () => {
-                this._handleFastext('yellow');
-            });
-            document.querySelector('#blue').addEventListener('click', () => {
-                this._handleFastext('blue');
-            });
-            document.querySelector('#index').addEventListener('click', () => {
-                this._handleFastext('index');
-            });
-            document.querySelector('#pageNumber').addEventListener('change', e => {
-                if (e.target.value.length == 3) this._newPage();
-            });
+            document.querySelector('#revealButton').addEventListener('click', () => window.dispatchEvent(new Event('ttx.reveal')));
+            document.querySelector('#mixButton').addEventListener('click', () => window.dispatchEvent(new Event('ttx.mix')));
+            for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
+                document.querySelector(`#${link}`).addEventListener('click', () => this._handleFastext(link));
+            }
         });
     }
 
@@ -74,7 +55,7 @@ export class App {
     }
 
     _updatePageNumber() {
-        document.querySelector('#pageNumber').value = this._pageNumber;
+        document.querySelector('#pageNumber').innerHTML = this._pageNumber;
     }
 
     _newPage() {
@@ -90,6 +71,7 @@ export class App {
         if (this._magazine != magazine) {
             try {
                 const res = await fetch(`${magazine}.json`);
+                // TODO - check response.ok
                 this._magazineData = await res.json();
                 this._magazine = magazine;
             } catch (e) {
