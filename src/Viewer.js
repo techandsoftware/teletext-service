@@ -43,6 +43,8 @@ export class App {
             document.querySelectorAll('[data-num]').forEach(el => {
                 el.addEventListener('click', () => this._numberInput(el.dataset.num))
             });
+            document.querySelector('#left').addEventListener('click', () => this._previousSubPage());
+            document.querySelector('#right').addEventListener('click', () => this._nextSubPage());
         });
     }
 

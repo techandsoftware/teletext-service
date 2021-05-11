@@ -47,6 +47,15 @@
       border: 1px solid white;
     }
 
+    #lrnav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    #lrnav button {
+      font-size: 20pt;
+    }
+
     @media (max-width: 576px) {
       #teletextscreen svg {
         width: 100%;
@@ -62,7 +71,7 @@
       width: 7rem;
       border-left: 0;
     }
-    #fastext button, #otherButtons button {
+    #lrnav button, #fastext button, #otherButtons button {
       height: 2rem;
     }
     #otherButtons {
@@ -127,6 +136,10 @@
 
 <main>
   <div id="screenwrap">
+    <div id="lrnav">
+      <button id="left">↶</button>
+      <button id="right">↷</button>
+    </div>
     <div id="teletextscreen"></div>
     <div id="fastext">
       <button id="red">Red</button>
