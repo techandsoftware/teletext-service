@@ -40,6 +40,9 @@ export class App {
             for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
                 document.querySelector(`#${link}`).addEventListener('click', () => this._handleFastext(link));
             }
+            document.querySelectorAll('[data-num]').forEach(el => {
+                el.addEventListener('click', () => this._numberInput(el.dataset.num))
+            });
         });
     }
 
