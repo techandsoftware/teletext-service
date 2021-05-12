@@ -226,8 +226,8 @@ async function handleKeyPress(e) {
         case '8':
         case '9':
         case '0':
-            if (!(document.querySelector('#pageNumber') == document.activeElement))
-                this._numberInput(e.key);
+            document.querySelector(`#b${e.key}`).focus({ preventScroll: true});
+            this._numberInput(e.key);
             break;
 
         case '?': // reveal
@@ -260,7 +260,7 @@ async function handleKeyPress(e) {
             this._smoothPluginIsLoaded = false;
             break;
 
-        case 'p': // load or remove the plugin to smooth mosaic graphics
+        case 't': // 'terrific' graphics: pixel art upscaling
             if (this._smoothPluginIsLoaded) {
                 this._ttx.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
                 this._smoothPluginIsLoaded = false;

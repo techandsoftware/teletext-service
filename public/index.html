@@ -8,6 +8,9 @@
     html, body, main {
       height: 100%;
     }
+    :focus {
+      outline: 0 !important;
+    }
     body {
       background: rgb(2,0,36);
       background: linear-gradient(280deg, rgba(2,0,36,1) 0%, rgba(35,35,235,1) 86%, rgba(0,212,255,1) 100%); 
@@ -182,23 +185,23 @@
       </td>
     </tr>
     <tr>
-      <td><button data-num="1">1</button></td>
-      <td><button data-num="2">2</button></td>
-      <td><button data-num="3">3</button></td>
+      <td><button id="b1" data-num="1">1</button></td>
+      <td><button id="b2" data-num="2">2</button></td>
+      <td><button id="b3" data-num="3">3</button></td>
     </tr>
     <tr>
-      <td><button data-num="4">4</button></td>
-      <td><button data-num="5">5</button></td>
-      <td><button data-num="6">6</button></td>
+      <td><button id="b4" data-num="4">4</button></td>
+      <td><button id="b5" data-num="5">5</button></td>
+      <td><button id="b6" data-num="6">6</button></td>
     </tr>
     <tr>
-      <td><button data-num="7">7</button></td>
-      <td><button data-num="8">8</button></td>
-      <td><button data-num="9">9</button></td>
+      <td><button id="b7" data-num="7">7</button></td>
+      <td><button id="b8" data-num="8">8</button></td>
+      <td><button id="b9" data-num="9">9</button></td>
     </tr>
     <tr>
       <td></td>
-      <td><button data-num="0">0</button></td>
+      <td><button id="b0" data-num="0">0</button></td>
     </tr>
     <tr class="centredrow">
       <td colspan="3">
