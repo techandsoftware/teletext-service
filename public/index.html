@@ -31,12 +31,15 @@
       color: white;
       background-color: transparent;
       border-radius: 15px;
-      border: 0;
-      border-left: 0.4px solid #ffffff66;
-      background-color: transparent;
+      border: 0.8px solid transparent;
       cursor: pointer;
       box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
       transition: all .1s ease; 
+    }
+    button:hover {
+      border: 0.8px solid #ffffff77;
+      box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 0px 0px 5px white;
     }
     button:active {
       color: black;
@@ -44,16 +47,22 @@
       box-shadow: 6px 6px 10px rgba(255, 255, 255, 0.7);
     }
     button:focus {
-      border: 1px solid white;
+      border: 0.8px dotted #ffffff77;
+    }
+    button:hover:focus {
+      border: 0.8px solid #ffffff77;
     }
 
     #lrnav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
+      align-items: baseline;
       margin-bottom: 10px;
     }
     #lrnav button {
       font-size: 20pt;
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
     @media (max-width: 576px) {
@@ -69,7 +78,6 @@
     }
     #fastext button {
       width: 7rem;
-      border-left: 0;
     }
     #fastext button:focus {
       border: 1px solid white;
@@ -141,6 +149,7 @@
   <div id="screenwrap">
     <div id="lrnav">
       <button id="left">↶</button>
+      <span id="subpage">1 of 3</span>
       <button id="right">↷</button>
     </div>
     <div id="teletextscreen"></div>

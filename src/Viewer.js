@@ -133,6 +133,11 @@ export class App {
         }
     }
 
+    _updateSubpageLabel() {
+        const numSubpages = this._magazineData.pages[this._pageNumber].subpages.length - 1;
+        document.querySelector('#subpage').innerHTML = `${this._subPageNumber} of ${numSubpages}`;
+    }
+
     _update() {
         const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
         const outputLines = subpage.outputLines.split("\n");
@@ -140,6 +145,7 @@ export class App {
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
         this._ttx.setPageFromOutputLines(outputLines, this._header.generate(this._pageNumber));
+        this._updateSubpageLabel();
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
     }
 
