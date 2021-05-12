@@ -64,6 +64,9 @@
       margin-left: 10px;
       margin-right: 10px;
     }
+    #lrnav button:disabled {
+      visibility: hidden;
+    }
 
     @media (max-width: 576px) {
       #teletextscreen svg {
@@ -78,9 +81,6 @@
     }
     #fastext button {
       width: 7rem;
-    }
-    #fastext button:focus {
-      border: 1px solid white;
     }
     #lrnav button, #fastext button, #otherButtons button {
       height: 2rem;
@@ -110,6 +110,15 @@
       background-color: #6060ff;
       color: white;
     }
+    button:disabled, button:disabled:hover, button:disabled:active,
+    #fastext button:disabled, #fastext button:disabled:hover, #fastext button:disabled:active {
+      background-color: transparent;
+      color: #aaa;
+      border: 0.8px solid transparent;
+      text-shadow: none;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+    }
+    
 
 
     #remote {

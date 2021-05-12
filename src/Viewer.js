@@ -40,9 +40,7 @@ export class App {
             for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
                 document.querySelector(`#${link}`).addEventListener('click', () => this._handleFastext(link));
             }
-            document.querySelectorAll('[data-num]').forEach(el => {
-                el.addEventListener('click', () => this._numberInput(el.dataset.num))
-            });
+            document.querySelectorAll('[data-num]').forEach(el => el.addEventListener('click', () => this._numberInput(el.dataset.num)));
             document.querySelector('#left').addEventListener('click', () => this._previousSubPage());
             document.querySelector('#right').addEventListener('click', () => this._nextSubPage());
         });
@@ -133,9 +131,26 @@ export class App {
         }
     }
 
-    _updateSubpageLabel() {
+    _updateSubpageNav() {
         const numSubpages = this._magazineData.pages[this._pageNumber].subpages.length - 1;
-        document.querySelector('#subpage').innerHTML = `${this._subPageNumber} of ${numSubpages}`;
+        const label = document.querySelector('#subpage');
+        if (numSubpages > 0) {
+            label.innerHTML = `${this._subPageNumber} of ${numSubpages}`;
+            label.style.visibility = 'visible';
+            document.querySelectorAll('#lrnav button').forEach(b => b.disabled = false);
+        } else {
+            label.style.visibility = 'hidden';
+            document.querySelectorAll('#lrnav button').forEach(b => b.disabled = true);
+        }
+    }
+
+    _updateButtonState() {
+        const ft = this._fastext;
+        for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
+            let disabled = true;
+            if (ft != null && link in ft) disabled = false;
+            document.querySelector(`#${link}`).disabled = disabled;
+        }
     }
 
     _update() {
@@ -145,8 +160,9 @@ export class App {
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
         this._ttx.setPageFromOutputLines(outputLines, this._header.generate(this._pageNumber));
-        this._updateSubpageLabel();
+        this._updateSubpageNav();
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
+        this._updateButtonState();
     }
 
     _handleFastext(link) {
