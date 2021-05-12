@@ -19,7 +19,7 @@ export class App {
         this._viewIndex = 0;
         this._smoothPluginIsLoaded = false;
 
-        this._pageNumber = "100";
+        this._pageNumber = "XXX";
         this._subPageNumber = 0;
         this._magazine = null;
         this._magazineData = null;
@@ -43,6 +43,7 @@ export class App {
             document.querySelectorAll('[data-num]').forEach(el => el.addEventListener('click', () => this._numberInput(el.dataset.num)));
             document.querySelector('#left').addEventListener('click', () => this._previousSubPage());
             document.querySelector('#right').addEventListener('click', () => this._nextSubPage());
+            document.querySelector('#helpicon').addEventListener('click', () => this._showHelp());
         });
     }
 
@@ -59,6 +60,12 @@ export class App {
 
     _updatePageNumber() {
         document.querySelector('#pageNumber').innerHTML = this._pageNumber;
+    }
+
+    _clearPageNumber() {
+        this._pageNumber = 'XXX';
+        document.querySelector('#pageNumber').innerHTML = '- - -';
+        document.querySelector('#subpage').style.visibility = 'hidden';
     }
 
     _newPage() {
@@ -174,6 +181,19 @@ export class App {
             }
         }
     }
+
+    _disableNav() {
+        for (const link of ['red', 'green', 'yellow', 'blue', 'index', 'left', 'right']) {
+            document.querySelector(`#${link}`).disabled = true;
+        }
+    }
+
+    _showHelp() {
+        this._clearPageNumber();
+        this._disableNav();
+        this._ttx.setDefaultG0Charset('g0_latin__english', false);
+        this._ttx.loadPageFromEncodedString("OoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6RQIECBAgQYOHDhw4cOHDhw4cOHDhw4cOHBAgQIECBAgQIDo0igQIECBBqAy8vnFvw8siDHv3dOW_ZzI_2qBAgQIECBAgQIECBAgQIEHdAgQIECBAgQIECDjz9IECBAgQIECBAgQIECA6RQIECBAgQIl69evXr169evXr169evXr169KgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOhECCTmQed_VBow9sqDCg15fOLfh5ZFiDrzyoOmjKgQIECA6EQIN3Xbiy8kGvL55oMO7Ig6aMqDXl880GLLs390CBAgQIDoFAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOlNSNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjR_2iA6U1BECBA_QIECCll7ZcOxAgQIECBAgQIECBAUQIECBB_aoDpTUEQIEG1AgQIJunwgQIECBAgQIECBAgQIEBRAgQIEH9qgOlNQRAgQW0CBAgocsvbTv680HPri4Yc-VAgQFECBAgQf2qA6U1BECBBdQIECCdl8dEHPri4Yc-VAgQIECAogQIECBB_aoDpTUE5L86_yvxIIe_Zv68kGLr06b93NAgQIEBRAgQIEH9qgOlNQRAgQaUCBAgk7smXwgxdenTfuQIECBAgQFECBAgQf2qA6U1BECBB0QIECCpl5ctObTjQZ-WHho04-aDfuX782Yp_aoDpTUEQIEGZAgQII2_d0Qc--npj0IECBAgQIEBRAgQIEH9qgOlNSBAgQIECBAgQIECBAgQIECBAgQIECBAgQFECBAgQf2qA6URL169evXr169evXr169evXr169evXr169evXr169evSoDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA");
+    }
 }
 
 
@@ -250,7 +270,7 @@ async function handleKeyPress(e) {
             break;
 
         case 'h':
-            this._ttx.setHeight(document.documentElement.clientHeight * 0.8);
+            this._showHelp();
             break;
 
         case 'v': // switch views which changes the mosaic rendering method
@@ -295,6 +315,17 @@ async function handleKeyPress(e) {
 
         case 'i':
             this._handleFastext('index');
+            break;
+
+        case '=':
+        case '+':
+        case '>':
+            this._nextSubPage();
+            break;
+
+        case '-':
+        case '<':
+            this._previousSubPage();
             break;
 
         default:
