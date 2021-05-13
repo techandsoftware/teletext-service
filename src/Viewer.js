@@ -9,16 +9,6 @@ import { ttxcaster } from '@techandsoftware/teletext-caster';
 
 const HELP_PAGE = "OoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6RQIECBAgQYOHDhw4cOHDhw4cOHDhw4cOHBAgQIECBAgQIDo0igQIECBBqAy8vnFvw8siDHv3dOW_ZzI_2qBAgQIECBAgQIECBAgQIEHdAgQIECBAgQIECDjz9IECBAgQIECBAgQIECA6RQIECBAgQIl69evXr169evXr169evXr169KgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOhECCTmQed_VBow9sqDCg15fOLfh5ZFiDrzyoOmjKgQIECA6EQIN3Xbiy8kGvL55oMO7Ig6aMqDXl880GLLs390CBAgQIDoFAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOlNSNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjR_2iA6U1BECBA_QIECCll7ZcOxAgQIECBAgQIECBAUQIECBB_aoDpTUEQIEG1AgQIJunwgQIECBAgQIECBAgQIEBRAgQIEH9qgOlNQRAgQW0CBAgocsvbTv680HPri4Yc-VAgQFECBAgQf2qA6U1BECBBdQIECCdl8dEHPri4Yc-VAgQIECAogQIECBB_aoDpTUE5L86_yvxIIe_Zv68kGLr06b93NAgQIEBRAgQIEH9qgOlNQRAgQaUCBAgk7smXwgxdenTfuQIECBAgQFECBAgQf2qA6U1BECBB0QIECCpl5ctObTjQZ-WHho04-aDfuX782Yp_aoDpTUEQIEGZAgQII2_d0Qc--npj0IECBAgQIEBRAgQIEH9qgOlNSBAgQIECBAgQIECBAgQIECBAgQIECBAgQFECBAgQf2qA6URL169evXr169evXr169evXr169evXr169evXr169evSoDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA";
 
-ttxcaster.connected.attach(castConnected);
-ttxcaster.disconnected.attach(castDisconnected);
-
-function castConnected() {
-    console.log('cast connected \\o/')
-}
-function castDisconnected() {
-    console.log('cast disconnected o_O')
-}
-
 export class App {
     constructor() {
         this._ttx = Teletext();
@@ -40,7 +30,19 @@ export class App {
 
         this._header = new Header('TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S');
 
+        ttxcaster.connected.attach(() => this._castConnected.call(this));
+        ttxcaster.available.attach(() => this._castAvailable.call(this));
+
         this._initEventListeners();
+    }
+
+    _castConnected() {
+        this._newPage();
+        if (this._smoothPluginIsLoaded) ttxcaster.setSmoothMosaics();
+    }
+
+    _castAvailable() {
+        document.querySelector('#castOuter').style.display = 'inline-block';
     }
 
     _initEventListeners() {
