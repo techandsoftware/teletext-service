@@ -118,6 +118,17 @@
       background-color: #6060ff;
       color: white;
     }
+    #castOuter {
+      background-color: #ffffff00;
+      border-radius: 15px;
+    }
+    google-cast-launcher {
+      display: block;
+      width: 25px;
+      height: 25px;
+      --connected-color: #3bb4e7;
+      --disconnected-color: white;
+    }
     button:disabled, button:disabled:hover, button:disabled:active,
     #fastext button:disabled, #fastext button:disabled:hover, #fastext button:disabled:active {
       background-color: transparent;
@@ -185,7 +196,9 @@
     <div id="otherButtons">
       <button id="revealButton">Reveal</button>
       <button id="mixButton">Mix</button>
-      <button id="castButton">Cast</button>
+      <span id="castOuter" title="Cast to Chromecast">
+        <google-cast-launcher id="castbutton"></google-cast-launcher>
+      </span>
     </div>
   </div>
 
@@ -230,6 +243,7 @@
   import { App } from './dist/Viewer.js';
   const app = new App();
 </script>
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 
 </body>
 

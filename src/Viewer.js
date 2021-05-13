@@ -5,6 +5,19 @@ const FONTS = ['sans-serif', 'Bedstead', 'native', 'serif', 'Unscii', 'monospace
 const VIEWS = ['classic__graphic-for-mosaic', 'classic__font-for-mosaic'];
 
 import { Teletext, Level } from '@techandsoftware/teletext';
+import { ttxcaster } from '@techandsoftware/teletext-caster';
+
+const HELP_PAGE = "OoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6RQIECBAgQYOHDhw4cOHDhw4cOHDhw4cOHBAgQIECBAgQIDo0igQIECBBqAy8vnFvw8siDHv3dOW_ZzI_2qBAgQIECBAgQIECBAgQIEHdAgQIECBAgQIECDjz9IECBAgQIECBAgQIECA6RQIECBAgQIl69evXr169evXr169evXr169KgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOhECCTmQed_VBow9sqDCg15fOLfh5ZFiDrzyoOmjKgQIECA6EQIN3Xbiy8kGvL55oMO7Ig6aMqDXl880GLLs390CBAgQIDoFAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOlNSNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjR_2iA6U1BECBA_QIECCll7ZcOxAgQIECBAgQIECBAUQIECBB_aoDpTUEQIEG1AgQIJunwgQIECBAgQIECBAgQIEBRAgQIEH9qgOlNQRAgQW0CBAgocsvbTv680HPri4Yc-VAgQFECBAgQf2qA6U1BECBBdQIECCdl8dEHPri4Yc-VAgQIECAogQIECBB_aoDpTUE5L86_yvxIIe_Zv68kGLr06b93NAgQIEBRAgQIEH9qgOlNQRAgQaUCBAgk7smXwgxdenTfuQIECBAgQFECBAgQf2qA6U1BECBB0QIECCpl5ctObTjQZ-WHho04-aDfuX782Yp_aoDpTUEQIEGZAgQII2_d0Qc--npj0IECBAgQIEBRAgQIEH9qgOlNSBAgQIECBAgQIECBAgQIECBAgQIECBAgQFECBAgQf2qA6URL169evXr169evXr169evXr169evXr169evXr169evSoDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA";
+
+ttxcaster.connected.attach(castConnected);
+ttxcaster.disconnected.attach(castDisconnected);
+
+function castConnected() {
+    console.log('cast connected \\o/')
+}
+function castDisconnected() {
+    console.log('cast disconnected o_O')
+}
 
 export class App {
     constructor() {
@@ -35,8 +48,8 @@ export class App {
         window.addEventListener('keydown', e => handleKeyDown.call(this, e));
 
         window.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('#revealButton').addEventListener('click', () => window.dispatchEvent(new Event('ttx.reveal')));
-            document.querySelector('#mixButton').addEventListener('click', () => window.dispatchEvent(new Event('ttx.mix')));
+            document.querySelector('#revealButton').addEventListener('click', () => this._reveal());
+            document.querySelector('#mixButton').addEventListener('click', () => this._mix());
             for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
                 document.querySelector(`#${link}`).addEventListener('click', () => this._handleFastext(link));
             }
@@ -45,6 +58,16 @@ export class App {
             document.querySelector('#right').addEventListener('click', () => this._nextSubPage());
             document.querySelector('#helpicon').addEventListener('click', () => this._showHelp());
         });
+    }
+
+    _reveal() {
+        window.dispatchEvent(new Event('ttx.reveal'));
+        ttxcaster.toggleReveal();
+    }
+
+    _mix() {
+        window.dispatchEvent(new Event('ttx.mix'));
+        ttxcaster.toggleMixMode();
     }
 
     _numberInput(number) {
@@ -163,10 +186,16 @@ export class App {
     _update() {
         const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
         const outputLines = subpage.outputLines.split("\n");
-        const encoding = 'encoding' in subpage ? subpage.encoding : 'latin_g0';
+        const encoding = 'encoding' in subpage ? subpage.encoding : 'g0_latin';
+        const header = this._header.generate(this._pageNumber);
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
-        this._ttx.setPageFromOutputLines(outputLines, this._header.generate(this._pageNumber));
+        this._ttx.setPageFromOutputLines(outputLines, header);
+        ttxcaster.display({
+            defaultG0Charset: encoding,
+            header: header,
+            outputLines: outputLines
+        });
         this._updateSubpageNav();
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
         this._updateButtonState();
@@ -192,7 +221,7 @@ export class App {
         this._clearPageNumber();
         this._disableNav();
         this._ttx.setDefaultG0Charset('g0_latin__english', false);
-        this._ttx.loadPageFromEncodedString("OoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6RQIECBAgQYOHDhw4cOHDhw4cOHDhw4cOHBAgQIECBAgQIDo0igQIECBBqAy8vnFvw8siDHv3dOW_ZzI_2qBAgQIECBAgQIECBAgQIEHdAgQIECBAgQIECDjz9IECBAgQIECBAgQIECA6RQIECBAgQIl69evXr169evXr169evXr169KgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOhECCTmQed_VBow9sqDCg15fOLfh5ZFiDrzyoOmjKgQIECA6EQIN3Xbiy8kGvL55oMO7Ig6aMqDXl880GLLs390CBAgQIDoFAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOlNSNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjR_2iA6U1BECBA_QIECCll7ZcOxAgQIECBAgQIECBAUQIECBB_aoDpTUEQIEG1AgQIJunwgQIECBAgQIECBAgQIEBRAgQIEH9qgOlNQRAgQW0CBAgocsvbTv680HPri4Yc-VAgQFECBAgQf2qA6U1BECBBdQIECCdl8dEHPri4Yc-VAgQIECAogQIECBB_aoDpTUE5L86_yvxIIe_Zv68kGLr06b93NAgQIEBRAgQIEH9qgOlNQRAgQaUCBAgk7smXwgxdenTfuQIECBAgQFECBAgQf2qA6U1BECBB0QIECCpl5ctObTjQZ-WHho04-aDfuX782Yp_aoDpTUEQIEGZAgQII2_d0Qc--npj0IECBAgQIEBRAgQIEH9qgOlNSBAgQIECBAgQIECBAgQIECBAgQIECBAgQFECBAgQf2qA6URL169evXr169evXr169evXr169evXr169evXr169evSoDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA");
+        this._ttx.loadPageFromEncodedString(HELP_PAGE);
     }
 
     _generateBackground() {
@@ -257,12 +286,12 @@ async function handleKeyPress(e) {
             this._numberInput(e.key);
             break;
 
-        case '?': // reveal
-            window.dispatchEvent(new Event("ttx.reveal"));
+        case '?':
+            this._reveal();
             break;
 
-        case 'm': // mix
-            window.dispatchEvent(new Event("ttx.mix"));
+        case 'm':
+            this._mix();
             break;
 
         case 'f': // rotate through fonts
@@ -291,6 +320,7 @@ async function handleKeyPress(e) {
             if (this._smoothPluginIsLoaded) {
                 this._ttx.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
                 this._smoothPluginIsLoaded = false;
+                ttxcaster.setBlockMosaics();
             } else if (this._viewIndex == 0) {  // plugin works on the graphical mosaic view
                 // Loading the plugin as a dynamic import as it's large
                 // This also avoids having to bundle it with the application lib at build time
@@ -298,6 +328,7 @@ async function handleKeyPress(e) {
                     const module = await import('@techandsoftware/teletext-plugin-smooth-mosaic');
                     this._ttx.registerViewPlugin(module.SmoothMosaicPlugin);
                     this._smoothPluginIsLoaded = true;
+                    ttxcaster.setSmoothMosaics();
                 } catch (e) {
                     console.error('App: Failed to use smooth mosaic plugin: import failed:', e.message);
                 }
