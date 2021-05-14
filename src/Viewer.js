@@ -30,15 +30,34 @@ export class App {
 
         this._header = new Header('TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S');
 
-        ttxcaster.connected.attach(() => this._castConnected.call(this));
         ttxcaster.available.attach(() => this._castAvailable.call(this));
+        ttxcaster.castStateChanged.attach(() => this._castStateChanged.call(this));
 
         this._initEventListeners();
     }
 
-    _castConnected() {
-        this._newPage();
-        if (this._smoothPluginIsLoaded) ttxcaster.setSmoothMosaics();
+    _castStateChanged() {
+        const state = ttxcaster.getCastState();
+        const castEl = document.querySelector('#castOuter');
+        switch (state) {
+            case 'NO_DEVICES_AVAILABLE':
+                castEl.title = "Cast to Chromecast - no devices available";
+                castEl.style.cursor = 'default';
+                break;
+
+            case 'NOT_CONNECTED':
+                castEl.title = "Cast to Chromecast";
+                castEl.style.cursor = 'pointer';
+                break;
+
+            case 'CONNECTING':
+                break;
+
+            case 'CONNECTED':
+                this._newPage();
+                if (this._smoothPluginIsLoaded) ttxcaster.setSmoothMosaics();
+                break;
+        }
     }
 
     _castAvailable() {

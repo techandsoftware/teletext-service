@@ -16,6 +16,8 @@
       background: linear-gradient(280deg, hsl(243 100% 7%) 0%, hsl(243 83% 52%) 86%, hsl(243 100% 85%) 100%);
       color: white;
       background-attachment: fixed;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
     }
     @media (min-width: 576px) {
       #screenwrap {
@@ -120,13 +122,17 @@
     }
     #castOuter {
       margin-left: 50px;
-      cursor: pointer;
       display: none;
+      width: 25px;
+      height: 30px;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background: #ffffff10;
     }
     google-cast-launcher {
       display: block;
       width: 25px;
-      height: 25px;
+      height: 2rem;
       --connected-color: #3bb4e7;
       --disconnected-color: white;
     }
@@ -137,6 +143,7 @@
       border: 0.8px solid transparent;
       text-shadow: none;
       box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      cursor: default;
     }
     
 
@@ -155,7 +162,7 @@
     #pageNumber {
       width: 9.5rem;
       text-align: center;
-      background-color: white;
+      background-color: #ffffffaa;
       color: black;
       margin: 0;
       padding: 1rem 0 1rem;
@@ -183,16 +190,16 @@
           <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
         </svg>
       </span>
-      <button id="left" title="Previous subpage">↶</button>
-      <span id="subpage">1 of 3</span>
-      <button id="right" title="Next subpage">↷</button>
+      <button id="left" title="Previous subpage" disabled>↶</button>
+      <span id="subpage"></span>
+      <button id="right" title="Next subpage" disabled>↷</button>
     </div>
     <div id="teletextscreen"></div>
     <div id="fastext">
-      <button id="red">Red</button>
-      <button id="green">Green</button>
-      <button id="yellow">Yellow</button>
-      <button id="blue">Blue</button>
+      <button id="red" disabled>Red</button>
+      <button id="green" disabled>Green</button>
+      <button id="yellow" disabled>Yellow</button>
+      <button id="blue" disabled>Blue</button>
     </div>
     <div id="otherButtons">
       <button id="revealButton">Reveal</button>
@@ -236,9 +243,7 @@
   </table>
 </main>
 
-  <footer>
-
-  </footer>
+  <footer></footer>
 
 <script type="module">
   import { App } from './dist/Viewer.js';
