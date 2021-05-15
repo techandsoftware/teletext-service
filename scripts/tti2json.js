@@ -77,9 +77,24 @@ class Fastext {
 
 const service = new Service();
 
+function bufferToLines(buffer) {
+    const lines = [];
+    let line  = "";
+    for (const byteCode of [...buffer]) {
+        if (byteCode == 10) { // \n
+            lines.push(line);
+            line = "";
+        } else {
+            line += String.fromCharCode(byteCode);
+        }
+    }
+    if (line.length != 0) lines.push(line);
+    return lines;
+}
+
 // *.tti file format  https://zxnet.co.uk/teletext/documents/ttiformat.pdf
-function getPagesFromTti(data) {
-    const lines = data.split("\n");
+function getPagesFromTti(buffer) {
+    const lines = bufferToLines(buffer);
     let pageNumber = 100;
     let subPage = 1;
     let outputLines = [];
@@ -121,8 +136,8 @@ function go(outputDir) {
         const filesRegEx = `^P${magazine}.*\\.tti`;
         let files = allFiles.filter(f => f.match(filesRegEx));
         for (const file of files) {
-            const data = readFileSync(path.join(DIR, file), { encoding: 'UTF-8' });
-            getPagesFromTti(data);
+            const buffer = readFileSync(path.join(DIR, file));
+            getPagesFromTti(buffer);
         }
 
         writeFileSync(path.join(outputDir, `${magazine}.json`), JSON.stringify(service, null, 2));
