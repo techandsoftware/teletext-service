@@ -183,9 +183,9 @@ export class App {
     }
 
     _updateSubpageNav() {
-        const numSubpages = this._magazineData.pages[this._pageNumber].subpages.length - 1;
+        const numSubpages = this._magazineData.pages[this._pageNumber].subpages.filter(s => s != null).length;
         const label = document.querySelector('#subpage');
-        if (numSubpages > 0) {
+        if (numSubpages > 1) {
             label.innerHTML = `${this._subPageNumber} of ${numSubpages}`;
             label.style.visibility = 'visible';
             document.querySelectorAll('#lrnav button').forEach(b => b.disabled = false);
