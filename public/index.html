@@ -4,6 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
   <style>
     html, body, main {
       height: 100%;
@@ -18,11 +19,6 @@
       background-attachment: fixed;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
-    }
-    @media (min-width: 576px) {
-      #screenwrap {
-        width: min-content;
-      }
     }
     main {
       display: flex;
@@ -77,14 +73,24 @@
     #lrnav button:disabled {
       visibility: hidden;
     }
-
-    @media (max-width: 576px) {
-      #teletextscreen svg {
-        width: 100%;
-        height: auto;
-      }
+    #screenwrap {
+      flex: 0 0 47%;
     }
-
+    #teletextscreen {
+      width: 100%;
+      padding-top: 83.33%; /* keeps 6:5 aspect ratio */
+      position: relative;
+    }
+    #teletextscreen svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      border: 0;
+    }
     #fastext {
       display: flex;
       justify-content: space-between;
@@ -172,9 +178,44 @@
     .centredrow {
       text-align: center;
     }
-    #index {
-      width: 4rem ! important;
-      font-size: 12pt ! important;
+    td #index {
+      width: 4rem;
+      font-size: 12pt;
+    }
+
+    @media (max-width: 600px) {
+      #lrnav {
+        margin: 0;
+      }
+      #lrnav button {
+        font-size: 12pt;
+      }
+      #screenwrap {
+        width: 100%;
+        align-self: flex-start;
+      }
+      #otherButtons {
+        font-size: 8pt;
+        padding: 0;
+      }
+      #pageNumber {
+        font-size: 12pt;
+        margin: 0;
+        padding: 0;
+        height: 30px;
+      }
+      #remote {
+        width: 90%;
+        margin-top: 5px;
+      }
+      #remote button {
+        font-size: 10pt;
+        width: 100%;
+        height: 2rem;
+      }
+      #index {
+        font-size: 10pt;
+      }
     }
   </style>
 </head>
@@ -212,9 +253,7 @@
 
   <table id="remote">
     <tr class="centredrow">
-      <td colspan="3">
-        <p id="pageNumber">- - -</p>
-      </td>
+      <td colspan="3" id="pageNumber">- - -</td>
     </tr>
     <tr>
       <td><button id="b1" data-num="1">1</button></td>

@@ -15,7 +15,6 @@ export class App {
         this._ttx.setDefaultG0Charset('g0_latin__english');
         this._ttx.setLevel(Level[1.5]);
         this._ttx.addTo('#teletextscreen');
-        this._ttx.setHeight(500);
         this._ttx.showTestPage();
 
         this._fontIndex = 0;
