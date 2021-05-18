@@ -4,30 +4,21 @@
 const FONTS = ['sans-serif', 'Bedstead', 'native', 'serif', 'Unscii', 'monospace', 'cursive'];
 const VIEWS = ['classic__graphic-for-mosaic', 'classic__font-for-mosaic'];
 
-import { Teletext, Level } from '@techandsoftware/teletext';
+import { Service } from './Service.js';
 import { ttxcaster } from '@techandsoftware/teletext-caster';
 
 const HELP_PAGE = "OoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6RQIECBAgQYOHDhw4cOHDhw4cOHDhw4cOHBAgQIECBAgQIDo0igQIECBBqAy8vnFvw8siDHv3dOW_ZzI_2qBAgQIECBAgQIECBAgQIEHdAgQIECBAgQIECDjz9IECBAgQIECBAgQIECA6RQIECBAgQIl69evXr169evXr169evXr169KgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOhECCTmQed_VBow9sqDCg15fOLfh5ZFiDrzyoOmjKgQIECA6EQIN3Xbiy8kGvL55oMO7Ig6aMqDXl880GLLs390CBAgQIDoFAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOlNSNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjR_2iA6U1BECBA_QIECCll7ZcOxAgQIECBAgQIECBAUQIECBB_aoDpTUEQIEG1AgQIJunwgQIECBAgQIECBAgQIEBRAgQIEH9qgOlNQRAgQW0CBAgocsvbTv680HPri4Yc-VAgQFECBAgQf2qA6U1BECBBdQIECCdl8dEHPri4Yc-VAgQIECAogQIECBB_aoDpTUE5L86_yvxIIe_Zv68kGLr06b93NAgQIEBRAgQIEH9qgOlNQRAgQaUCBAgk7smXwgxdenTfuQIECBAgQFECBAgQf2qA6U1BECBB0QIECCpl5ctObTjQZ-WHho04-aDfuX782Yp_aoDpTUEQIEGZAgQII2_d0Qc--npj0IECBAgQIEBRAgQIEH9qgOlNSBAgQIECBAgQIECBAgQIECBAgQIECBAgQFECBAgQf2qA6URL169evXr169evXr169evXr169evXr169evXr169evSoDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA";
 
 export class App {
     constructor() {
-        this._ttx = Teletext();
-        this._ttx.setDefaultG0Charset('g0_latin__english');
-        this._ttx.setLevel(Level[1.5]);
-        this._ttx.addTo('#teletextscreen');
-        this._ttx.showTestPage();
+        this._service = new Service({
+            defaultG0Charset: 'g0_latin__english',
+            header: 'TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S'
+        });
 
+        this._pageNumber = 'XXX';
         this._fontIndex = 0;
         this._viewIndex = 0;
-        this._smoothPluginIsLoaded = false;
-
-        this._pageNumber = "XXX";
-        this._subPageNumber = 0;
-        this._magazine = null;
-        this._magazineData = null;
-        this._fastext = null;
-
-        this._header = new Header('TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S');
 
         ttxcaster.available.attach(() => this._castAvailable.call(this));
         ttxcaster.castStateChanged.attach(() => this._castStateChanged.call(this));
@@ -111,81 +102,24 @@ export class App {
         document.querySelector('#subpage').style.visibility = 'hidden';
     }
 
-    _newPage() {
-        const matches = this._pageNumber.match(/([12345678])[0-9A-Fa-f][0-9A-Fa-f]/);
+    async _newPage() {
+        const matches = this._pageNumber.match(/[1-8][0-9A-Fa-f]{2}/);
         if (matches != null) {
-            const magazine = matches[1];
-            this._showPage(magazine);
+            const meta = await this._service.showPage(this._pageNumber);
+            this._updateSubpageNav(meta);
         }
-    }
-
-    async _showPage(magazine) {
-        console.info('showing page in mag', magazine, this._pageNumber);
-        if (this._magazine != magazine) {
-            try {
-                const res = await fetch(`${magazine}.json`);
-                // TODO - check response.ok
-                this._magazineData = await res.json();
-                this._magazine = magazine;
-            } catch (e) {
-                console.warn(`e75 _showPage: failed to load magazine data from ${magazine}.json :`, e.message);
-            }
-        }
-        if (this._magazine == magazine && this._pageNumber in this._magazineData.pages) {
-            this._subPageNumber = this._getFirstSubPage();
-            if (this._subPageNumber != null) {
-                this._update();
-            }
-        } else {
-            console.info('No page', this._pageNumber);
-        }
-    }
-
-    _getFirstSubPage() {
-        const subpages = this._magazineData.pages[this._pageNumber].subpages;
-        for (let i = 0; i < subpages.length; i++) {
-            if (subpages[i] != null) return i;
-        }
-        return null;
     }
 
     _nextSubPage() {
-        const subpages = this._magazineData.pages[this._pageNumber].subpages;
-        let nextSub = this._subPageNumber;
-        let gotSubPage = false;
-        while (!gotSubPage) {
-            nextSub++;
-            if (nextSub == subpages.length) nextSub = 0;
-            if (nextSub == this._subPageNumber) break;
-            if (subpages[nextSub] != null) gotSubPage = true;
-        }
-        if (gotSubPage) {
-            this._subPageNumber = nextSub;
-            this._update();
-        }
     }
 
     _previousSubPage() {
-        const subpages = this._magazineData.pages[this._pageNumber].subpages;
-        let prevSub = this._subPageNumber;
-        let gotSubPage = false;
-        while (!gotSubPage) {
-            prevSub--;
-            if (prevSub == -1) prevSub = subpages.length - 1;
-            if (prevSub == this._subPageNumber) break;
-            if (subpages[prevSub] != null) gotSubPage = true;
-        }
-        if (gotSubPage) {
-            this._subPageNumber = prevSub;
-            this._update();
-        }
     }
 
-    _updateSubpageNav() {
-        const numSubpages = this._magazineData.pages[this._pageNumber].subpages.filter(s => s != null).length;
+    _updateSubpageNav(meta) {
         const label = document.querySelector('#subpage');
-        if (numSubpages > 1) {
-            label.innerHTML = `${this._subPageNumber} of ${numSubpages}`;
+        if (meta != null && meta.numSubPages > 1) {
+            label.innerHTML = `${meta.subPage} of ${meta.numSubPages}`;
             label.style.visibility = 'visible';
             document.querySelectorAll('#lrnav button').forEach(b => b.disabled = false);
         } else {
@@ -204,21 +138,6 @@ export class App {
     }
 
     _update() {
-        const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
-        const outputLines = subpage.outputLines.split("\n");
-        const encoding = 'encoding' in subpage ? subpage.encoding : 'g0_latin';
-        const header = this._header.generate(this._pageNumber);
-        this._ttx.clearScreen(false);
-        this._ttx.setDefaultG0Charset(encoding, false);
-        this._ttx.setPageFromOutputLines(outputLines, header);
-        ttxcaster.display({
-            defaultG0Charset: encoding,
-            header: header,
-            outputLines: outputLines
-        });
-        this._updateSubpageNav();
-        this._fastext = 'fastext' in subpage ? subpage.fastext : null;
-        this._updateButtonState();
     }
 
     _handleFastext(link) {
@@ -251,43 +170,6 @@ export class App {
         document.body.style.background = bg;
     }
 }
-
-
-class Header {
-    constructor(string) {
-        this._template = string;
-        this._days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        this._months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    }
-
-    _tokens () {
-        const now = new Date();
-        return {
-            '%%a': this._days[now.getDay()],
-            '%%b': this._months[now.getMonth()],
-            '%d': String(now.getDate()).padStart(2, 0),
-            '%e': String(now.getDate()).padStart(2, " "),
-            '%m': String(now.getMonth() + 1).padStart(2, " "),
-            "%y": String(now.getFullYear()).substring(2, 2),
-            "%H": String(now.getHours()).padStart(2, 0),
-            "%M": String(now.getMinutes()).padStart(2, 0),
-            "%S": String(now.getSeconds()).padStart(2, 0)
-        };
-    }
-
-    generate(pageNumber) {
-        const tokens = this._tokens();
-        let t = this._template;
-        for (const token of Object.keys(tokens)) {
-            t = t.replace(token, tokens[token]);
-        }
-
-        if (typeof pageNumber != 'undefined')
-            t = t.replace("%%#", pageNumber);
-        return t;
-    }
-}
-
 
 
 async function handleKeyPress(e) {
