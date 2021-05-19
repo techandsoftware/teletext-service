@@ -20,11 +20,12 @@ export class Service {
         this._ttx.addTo(options.DOMSelector);
         this._ttx.showTestPage();
 
+        this._page = null;
         this._pageNumber = null;
         this._subPageNumber = 0;
-        this._magazine = null;
-        this._magazineData = null;
         this._fastext = null;
+
+        this._fetcher = new PageFetcher();
     }
 
     get teletextInstance() {
@@ -32,32 +33,20 @@ export class Service {
     }
 
     async showPage(pageNumber) {
-        // TODO - separate out page fetch
-        const matches = pageNumber.match(/([1-8])[0-9A-Fa-f]{2}/);
+        const matches = pageNumber.match(/[1-8][0-9A-Fa-f]{2}/);
         if (matches == null) {
-            console.warn('W31 Service.showPage: bad page number', pageNumber);
+            console.warn('W37 Service.showPage: bad page number', pageNumber);
             return;
         }
-        const magazine = matches[1];
-        console.info(`showing page ${pageNumber} in mag ${magazine}`);
 
-        if (this._magazine != magazine) {
-            try {
-                const res = await fetch(`${magazine}.json`);
-                if (res.ok) {
-                    this._magazineData = await res.json();
-                    this._magazine = magazine;
-                } else console.warn(`W50 showPage: failed to load magazine data from ${magazine}.json : ${res.status} ${res.statusText}`);
-            } catch (e) {
-                console.warn(`W52 showPage: failed to load magazine data from ${magazine}.json :`, e.message);
-            }
-        }
-        if (this._magazine == magazine && pageNumber in this._magazineData.pages) {
+        const page = await this._fetcher.fetchPage(pageNumber);
+        if (page != null) {
+            this._page = page;
             this._pageNumber = pageNumber;
             this._subPageNumber = this._getFirstSubPage();
             if (this._subPageNumber != null) {
                 this._update();
-                const numSubpages = this._magazineData.pages[this._pageNumber].subpages.filter(s => s != null).length;
+                const numSubpages = this._page.subpages.filter(s => s != null).length;
                 return {
                     subPage: this._subPageNumber,
                     numSubPages: numSubpages,
@@ -73,7 +62,7 @@ export class Service {
     }
 
     _getFirstSubPage() {
-        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        const subpages = this._page.subpages;
         for (let i = 0; i < subpages.length; i++) {
             if (subpages[i] != null) return i;
         }
@@ -81,7 +70,7 @@ export class Service {
     }
 
     nextSubPage() {
-        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        const subpages = this._page.subpages;
         let nextSub = this._subPageNumber;
         let gotSubPage = false;
         while (!gotSubPage) {
@@ -102,7 +91,7 @@ export class Service {
     }
 
     previousSubPage() {
-        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        const subpages = this._page.subpages;
         let prevSub = this._subPageNumber;
         let gotSubPage = false;
         while (!gotSubPage) {
@@ -123,7 +112,7 @@ export class Service {
     }
 
     _update() {
-        const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
+        const subpage = this._page.subpages[this._subPageNumber];
         const outputLines = subpage.outputLines.split("\n");
         const encoding = 'encoding' in subpage ? subpage.encoding : this._defaultG0Charset;
         const header = this._header.generate(this._pageNumber);
@@ -142,6 +131,33 @@ export class Service {
 
 }
 
+class PageFetcher {
+    constructor() {
+        this._magazine = null;
+        this._magazineData = null;
+    }
+
+    async fetchPage(pageNumber) {
+        const matches = pageNumber.match(/([1-8])[0-9A-Fa-f]{2}/);
+        const magazine = matches[1];
+        if (this._magazine != magazine) {
+            try {
+                const res = await fetch(`${magazine}.json`);
+                if (res.ok) {
+                    this._magazineData = await res.json();
+                    this._magazine = magazine;
+                } else console.warn(`W160 fetchPage: failed to load magazine data from ${magazine}.json : ${res.status} ${res.statusText}`);
+            } catch (e) {
+                console.warn(`W162 fetchPage: failed to load magazine data from ${magazine}.json :`, e.message);
+            }
+        }
+
+        if (this._magazine == magazine && pageNumber in this._magazineData.pages) {
+            return this._magazineData.pages[pageNumber];
+        }
+        return null;
+    }
+}
 
 class Header {
     constructor(string) {
