@@ -6,7 +6,7 @@ import browsersync from 'rollup-plugin-browsersync';
 
 export default {
   input: {
-    Viewer: 'src/Viewer.js',
+    ViewerApp: 'src/ViewerApp.js',
   },
   output: {
     entryFileNames: '[name].js',
