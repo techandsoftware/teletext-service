@@ -13,6 +13,7 @@ export class Service {
         this._caster = 'caster' in options ? options.caster : null;
         this._defaultG0Charset = 'defaultG0Charset' in options ? options.defaultG0Charset : 'g0_latin';
         this._header = 'header' in options ? new Header(options.header) : new Header(DEFAULT_HEADER);
+        this._fetcher = 'fetcher' in options ? options.fetcher : new PageFetcher();
 
         this._ttx = Teletext();
         this._ttx.setDefaultG0Charset(this._defaultG0Charset);
@@ -24,8 +25,6 @@ export class Service {
         this._pageNumber = null;
         this._subPageNumber = 0;
         this._fastext = null;
-
-        this._fetcher = new PageFetcher();
     }
 
     get teletextInstance() {
@@ -110,7 +109,7 @@ export class Service {
         const subpage = this._page.subpages[this._subPageNumber];
         const outputLines = subpage.outputLines.split("\n");
         const encoding = 'encoding' in subpage ? subpage.encoding : this._defaultG0Charset;
-        const header = this._header.generate(this._pageNumber);
+        const header = this._header.generate_(this._pageNumber);
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
         this._ttx.setPageFromOutputLines(outputLines, header);
@@ -123,7 +122,6 @@ export class Service {
         }
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
     }
-
 }
 
 class PageFetcher {
@@ -141,9 +139,9 @@ class PageFetcher {
                 if (res.ok) {
                     this._magazineData = await res.json();
                     this._magazine = magazine;
-                } else console.warn(`W160 fetchPage: failed to load magazine data from ${magazine}.json : ${res.status} ${res.statusText}`);
+                } else console.warn(`W143 fetchPage: failed to load magazine data from ${magazine}.json : ${res.status} ${res.statusText}`);
             } catch (e) {
-                console.warn(`W162 fetchPage: failed to load magazine data from ${magazine}.json :`, e.message);
+                console.warn(`W145 fetchPage: failed to load magazine data from ${magazine}.json :`, e.message);
             }
         }
 
@@ -176,7 +174,7 @@ class Header {
         };
     }
 
-    generate(pageNumber) {
+    generate_(pageNumber) {
         const tokens = this._tokens();
         let t = this._template;
         for (const token of Object.keys(tokens)) {
