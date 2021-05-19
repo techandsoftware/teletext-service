@@ -4,14 +4,16 @@
 import { Teletext, Level } from '@techandsoftware/teletext';
 
 export class Service {
-    constructor() {
+    constructor(options) {
+        this._caster = null;
+        if (typeof options == 'object') {
+            if ('caster' in options) this._caster = options.caster;
+        }
         this._ttx = Teletext();
         this._ttx.setDefaultG0Charset('g0_latin__english'); // TODO pass in
         this._ttx.setLevel(Level[1.5]);
-        this._ttx.addTo('#teletextscreen');
+        this._ttx.addTo('#teletextscreen'); // TODO pass in
         this._ttx.showTestPage();
-
-        this._smoothPluginIsLoaded = false;
 
         this._pageNumber = null;
         this._subPageNumber = 0;
@@ -23,7 +25,12 @@ export class Service {
 
     }
 
+    get teletextInstance() {
+        return this._ttx;
+    }
+
     async showPage(pageNumber) {
+        // TODO - separate out page fetch
         const matches = pageNumber.match(/([1-8])[0-9A-Fa-f]{2}/);
         if (matches == null) {
             console.warn('W31 showPage: bad page number', pageNumber);
@@ -48,12 +55,13 @@ export class Service {
             if (this._subPageNumber != null) {
                 this._update();
                 const numSubpages = this._magazineData.pages[this._pageNumber].subpages.filter(s => s != null).length;
-                if (numSubpages > 1) {
-                    return {
-                        subPage: this._subPageNumber,
-                        numSubPages: numSubpages
-                    };
-                } else return null;
+                return {
+                    subPage: this._subPageNumber,
+                    numSubPages: numSubpages,
+                    fastext: this._fastext
+                };
+            } else {
+                console.info('No subpages for page', pageNumber);
             }
         } else {
             console.info('No page', pageNumber);
@@ -69,59 +77,47 @@ export class Service {
         return null;
     }
 
-    // _nextSubPage() {
-    //     const subpages = this._magazineData.pages[this._pageNumber].subpages;
-    //     let nextSub = this._subPageNumber;
-    //     let gotSubPage = false;
-    //     while (!gotSubPage) {
-    //         nextSub++;
-    //         if (nextSub == subpages.length) nextSub = 0;
-    //         if (nextSub == this._subPageNumber) break;
-    //         if (subpages[nextSub] != null) gotSubPage = true;
-    //     }
-    //     if (gotSubPage) {
-    //         this._subPageNumber = nextSub;
-    //         this._update();
-    //     }
-    // }
+    nextSubPage() {
+        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        let nextSub = this._subPageNumber;
+        let gotSubPage = false;
+        while (!gotSubPage) {
+            nextSub++;
+            if (nextSub == subpages.length) nextSub = 0;
+            if (nextSub == this._subPageNumber) break;
+            if (subpages[nextSub] != null) gotSubPage = true;
+        }
+        if (gotSubPage) {
+            this._subPageNumber = nextSub;
+            this._update();
+        }
+        return {
+            subPage: this._subPageNumber,
+            numSubPages: subpages.filter(s => s != null).length,
+            fastext: this._fastext
+        };
+    }
 
-    // _previousSubPage() {
-    //     const subpages = this._magazineData.pages[this._pageNumber].subpages;
-    //     let prevSub = this._subPageNumber;
-    //     let gotSubPage = false;
-    //     while (!gotSubPage) {
-    //         prevSub--;
-    //         if (prevSub == -1) prevSub = subpages.length - 1;
-    //         if (prevSub == this._subPageNumber) break;
-    //         if (subpages[prevSub] != null) gotSubPage = true;
-    //     }
-    //     if (gotSubPage) {
-    //         this._subPageNumber = prevSub;
-    //         this._update();
-    //     }
-    // }
-
-    // _updateSubpageNav() {
-    //     const numSubpages = this._magazineData.pages[this._pageNumber].subpages.filter(s => s != null).length;
-    //     const label = document.querySelector('#subpage');
-    //     if (numSubpages > 1) {
-    //         label.innerHTML = `${this._subPageNumber} of ${numSubpages}`;
-    //         label.style.visibility = 'visible';
-    //         document.querySelectorAll('#lrnav button').forEach(b => b.disabled = false);
-    //     } else {
-    //         label.style.visibility = 'hidden';
-    //         document.querySelectorAll('#lrnav button').forEach(b => b.disabled = true);
-    //     }
-    // }
-
-    // _updateButtonState() {
-    //     const ft = this._fastext;
-    //     for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
-    //         let disabled = true;
-    //         if (ft != null && link in ft) disabled = false;
-    //         document.querySelector(`#${link}`).disabled = disabled;
-    //     }
-    // }
+    previousSubPage() {
+        const subpages = this._magazineData.pages[this._pageNumber].subpages;
+        let prevSub = this._subPageNumber;
+        let gotSubPage = false;
+        while (!gotSubPage) {
+            prevSub--;
+            if (prevSub == -1) prevSub = subpages.length - 1;
+            if (prevSub == this._subPageNumber) break;
+            if (subpages[prevSub] != null) gotSubPage = true;
+        }
+        if (gotSubPage) {
+            this._subPageNumber = prevSub;
+            this._update();
+        }
+        return {
+            subPage: this._subPageNumber,
+            numSubPages: subpages.filter(s => s != null).length,
+            fastext: this._fastext
+        };
+    }
 
     _update() {
         const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
@@ -131,38 +127,15 @@ export class Service {
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
         this._ttx.setPageFromOutputLines(outputLines, header);
-        // ttxcaster.display({
-        //     defaultG0Charset: encoding,
-        //     header: header,
-        //     outputLines: outputLines
-        // });
-        // this._updateSubpageNav();
+        if (this._caster) {
+            this._caster.display({
+                defaultG0Charset: encoding,
+                header: header,
+                outputLines: outputLines
+            });
+        }
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
-        // this._updateButtonState();
     }
-
-    // _handleFastext(link) {
-    //     if (this._fastext != null) {
-    //         if (link in this._fastext) {
-    //             this._pageNumber = this._fastext[link];
-    //             this._updatePageNumber();
-    //             this._newPage();
-    //         }
-    //     }
-    // }
-
-    // _disableNav() {
-    //     for (const link of ['red', 'green', 'yellow', 'blue', 'index', 'left', 'right']) {
-    //         document.querySelector(`#${link}`).disabled = true;
-    //     }
-    // }
-
-    // _showHelp() {
-    //     this._clearPageNumber();
-    //     this._disableNav();
-    //     this._ttx.setDefaultG0Charset('g0_latin__english', false);
-    //     this._ttx.loadPageFromEncodedString(HELP_PAGE);
-    // }
 
 }
 

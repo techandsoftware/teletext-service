@@ -13,10 +13,12 @@ export class App {
     constructor() {
         this._service = new Service({
             defaultG0Charset: 'g0_latin__english',
-            header: 'TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S'
+            header: 'TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
+            caster: ttxcaster
         });
 
         this._pageNumber = 'XXX';
+        this._fastext = null;
         this._fontIndex = 0;
         this._viewIndex = 0;
 
@@ -106,14 +108,24 @@ export class App {
         const matches = this._pageNumber.match(/[1-8][0-9A-Fa-f]{2}/);
         if (matches != null) {
             const meta = await this._service.showPage(this._pageNumber);
-            this._updateSubpageNav(meta);
+            this._update(meta);
         }
     }
 
     _nextSubPage() {
+        const meta = this._service.nextSubPage();
+        this._update(meta);
     }
 
     _previousSubPage() {
+        const meta = this._service.previousSubPage();
+        this._update(meta);
+    }
+
+    _update(meta) {
+        this._updateSubpageNav(meta);
+        this._updateButtonState(meta);
+        this._fastext = meta != null ? meta.fastext : null;
     }
 
     _updateSubpageNav(meta) {
@@ -128,16 +140,13 @@ export class App {
         }
     }
 
-    _updateButtonState() {
-        const ft = this._fastext;
+    _updateButtonState(meta) {
+        const ft = meta != null ? meta.fastext : {};
         for (const link of ['red', 'green', 'yellow', 'blue', 'index']) {
             let disabled = true;
             if (ft != null && link in ft) disabled = false;
             document.querySelector(`#${link}`).disabled = disabled;
         }
-    }
-
-    _update() {
     }
 
     _handleFastext(link) {
@@ -159,13 +168,14 @@ export class App {
     _showHelp() {
         this._clearPageNumber();
         this._disableNav();
-        this._ttx.setDefaultG0Charset('g0_latin__english', false);
-        this._ttx.loadPageFromEncodedString(HELP_PAGE);
+        const ttx = this._service.teletextInstance;
+        ttx.setDefaultG0Charset('g0_latin__english', false);
+        ttx.loadPageFromEncodedString(HELP_PAGE);
     }
 
     _generateBackground() {
-        const hue = parseInt(Math.random() * 360);
-        const deg = parseInt(Math.random() * 360);
+        const hue = Math.floor((Math.random() * 360));
+        const deg = Math.floor((Math.random() * 360));
         const bg = `linear-gradient(${deg}deg, hsl(${hue} 100% 7%) 0%, hsl(${hue} 83% 52%) 86%, hsl(${hue} 100% 85%) 100%)`;
         document.body.style.background = bg;
     }
@@ -200,11 +210,11 @@ async function handleKeyPress(e) {
             this._fontIndex++;
             if (this._fontIndex == FONTS.length) this._fontIndex = 0;
             console.debug('setting font to', FONTS[this._fontIndex]);
-            this._ttx.setFont(FONTS[this._fontIndex]);
+            this._service.teletextInstance.setFont(FONTS[this._fontIndex]);
             break;
 
         case 'w': // for wipe
-            this._ttx.clearScreen();
+            this._service.teletextInstance.clearScreen();
             break;
 
         case 'h':
@@ -214,13 +224,13 @@ async function handleKeyPress(e) {
         case 'v': // switch views which changes the mosaic rendering method
             this._viewIndex++;
             if (this._viewIndex == VIEWS.length) this._viewIndex = 0;
-            this._ttx.setView(VIEWS[this._viewIndex]);
+            this._service.teletextInstance.setView(VIEWS[this._viewIndex]);
             this._smoothPluginIsLoaded = false;
             break;
 
         case 't': // 'terrific' graphics: pixel art upscaling
             if (this._smoothPluginIsLoaded) {
-                this._ttx.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
+                this._service.teletextInstance.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
                 this._smoothPluginIsLoaded = false;
                 ttxcaster.setBlockMosaics();
             } else if (this._viewIndex == 0) {  // plugin works on the graphical mosaic view
@@ -228,7 +238,7 @@ async function handleKeyPress(e) {
                 // This also avoids having to bundle it with the application lib at build time
                 try {
                     const module = await import('@techandsoftware/teletext-plugin-smooth-mosaic');
-                    this._ttx.registerViewPlugin(module.SmoothMosaicPlugin);
+                    this._service.teletextInstance.registerViewPlugin(module.SmoothMosaicPlugin);
                     this._smoothPluginIsLoaded = true;
                     ttxcaster.setSmoothMosaics();
                 } catch (e) {
