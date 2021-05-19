@@ -33,7 +33,7 @@ export class Service {
     }
 
     async showPage(pageNumber) {
-        const matches = pageNumber.match(/[1-8][0-9A-Fa-f]{2}/);
+        const matches = pageNumber.match(/^[1-8][0-9A-Fa-f]{2}$/);
         if (matches == null) {
             console.warn('W37 Service.showPage: bad page number', pageNumber);
             return;
@@ -41,28 +41,23 @@ export class Service {
 
         const page = await this._fetcher.fetchPage(pageNumber);
         if (page != null) {
-            this._page = page;
-            this._pageNumber = pageNumber;
-            this._subPageNumber = this._getFirstSubPage();
-            if (this._subPageNumber != null) {
+            const firstSubPage = this._getFirstSubPage(page);
+            if (firstSubPage != null) {
+                this._page = page;
+                this._pageNumber = pageNumber;
+                this._subPageNumber = firstSubPage;
+
                 this._update();
-                const numSubpages = this._page.subpages.filter(s => s != null).length;
-                return {
-                    subPage: this._subPageNumber,
-                    numSubPages: numSubpages,
-                    fastext: this._fastext
-                };
-            } else {
+                return this._subpageMetaObj();
+            } else
                 console.info('No subpages for page', pageNumber);
-            }
-        } else {
+        } else
             console.info('No page', pageNumber);
-        }
         return null;
     }
 
-    _getFirstSubPage() {
-        const subpages = this._page.subpages;
+    _getFirstSubPage(page) {
+        const subpages = page.subpages;
         for (let i = 0; i < subpages.length; i++) {
             if (subpages[i] != null) return i;
         }
@@ -83,11 +78,7 @@ export class Service {
             this._subPageNumber = nextSub;
             this._update();
         }
-        return {
-            subPage: this._subPageNumber,
-            numSubPages: subpages.filter(s => s != null).length,
-            fastext: this._fastext
-        };
+        return this._subpageMetaObj();
     }
 
     previousSubPage() {
@@ -104,9 +95,13 @@ export class Service {
             this._subPageNumber = prevSub;
             this._update();
         }
+        return this._subpageMetaObj();
+    }
+
+    _subpageMetaObj() {
         return {
             subPage: this._subPageNumber,
-            numSubPages: subpages.filter(s => s != null).length,
+            numSubPages: this._page.subpages.filter(s => s != null).length,
             fastext: this._fastext
         };
     }
