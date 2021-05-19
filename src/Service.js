@@ -35,7 +35,7 @@ export class Service {
         const matches = pageNumber.match(/^[1-8][0-9A-Fa-f]{2}$/);
         if (matches == null) {
             console.warn('W37 Service.showPage: bad page number', pageNumber);
-            return;
+            return null;
         }
 
         const page = await this._fetcher.fetchPage(pageNumber);
@@ -47,12 +47,19 @@ export class Service {
                 this._subPageNumber = firstSubPage;
 
                 this._update();
-                return this._subpageMetaObj();
+                return this._pageMetaObj();
             } else
                 console.info('No subpages for page', pageNumber);
         } else
             console.info('No page', pageNumber);
         return null;
+    }
+
+    showLink(link) {
+        if (this._fastext != null && link in this._fastext)
+            return this.showPage(this._fastext[link]);
+
+        return Promise.resolve(null);
     }
 
     _getFirstSubPage(page) {
@@ -77,7 +84,7 @@ export class Service {
             this._subPageNumber = nextSub;
             this._update();
         }
-        return this._subpageMetaObj();
+        return this._pageMetaObj();
     }
 
     previousSubPage() {
@@ -94,11 +101,12 @@ export class Service {
             this._subPageNumber = prevSub;
             this._update();
         }
-        return this._subpageMetaObj();
+        return this._pageMetaObj();
     }
 
-    _subpageMetaObj() {
+    _pageMetaObj() {
         return {
+            pageNumber: this._pageNumber,
             subPage: this._subPageNumber,
             numSubPages: this._page.subpages.filter(s => s != null).length,
             fastext: this._fastext

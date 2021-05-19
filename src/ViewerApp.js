@@ -19,7 +19,6 @@ export class App {
         });
 
         this._pageNumber = 'XXX';
-        this._fastext = null;
         this._fontIndex = 0;
         this._viewIndex = 0;
 
@@ -125,9 +124,10 @@ export class App {
 
     _update(meta) {
         if (meta != null) {
+            this._pageNumber = meta.pageNumber;
+            this._updatePageNumber();
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
-            this._fastext = meta.fastext;
         }
     }
 
@@ -152,14 +152,9 @@ export class App {
         }
     }
 
-    _handleFastext(link) {
-        if (this._fastext != null) {
-            if (link in this._fastext) {
-                this._pageNumber = this._fastext[link];
-                this._updatePageNumber();
-                this._newPage();
-            }
-        }
+    async _handleFastext(link) {
+        const meta = await this._service.showLink(link);
+        this._update(meta);
     }
 
     _disableNav() {
