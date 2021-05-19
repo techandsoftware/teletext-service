@@ -124,9 +124,11 @@ export class App {
     }
 
     _update(meta) {
-        this._updateSubpageNav(meta);
-        this._updateButtonState(meta);
-        this._fastext = meta != null ? meta.fastext : null;
+        if (meta != null) {
+            this._updateSubpageNav(meta);
+            this._updateButtonState(meta);
+            this._fastext = meta.fastext;
+        }
     }
 
     _updateSubpageNav(meta) {
