@@ -14,7 +14,8 @@ export class App {
         this._service = new Service({
             defaultG0Charset: 'g0_latin__english',
             header: 'TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
-            caster: ttxcaster
+            caster: ttxcaster,
+            DOMSelector: '#teletextscreen'
         });
 
         this._pageNumber = 'XXX';

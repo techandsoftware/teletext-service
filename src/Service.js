@@ -3,16 +3,21 @@
 
 import { Teletext, Level } from '@techandsoftware/teletext';
 
+const DEFAULT_HEADER = '       %%#  %%a %e %%b \x1bC%H:%M/%S';
+
 export class Service {
     constructor(options) {
-        this._caster = null;
-        if (typeof options == 'object') {
-            if ('caster' in options) this._caster = options.caster;
-        }
+        if (typeof options != 'object') throw new Error("E8 Service.constructor: options object required");
+        if (!('DOMSelector' in options)) throw new Error("E9 Service.constructor DOMSelector property required");
+
+        this._caster = 'caster' in options ? options.caster : null;
+        this._defaultG0Charset = 'defaultG0Charset' in options ? options.defaultG0Charset : 'g0_latin';
+        this._header = 'header' in options ? new Header(options.header) : new Header(DEFAULT_HEADER);
+
         this._ttx = Teletext();
-        this._ttx.setDefaultG0Charset('g0_latin__english'); // TODO pass in
+        this._ttx.setDefaultG0Charset(this._defaultG0Charset);
         this._ttx.setLevel(Level[1.5]);
-        this._ttx.addTo('#teletextscreen'); // TODO pass in
+        this._ttx.addTo(options.DOMSelector);
         this._ttx.showTestPage();
 
         this._pageNumber = null;
@@ -20,9 +25,6 @@ export class Service {
         this._magazine = null;
         this._magazineData = null;
         this._fastext = null;
-
-        this._header = new Header('TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S'); // TODO pass in
-
     }
 
     get teletextInstance() {
@@ -33,7 +35,7 @@ export class Service {
         // TODO - separate out page fetch
         const matches = pageNumber.match(/([1-8])[0-9A-Fa-f]{2}/);
         if (matches == null) {
-            console.warn('W31 showPage: bad page number', pageNumber);
+            console.warn('W31 Service.showPage: bad page number', pageNumber);
             return;
         }
         const magazine = matches[1];
@@ -42,11 +44,12 @@ export class Service {
         if (this._magazine != magazine) {
             try {
                 const res = await fetch(`${magazine}.json`);
-                // TODO - check response.ok
-                this._magazineData = await res.json();
-                this._magazine = magazine;
+                if (res.ok) {
+                    this._magazineData = await res.json();
+                    this._magazine = magazine;
+                } else console.warn(`W50 showPage: failed to load magazine data from ${magazine}.json : ${res.status} ${res.statusText}`);
             } catch (e) {
-                console.warn(`W44 showPage: failed to load magazine data from ${magazine}.json :`, e.message);
+                console.warn(`W52 showPage: failed to load magazine data from ${magazine}.json :`, e.message);
             }
         }
         if (this._magazine == magazine && pageNumber in this._magazineData.pages) {
@@ -122,7 +125,7 @@ export class Service {
     _update() {
         const subpage = this._magazineData.pages[this._pageNumber].subpages[this._subPageNumber];
         const outputLines = subpage.outputLines.split("\n");
-        const encoding = 'encoding' in subpage ? subpage.encoding : 'g0_latin';
+        const encoding = 'encoding' in subpage ? subpage.encoding : this._defaultG0Charset;
         const header = this._header.generate(this._pageNumber);
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
