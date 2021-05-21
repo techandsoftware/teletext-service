@@ -1,8 +1,6 @@
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import * as path from 'path';
 
-const DIR = 'public/teefax';
-
 class Service {
     constructor() {
         this.pages = {};
@@ -130,13 +128,13 @@ function getPagesFromTti(buffer) {
         service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding, fastext);
 }
 
-function go(outputDir) {
-    const allFiles = readdirSync(DIR);
+function go(sourceDir, outputDir) {
+    const allFiles = readdirSync(sourceDir);
     for (const magazine of [1,2,3,4,5,6,7,8]) {
         const filesRegEx = `^P${magazine}.*\\.tti`;
         let files = allFiles.filter(f => f.match(filesRegEx));
         for (const file of files) {
-            const buffer = readFileSync(path.join(DIR, file));
+            const buffer = readFileSync(path.join(sourceDir, file));
             getPagesFromTti(buffer);
         }
 
@@ -146,5 +144,12 @@ function go(outputDir) {
 }
 
 
-const outputDir = typeof process.argv[2] == 'undefined' ? '.' : process.argv[2];
-go(outputDir);
+if (typeof process.argv[2] == 'undefined') {
+    console.error(`Usage: node tti2json.js sourceDir [outputDir]`);
+    console.error(`  sourceDir  Directory containing .tti files`);
+    console.error(`  outputDir  Directory to write 1.json to 8.json files. Defaults to the current directory`);
+    process.exit(1);
+}
+const sourceDir = process.argv[2];
+const outputDir = typeof process.argv[3] == 'undefined' ? '.' : process.argv[3];
+go(sourceDir, outputDir);
