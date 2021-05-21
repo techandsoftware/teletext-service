@@ -1,8 +1,65 @@
 The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) and [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster).  It adds subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher.
 
-# Using
+# Usage
 
+## Service module
 
+Minimum code needed to use the Service module:
+
+HTML:
+```html
+<div id="teletextscreen"></div>
+```
+
+Javascript:
+```javascript
+import { Service } from './Service.js';
+
+const service = new Service({
+    defaultG0Charset: 'g0_latin__english',
+    header: 'NPMFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
+    DOMSelector: '#teletextscreen'
+});
+
+service.showPage("100");
+// Will fetch 1.json and get page 100 from that, and display in the HTML <div>
+```
+
+## ViewerApp
+
+The `ViewerApp` is a web app wrapper around `Service`. It's tightly-coupled to the HTML so it's not really an API.  It's most likely you'll use the code as it is or fork it.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
+
+The Javascript code is invoked with:
+
+```javascript
+<script type="module">
+  import { App } from './dist/ViewerApp.js';
+  new App();
+</script>
+```
+
+For the rest of HTML needed, see See `public/viewer.html`.
+
+To run locally, clone the project then run `npm install` and `npm start` .
+
+Use `scripts/tti2json.js` to generate the JSON files needed as the page data source, or create your own.  The JSON structure needed is documented below in the 'Default page data source' section.
+
+## tti2json script
+
+`scripts/tti2json.js` is a Node.js script, which reads a directory containing multiple `.tti` files and converts to the JSON files and structure used by the default page fetcher.
+
+Requirements: It needs node v16 as it uses ECMAScript modules.
+
+Usage: 
+```
+node scripts/tti2json.js sourceDirectory targetDirectory
+```
+
+`sourceDirectory` is the directory containing the `.tti` files
+
+`targetDirectory` is where to write the generated JSON files. They're named `1.json` to `8.json`, and will overwrite any existing files with the same name.  It defaults to the current directory.
+
+You might need to modify the script to change the regex used for getting the list of `.tti` files. It's in the `go()` function near the bottom.
 
 # Service API
 
@@ -79,9 +136,9 @@ Returns the teletext instance object (an instance of `@techandsoftware/teletext`
 
 # Default page data source
 
-The default fetcher looks for files named `1.json` to `8.json` in the same location as the HTML  running your app.  Each file is a magazine, containing all the pages for that magazine. The magazine corresponds to the hundreds digit of the page number.
+The default page fetcher looks for files named `1.json` to `8.json` in the same location as the HTML page running your app.  Each file is a magazine, containing all the pages for that magazine. The magazine corresponds to the hundreds digit of the page number.
 
-An example structure follows magazine 1. This has two pages. Page 100 has three subpages, but the first one is empty. Page 101 has one subpage with fastext links.
+An example structure follows for magazine 1. This has two pages. Page 100 has three subpages, but the first one is empty. Page 101 has one subpage with fastext links.
 
 ```json
 {
@@ -119,10 +176,13 @@ An example structure follows magazine 1. This has two pages. Page 100 has three 
 ```
 
 where
-* `subpages` is an array of 1 or more objects, each corresponding to a subpage.  Any of the subpages can be null
+* `pages` is required. Its value is an object, in which the keys are the page numbers and the values are an object with a `subpages` key
+* `subpages` is an array of 1 or more objects, each corresponding to a subpage.  Any of the subpages can be `null`
+
+A subpage object has the following keys:
 * `encoding` is the default G0 character set for the subpage.  It's optional. If not present, the character set passed in by `defaultG0Charset` in the `new Service()` call is used.
 * `fastext` is optional. If present it can contain keys for `red`, `green`, `yellow`, `blue` and `index`. The values are the page numbers to link to.
-* `outputLines` is the teletext data. The data is in the Output Line format used in MRG's .tti files. Each line has the format:
+* `outputLines` is the teletext data, and is required.  The data is in the Output Line format used in MRG's .tti files. Each line has the format:
 
 `OL,rowNum,line\n`
 
@@ -131,13 +191,7 @@ In this:
 * `rowNum` is between 0 and 24
 * `line` is the string to display. Attribute characters (character codes less than 0x20) are represented in three ways: 1) As they are with no translation, or 2) They have 0x80 added to translate them to characters with codes 128-159, or 3) they are replaced by escape (character 0x1b) then the character with 0x40 added.
 
-
 # Credits
 
 * The tokens used by the header were taken from vbit2's header config - https://github.com/peterkvt80/vbit2/
 * The attribute character encoding used for the header and the page data is taken from the Output Line format in MRG's .tti file spec - https://zxnet.co.uk/teletext/documents/ttiformat.pdf
-
-
-# TODO
-Getting started examples
-tti2json script
