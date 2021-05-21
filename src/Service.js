@@ -32,6 +32,7 @@ export class Service {
     }
 
     async showPage(pageNumber) {
+        if (typeof pageNumber == 'number') pageNumber = String(pageNumber);
         const matches = pageNumber.match(/^[1-8][0-9A-Fa-f]{2}$/);
         if (matches == null) {
             console.warn('W37 Service.showPage: bad page number', pageNumber);
