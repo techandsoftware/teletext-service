@@ -438,7 +438,7 @@ async function handleKeyPress(e) {
                 // Loading the plugin as a dynamic import as it's large
                 // This also avoids having to bundle it with the application lib at build time
                 try {
-                    const module = await import('./teletext-plugin-smooth-mosaic.min-a0d3fdba.js');
+                    const module = await import('./teletext-plugin-smooth-mosaic.min-06b88500.js');
                     this._service.teletextInstance.registerViewPlugin(module.SmoothMosaicPlugin);
                     this._smoothPluginIsLoaded = true;
                     s.setSmoothMosaics();
