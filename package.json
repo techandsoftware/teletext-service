@@ -16,7 +16,7 @@
     "url": "https://bitbucket.org/rahardy/teletext-service-viewer.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/rahardy/teletext-service-view/issues"
+    "url": "https://bitbucket.org/rahardy/teletext-service-viewer/issues"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
