@@ -4,7 +4,14 @@
       "subpages": [
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bQ<,l\u001bR<,l\u001bT<,l\u001bQ||||,,|,l,<l,<,<ll,|,l|||||\nOL,2,\u001bQ5j\u001bR5j\u001bT5j\u001bQ\u001b]\u001bS  {$1j5jwj55hwq     \nOL,3,\u001bQusz\u001bRusz\u001bTusz\u001bQ\u001b]\u001bS  /*%/$\"' /*- --%(,'     \nOL,5,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,6,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,7,\u001bR`````````ba````````````````````````````\nOL,8,\u001bFReviewing the compilation albums \u001bCP420 \nOL,10,\u001bW=$=0v$h7}j?}hw= f!=464555  \u001bC     \u001bC     \nOL,11,\u001bW)$%%)$\"-'*%/\"-, ,!%%)!)-!  \u001bC     \u001bCP410 \nOL,13,\u001bS##j5  {$3j5j53j55hw1\u001bC     \u001bC     \nOL,14,\u001bS /  +!  /*%/, +!*%/, ++!(.!\u001bC     \u001bCP430 \nOL,16,\u001bR?4//   \u001bR*/%j5*/%\u001bG```````````````````\nOL,17,\u001bR55joj5j5/%oj\u001bVo}0\"o}0\"\nOL,18,\u001bR55jjj5j5j5/o5./j\u001bV 0+t +t\nOL,19,\u001bR///!//*/o*/%*/%*/%///%////*/\u001bG`````````\nOL,20,      \u001bR*///\u001bG                            \nOL,21,\u001bBThe classic games mag, 2018 style\u001bCP470 \nOL,22,\u001bBFirst issue \u001bCP370   \u001bBFinal issue \u001bCP175 \nOL,24,\u001bANow \u001bBThe One Show\u001bCTV Reviews \u001bFDigitiser",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "420",
+            "green": "410",
+            "yellow": "430",
+            "blue": "470",
+            "index": "100"
+          }
         }
       ]
     },
@@ -12,7 +19,14 @@
       "subpages": [
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bT\u001b]\u001bG                                     \nOL,2,\u001bT\u001b]\u001bGPAGE NOT FOUND                       \nOL,3,\u001bT\u001b]\u001bG                                     \nOL,4,\u001bT\u001b]\u001bGTry again later, it might work       \nOL,5,\u001bT\u001b]\u001bG(no it won't)                        \nOL,6,\u001bT\u001b]\u001bG                                     \nOL,7,\u001bT\u001b]\u001bGYou might as well accept that this   \nOL,8,\u001bT\u001b]\u001bGpage has gone to Atlanta and isn't   \nOL,9,\u001bT\u001b]\u001bGcoming back.                         \nOL,10,\u001bTgso\nOL,11,\u001bT?# !p0k?# ! k%\"o\nOL,12,\u001bU . o 5j . o7  j5   \nOL,13,\u001bQ|| ~0#!z|| ~7 \"  j5   \nOL,14,\u001bQo5  /  j5   \nOL,15,\u001bS5 ?//%  //!  /  j#+5   /\nOL,16,\u001bS5 '!   //7##!             75    + \nOL,17,\u001bW         2a `ppppp0 ss1``` (,,,$       \nOL,18,\u001bW  !4!4! (  $(,,,,,$ ,,$(((   !!! bs  $ \nOL,19,\u001bW  ! ! ! \"\" 1\"#####!    \"\"\" \"#\" d     !,\nOL,20,\u001bW  `>m0//j5  x/t t *o?%x/t   d),,   ,\nOL,21,\u001bW  ~qr}  j5 hwp{4j4 j5hwp{4  d),,   ,\nOL,22,\u001bW  ##  j}|j7#k5 + j5j7#k5   ),,    \nOL,24,\u001bA  Index   \u001bBNews    \u001bCEvents   \u001bFArchive  ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "100",
+            "green": "104",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         }
       ]
     },
@@ -21,31 +35,80 @@
         null,
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bVh<,,,,,,|\u001bF`````````````````````````````\nOL,2,\u001bVj5k7j5 \u001bSj5 j7ju>jws\u001bCENTERTAINMENT  \nOL,3,\u001bVj5j5\"m' \u001bS*-$/*%/*%/(,/\u001bC               \nOL,4,\u001bV*-,,,,,,/\u001bF ``````````````````````\u001bG 1/7 \nOL,5,\u001bCThe ONE SHOW      \u001bF                    \nOL,6,\u001bFThe magazine-style show tackles current\nOL,7,\u001bFaffairs and other issues in the UK     \nOL,8,\u001bFusing a mix of interviews, topical     \nOL,9,\u001bFstories and features. Regular          \nOL,10,\u001bFcontributors offer reports relating to \nOL,11,\u001bFsuch subjects as history, wildlife,    \nOL,12,\u001bFconsumer affairs, and health and       \nOL,13,\u001bFmedicine.                              \nOL,14,\u001bF                                       \nOL,15,\u001bCFACEBOOK:                              \nOL,16,\u001bFhttps://www.facebook.com/bbctheoneshow/\nOL,17,\u001bCINSTAGRAM:                             \nOL,18,\u001bFhttps://www.instagram.com/bbctheoneshow\nOL,19,\u001bCTWITTER:                               \nOL,20,\u001bFhttps://twitter.com/bbctheoneshow      \nOL,21,\u001bCEMAIL:                                 \nOL,22,\u001bFtheoneshow@bbc.co.uk                   \nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bVh<,,,,,,|\u001bF`````````````````````````````\nOL,2,\u001bVj5k7j5 \u001bSj5 j7ju>jws\u001bCENTERTAINMENT  \nOL,3,\u001bVj5j5\"m' \u001bS*-$/*%/*%/(,/\u001bC               \nOL,4,\u001bV*-,,,,,,/\u001bF ``````````````````````\u001bG 2/7 \nOL,5,\u001bCThe ONE SHOW                           \nOL,6, What was teletext? It was an electronic\nOL,7, magazine hidden in the TV signal that  \nOL,8, could be viewed using any TV that had  \nOL,9, a decoder. It delivered news, sport,   \nOL,10, weather, TV and radio schedules. The   \nOL,11, commercial channels also sold holidays \nOL,12, and other services. In the era before  \nOL,13, the internet it was the fastest way to \nOL,14, get information.                       \nOL,16,\u001bFUsing the technology of the 1970s it   \nOL,17,\u001bFwas limited to 24 rows of 40 characters\nOL,18,\u001bFor blocky graphics and seven colours.  \nOL,20,\u001bFThis meant that stories were stripped  \nOL,21,\u001bFto the essentials and perfect for      \nOL,22,\u001bFstaying up to date on the news.        \nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bVh<,,,,,,|\u001bF`````````````````````````````\nOL,2,\u001bVj5k7j5 \u001bSj5 j7ju>jws\u001bCENTERTAINMENT  \nOL,3,\u001bVj5j5\"m' \u001bS*-$/*%/*%/(,/\u001bC               \nOL,4,\u001bV*-,,,,,,/\u001bF ``````````````````````\u001bG 3/7 \nOL,5,\u001bCThe ONE SHOW                           \nOL,6,\u001bFTeletext pages are selected by typing  \nOL,7,\u001bFin a three digit page number on your   \nOL,8,\u001bFremote control starting from page 100. \nOL,9,\u001bFHere are some page numbers that you can\nOL,10,\u001bFtry on Teefax.                         \nOL,12, 104 BBC News                           \nOL,13,\u001bC131 to 139 \"This is Ceefax\" documentary\nOL,14, 150 Bamboozle quizzes                  \nOL,15,\u001bC160 Stories from LA                    \nOL,16, 200 Pages from Teefax users            \nOL,17,\u001bC302 BBC Sport                          \nOL,18, 401 UK Weather from the Met Office     \nOL,19,\u001bC500 Teletext artists                   \nOL,20, 570 \"Digitiser\" magazine by @mrbiffo   \nOL,21,\u001bC670 Replicas of early teletext pages   \nOL,22, 700 Teletext engineering               \nOL,23,\u001bC790 Clock crackers                     \nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bVh<,,,,,,|\u001bF`````````````````````````````\nOL,2,\u001bVj5k7j5 \u001bSj5 j7ju>jws\u001bCENTERTAINMENT  \nOL,3,\u001bVj5j5\"m' \u001bS*-$/*%/*%/(,/\u001bC               \nOL,4,\u001bV*-,,,,,,/\u001bF ``````````````````````\u001bG 4/7 \nOL,6,\u001bFTeletext also had its own soap called  \nOL,7,\u001bFPark Avenue, and comics such as Turner \nOL,8,\u001bFthe Worm and the Adventures of 4-T.    \nOL,10, Also fondly remembered is Digitiser    \nOL,11, which was avidly read by fans of video \nOL,12, games. It was a magazine that included \nOL,13, reviews, fake adverts and a huge array \nOL,14, of surreal characters.                 \nOL,16, Teefax has a couple of examples but    \nOL,17, Turner the Worm couldn't come because  \nOL,18, he was sick.                           \nOL,19,\u001bC                                       \nOL,20,\u001bC\u001bM The Adventures of 4-T........184     \nOL,22,\u001bC\u001bM Digitiser....................470     \nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bM Weekdays at 1900                      \nOL,3,\u001b]\u001bQ      h4 |                            \nOL,4,\u001b]\u001bQ      o? >}0 >/t                     \nOL,5,\u001b]\u001bQ      j5  j5j=,/                     \nOL,6,\u001b]\u001bQ      \"}% j5\"m|=                     \nOL,7,\u001b]\u001bQ    `x|t0    pp `p|p0       pp        \nOL,8,\u001b]\u001bQ  `~/o}0  x/}    x//t     \nOL,9,\u001b]\u001bQ  ~!   #o  7    *5  ~!   \"4    \nOL,10,\u001b]\u001bQ j%     \"5        h     5   \nOL,11,\u001b]\u001bQ j       5        j!   \nOL,12,\u001b]\u001bQ \"t     h!        *           \nOL,13,\u001b]\u001bQ  *|0 p|'          *tp  p|0    \nOL,14,\u001b]\u001bQ   \"+/!      p     \"///'     \nOL,15,\u001b]\u001bQ               pp                    \nOL,16,\u001b]\u001bQ              jw! >o4`>/t*u 0`?     \nOL,17,\u001b]\u001bQ              `#}  j5j5  kz%oz!     \nOL,18,\u001b]\u001bQ              +/' / *% +/!  / *%      \nOL,21, Matt Baker and Angellica Bell bring you\nOL,22, the big stories from across the country\nOL,23, \u001bC            Details follow -->    \u001bC5/7\nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bQ'##/##//////o\nOL,2,\u001bQ\u001bWppjup0 pp0\u001bQ+\u001bG@illarterate\u001bQ\nOL,3,\u001bQ\u001bW##j7#j7#\u001bQ0\"o\nOL,4,\u001bQ\u001bW  j5 j7#s\u001bQ\"d +\nOL,5,\u001bQ?'\u001bW+//*% /\"//'\u001bQ  ) \"o?'#     \"+o\nOL,6,\u001bQ'\u001bWx~}t  ot~}t  `||0\u001bQ+\nOL,7,\u001bQ%\u001bW~} j4`0\u001bQ\"o\nOL,8,\u001bQ7\u001bWj'#+5j7\u001bQ \u001bWk5z7   ku   \nOL,9,\u001bQ5\u001bW5\u001bQd\u001bWjj5\u001bQ \u001bWj55   j\u001bQ  \nOL,10,\u001bQ5\u001bW\u001bQ  )\u001bWj5\u001bQ \u001bWj5}|||~\u001bQ  \nOL,11,\u001bQ5\u001bW     j5\u001bQ \u001bWj5\u001bQ  \nOL,12,\u001bQ5\u001bW5   jj5\u001bQ \u001bWj55\u001bQ         \nOL,13,\u001bQ}\u001bWktpx7j5\u001bQ \u001bWj5ku\u001bQ  \u001bW\u001bQ0 \nOL,14,\u001bQ0\u001bW!j5\u001bQ \u001bWj5\"5\u001bQ\"d\nOL,15,\u001bQ}\u001bW\"//! j5 p j5 \"/?'\u001bQ   \nOL,16,\u001bQ}0      (0 \u001bWx||0||0x||0|h4|\u001bQ0      \nOL,17,\u001bQt      \"d\u001bWpr! j5 j5j5\u001bQ\"d     \nOL,18,\u001bQ}0      \u001bWr#k5 j5 j5j5\u001bQ  )0   \nOL,19,\u001bQt     \u001bW+//!/ *%+//!+//'\u001bQ0  \"d  \nOL,20,\u001bQh<,,|4h<,,|4h|,,|4\u001bA```````````\u001bQ\"d   )0\nOL,21,\u001bQj5*%z5j5*%z5j5juz5 \u001bGWeeknights  \u001bQ)0  \"\nOL,22,\u001bQj5j5j5j5j5j5j5j7k5t\u001bG at 7PM, BBC1\u001bQ\"d  \nOL,23,\u001bQ*-,,/%*-,,/%*/,,/%}0\u001bA```````````  \u001bQ)0\nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,TemplateCEEFAX 1 %%# %%a %d %%b\u001bC%H:%M/%S\nOL,1,\u001bW?/o///####+/\nOL,2,\u001bW/s<&#)s,c3(3/'   \"$    #o\nOL,3,\u001bW9'a80q 0&! )0d\"?!  $   \" !   k\nOL,4,\u001bW`&a>#b%\"d ` \"d)2o!    ($p       o\nOL,5,\u001bW!x' h%`i~h m0\"4k2o? `~g9,  p&p|?t j\nOL,6,\u001bWx% x%`a4m k h\"}\"5 i?u!j\nOL,7,\u001bW% >!`5~2m2m0 *u*5 a?u!j\nOL,8,\u001bW ~!`>z} m0k\"0o0o5 !?5 bo\nOL,9,\u001bWz5h?)//o4 u*th\"}\"j0h?sssogss;0zj\nOL,10,\u001bW?`?(sccm{g<$\"mz\" k067j>y8h1at$|;>5zj\nOL,11,\u001bW5~a~}~}}b~vz4+ 5j5o}kz4~w=5\nOL,12,\u001bW`jj 0k0}j/\"j?)u&?5.o\nOL,13,\u001bWj5?guo 4 %j   jk7xv/a~vo75  \nOL,14,\u001bWj5wcn}s/'po? 5 `j   *6uw#ssss3{zi%  \nOL,15,\u001bW\"5j~ucsss3c5>!h5$jz   `+:}0`p`~e'   \nOL,16,\u001bW  +}8,$`~>!`? j\"4   }0k<l7 p   \nOL,17,\u001bWx'h 2os{?!x?  \"uku   oto?`6    \nOL,18,\u001bW!`54k};o?' ~70 h0j ot  \"o}s//cx?     \nOL,19,\u001bWxo!5j||0 i2n40 k e o90  k?!     \nOL,20,\u001bWa>`%\"45&x}(2m {|?   +%      \nOL,21,\u001bW'`>hh;ja~u+7o/gyt0   +//!       \nOL,22,\u001bW`'`%~}2eyu+2eo5@ILLARTERATE \nOL,23,\u001bW`8a~6?z4x6}|0 `         \nOL,24,\u001bA Next\u001bBTeletext art\u001bCMake art\u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "411",
+            "green": "411",
+            "yellow": "412",
+            "blue": "413",
+            "index": "8FF"
+          }
         }
       ]
     },
@@ -54,83 +117,223 @@
         null,
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bV\u001b]                     \u001bS\u001b]\u001bD//\u001bR\u001b]HH\u001bU\u001b]\u001bD//  \u001b\\\nOL,2,\u001bV\u001b] \u001bW                    \u001bS\u001b]   \u001bR\u001b]  \u001bU\u001b]    \u001b\\\nOL,3,\u001bV\u001b]     \u001bT p||||tp0        \u001bS\u001b]   \u001bR\u001b]  \u001bU\u001b]   \u001b\\\nOL,4,\u001bW\u001b]   \u001bT`x~\u001b]\u001bW##,  \u001bW\"+\u001b]     \u001bV\u001b]  \u001bQ\u001b]  \u001b\\\nOL,5,\u001bV\u001b]  \u001bUx\u001b]\u001bT7$k\u001b]\u001bU+\u001b]\u001bC<<\u001bV+\u001b]\u001bS\u001b]   \u001bR\u001b]  \u001bU\u001b] \u001b\\\nOL,6,\u001bW\u001b] \u001bU*\u001b]\u001bTh|\u001b]\u001bG<\u001bU+\u001b]\u001bC<<\u001bW*\u001b]   \u001bV\u001b]  \u001bQ\u001b]\u001b\\\nOL,7,\u001bW\u001b]   \u001bT\"oq|/+\u001b]`\u001bG<<  \u001bW+\u001b]    \u001bV\u001b]   \u001b\\\nOL,8,\u001bW\u001b]    \u001bTj3`<\u001b]\u001bW!! \u001bU,|\u001b]\u001bW\"o\u001b]   \u001bV\u001b]  \u001b\\\nOL,9,\u001bV\u001b]   \u001bT ~\u001b]\u001bRpp||\u001b]\u001bT#o\u001b]\u001bU#!\u001bV+\u001b]\u001bS\u001b]   \u001bR\u001b] \u001b\\\nOL,10,\u001bW\u001b]   \u001bR \u001b]\u001bQppx|||\u001bT o\u001b]\u001bE< \u001bW+\u001b]    \u001bV\u001b]\u001b\\\nOL,11,\u001bG\u001b]    \u001bS\u001b]\u001bE \u001bQ#+o\u001b]\u001bRj\u001b]\u001bTo\u001b]\u001bE <\u001bW+\u001b]     \u001b\\\nOL,12,\u001bV\u001b]    \u001bSj\u001b]\u001bE<  \u001bQ+\u001b]\u001bR\u001b]\u001bT*\u001b]\u001bE< <\u001bV+\u001b]\u001bS\u001b]   \u001b\\\nOL,13,\u001bW\u001b]     \u001bSo\u001b]\u001bE< <\u001bQ\"o\u001b]\u001bR\u001b]\u001bTo\u001b]\u001bE<  \u001bW\"o\u001b]     \u001b\\\nOL,14,\u001bW\u001b]     \u001bS\"\u001b]\u001bE< <\u001bQ\"\u001b]\u001bR\u001b]\u001bTo\u001b]\u001bE< <\u001bW\"\u001b]   \u001b\\\nOL,15,\u001bW\u001b]     \u001bS \"o\u001b]\u001bE   \u001bQ*\u001b]\u001bR\u001b]\u001bT+\u001b]\u001bG   \u001bW*\u001b]  \u001b\\\nOL,16,\u001bV\u001b]       \u001bS +o\u001b]\u001bE  \u001bQ\"/\u001b]\u001bR/\u001b]\u001bT#/o\u001b]p\u001bV\"o\u001b]~\u001b\\\nOL,17,\u001bV\u001b]\u001bR\u001b^ \u001bQ`x</\u001bSo\u001b]\u001bE  \u001bQ#\u001bS\u001b]\u001bUp|\u001b]\u001bT#/\u001b]\u001bV+\u001b]\u001b_\u001b\\\nOL,18,\u001bV\u001b]\u001bR   \u001b] \u001bQ %?0\u001bV\u001b]\u001bS\"#+//#\u001bQ7   \u001bU#/}0   \u001b\\\nOL,19,\u001bV\u001b]\u001bR      \u001b]\u001bQ5\"        8n5\u001bV\u001b]    \u001bU#/t  \u001b\\\nOL,20,\u001bW\u001b]       \u001bQ \" \u001bR\u001b]    \u001bQ ~)     \u001bW\u001b]  \u001bU#/'  \u001b\\\nOL,21,\u001bW\u001b]             \u001bR   \u001b]\u001bQ5            \u001bW\u001b]  \u001b\\\nOL,22,\u001bW\u001b]                   \u001bQ\"\u001bR \u001b]             \u001b\\\nOL,23,\u001bV\u001b]                     \u001bR      \u001b]\u001bEjellica\u001b\\\nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bG\u001bH* . \u001bI\u001bV`nd\u001bG .            \u001bF@illarterate \nOL,2,\u001bG  . \u001bV hi5}i \u001bR645746$647464747\u001bG\u001bH* \u001bI.  * \nOL,3,\u001bT<,, \u001bV rrqsr0\u001bR)055555757 55747  \u001bW`|~|0 \nOL,4,\u001bT5??\u001bV`qqqqqq\u001bS4555555555 55555 \u001bWh?co} \nOL,5,\u001bT5ww\u001bVh<<<<<|\u001bS)!%%%)!%%% )!%%- \u001bW~u*? \nOL,6,\u001bT5?}\u001bVj55%%5\u001bC FORMULA ONE GP\u001bG.\u001bW}\"\u001bG.\nOL,7,\u001bT%w\u001bV(,`8p(,\u001bB\u001b]\u001bD18 SEPTEMBER  \u001b\\\u001bW?}  \nOL,8,\u001bVpp0 `xn;s;{lp  ppppppppppp \u001bG \u001bW o2ou \nOL,9,\u001bVsq`rsqqqsqqqss0pssssssssss!\u001bG* \u001bW\"o?!z \nOL,10,\u001bVll2s#s#sss#s#s!|ll<<|ll<<|`0\u001bG.\u001bW pp~? \nOL,11,\u001bV++%| | sss?##############oj5\u001bWh'{?\u001bV4\nOL,12,\u001bV#s!  }|~5\u001bS///////////-\u001bVjj5'\u001bW5j?\u001bV>%\nOL,13,\u001bV    7\"5h,<,|\u001bSxt\u001bV|jj% \u001bWkt\u001bVn5w\nOL,14,\u001bV    5 5j<-,/\u001bS/y<  f\u001bV+z \u001bW(t;}\u001bV%}\nOL,15,\u001bV,,,o,/,-,o5*\u001bS./4  ##go   h/-\u001bW+/ou\u001bVw\nOL,16,\u001bVsss\u001bS(      \"+,\u001bS5  +qpqs0  j  8##\u001bW#o\u001bVj\nOL,17,\u001bTx|t\u001bSj(,j 0pp06####*?\"####i pp`\u001bW} \nOL,18,\u001bT\u001bSj*/j |||45pppp0:`ppppz |||\u001bWj \nOL,19,\u001bT\u001bSj\"#j ,,($%   pp2}?o7pp0  + $,,\u001bWj \nOL,20,\u001bT\"o\u001bSj\"#j \u001bR`4|<||t \u001bS ktx5  \u001bR`|<|4t\u001bS\u001bWj7 \nOL,21,\u001bQt\u001bT#m0\u001bS *\u001bR j5v~||4 \u001bS ##   \u001bR|~v~5 \u001bWj% \nOL,22,\u001bW||t\u001bT#ot\u001bR(/,,,,,./,,,-,-,,./,,,,.-\u001bWz'\u001bTx\nOL,23,\u001bQ||||t\u001bT+t\u001bW\"##\u001bTx~\nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,        TEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bT//?/#k    \nOL,2,\u001bT?/#!   /'#    j    \nOL,3,\u001bT!   \u001bS         \u001bTj7   \nOL,4,\u001bT       \u001bS      \u001bTj5  3\nOL,5,\u001bT    `0+ \u001bS          \u001bTju  0\nOL,6,\u001bT\u001b]\u001b]\u001b]\u001bS//% \u001bT\u001b\\        \u001bS     \u001bTj!   \nOL,7,\u001bT    `0+   \u001bS           \u001bT    `\nOL,8,\u001bT\u001b]\u001bS//% \u001bT\u001b\\  \u001bS            \u001bT    \nOL,9,\u001bT                 \u001bT    \nOL,10,\u001bT                      o\nOL,11,\u001bT ?'                      )\nOL,12,\u001bT{{{{{{{ {;/##     \u001bV   ``     \u001bQ      \u001bT $\nOL,13,\u001bT999999)        \u001bU `p||'!     \u001bU `<w900   \nOL,14,\u001bTff&\"       \u001bU\u001bV p| ?'!      \u001bU  xgggl8$ \nOL,15,\u001bT!     \u001bU   px| #          \u001bV\u001bTggggg5 \u001bT \nOL,16,\u001bT   \u001bV\u001bV`p |/#    \u001bV\u001bV`ppppxt \u001bT 99)!!   \nOL,17,\u001bU px| ?#    \u001bU\u001bU\u001bU\u001bUt}|?/##!          \nOL,18,\u001bV /!       \u001bT\u001bTfgggg((             \nOL,19,\u001bU?'           \u001bT!!!!            \u001bT  d\nOL,20,\u001bV'#\"!                              \u001bT   \nOL,21,\u001bU                                     \u001bT \nOL,22,\u001bU                            \u001bEbym&cl! \u001bT \nOL,23,\u001bC                                       \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,2,\u001bW55555555555555%%8,d,,0%%5555 RAQUEL 555\nOL,3,\u001bW555555555555%8cf~vf)0%55 MEYERS 555\nOL,4,\u001bW555555555555*8!?,|ki<.5): 5555555555555\nOL,5,\u001bW5555555555583 `9#f~v&)q \"90555555555555\nOL,6,\u001bW5555555555%\": ~}?z:}~5 6 555555555555\nOL,7,\u001bW555555555!8# 8vss~=0\",0%5555555555\nOL,8,\u001bW555555555j` :`o?###+e*0 \"45555555555\nOL,9,\u001bW5555555558!8!6bo5    g\"4)09!5555555555\nOL,10,\u001bW5555555559& : 5\"5    7*0*0b&4%%55555555\nOL,11,\u001bW5555%%8,d,,2 & pmpppxe0)$\"8,d,,0%%55555\nOL,12,\u001bW55%8cf~vf)3,,,,,,,&9cf~vf)0%555\nOL,13,\u001bW55*8!?,|ki<.5):cssssss+8!?+?+5): 555\nOL,14,\u001bW583 `9/f~v.-q \"99r+c893 `)!b~v )a \"9055\nOL,15,\u001bW5\": ~}?z:}~5 ~~5~4 ?z:5 6 5%\nOL,16,\u001bW8# 8vss~=0\"/5?' 8ovss~o=0\",2 \nOL,17,\u001bW` :`o?;;;;e*0 \"66  :`o55e*0 \" \nOL,18,\u001bW!8!6\"o5    '\"4)3)!)#9!62e3##{u'\"4)0) \nOL,19,\u001bWf : 5\"7fvv&705*0b$55f : 52o|~'05*0b$5\nOL,20,\u001bW\",!555044444555)&0552,!555444444555)&05\nOL,21,\u001bW555555555555555555555555555555555555555\nOL,22,\u001bW555555555555555555555555555555555555555\nOL,23,\u001bW5555555555\u001bGthread o fate \u001bW5555555555555\nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bT7\u001bW     \u001bZ`  $  \u001bY     \u001bT\"\nOL,2,\u001bT%\u001bW  ` (0\u001bZ)  !0\u001bY      \u001bTo\nOL,3,\u001bT \u001bW `(xd~t\u001bZ\"   \u001bY  pxt$\u001bTj\nOL,4,\u001bT \u001bW  dn9~|||}5\u001bTj\nOL,5,\u001bT0\u001bW \"8+5\u001bT\nOL,6,\u001bT5\u001bW (bf\u001bT\nOL,7,\u001bT?#!\u001bW  (i/o?\u001bT\nOL,8,\u001bT5\u001bWe     ` #+o??o5\u001bT+\nOL,9,\u001bT\u001bW2     #+-$ +'!p||t=0\u001bT\nOL,10,\u001bT\u001bW!      8`t   # p` 0p0\u001bTj\nOL,11,\u001bT}\u001bW     hry}4z}jv}~{j5\u001bT~\nOL,12,\u001bTu\u001bW   (~'02o{%\u001bT\nOL,13,\u001bT}4\u001bW `||||n1~tsss1\u001bTx\nOL,14,\u001bTu\u001bW k5\"\"?vo\u001bT~\nOL,15,\u001bT\u001bW \"o}0 \"c~6\u001bT\nOL,16,\u001bT\u001bW x|og||\u001bT\nOL,17,\u001bT'\u001bW 7}0!,<./.fo7\u001bT\nOL,18,\u001bT?!\u001bW   kmtr/ooy4\u001bTj\nOL,19,\u001bT'\u001bW\u001bZ5\u001bY   +}{w3##{7~ u\u001bT\nOL,20,\u001bW   \u001bZ 5\u001bY   \"n~~~? 4\u001bT+/\nOL,21,\u001bW   \u001bZ!o    \u001bY /?o~?ju   \u001bT\"#+/\nOL,22,\u001bW  \u001bZ 5j0   \u001bY   ###x5z        \u001bT\"#////\nOL,23,\u001bW  \u001bZj%z0  \u001bY    x?h0\u001bD@illarterate \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bRx7|$\u001bP\u001bU+\nOL,2,\u001bR!&x?wsp0\u001bU+MAX CAPACITY\nOL,3,\u001bV`&\u001bR&q||sq\u001bU*\nOL,4,\u001bP\u001bV:q>'\u001bRxt0\u001bP\u001bU\"##+\nOL,5,\u001bVxk'h~'+\u001bR|w3#y|$\u001bU\"+\nOL,6,\u001bVw&h'`6xo'\u001bR~?ax/#`\u001bU\"#/o\nOL,7,\u001bV7h'xo1h~'\u001bR>!x~?x$\u001bRp\u001bU\"/////\nOL,8,\u001bP\u001bV~`7j5oz\u001bVj\u001bRx?z7h|7`vyp\u001bVp\u001bP\u001bS+o\nOL,9,\u001bP\u001bV?ztj*7\u001bV5\u001bVj\u001bVj~p<\u001bSk\nOL,10,\u001bVh}n4k|*5\u001bV\"\u001bVz5kow}\u001bV}\u001bSo\nOL,11,\u001bVz}ot/}0ou5\u001bVjo5\"\u001bV1\u001bV#!zon*/mz=\u001bS\nOL,12,\u001bVw|lv%\"~~q5b\u001bV4k5h|\u001bV7j2#b|t/\u001bS\nOL,13,\u001bVy~}~}juj\u001bV}5jujupz?o?\u001bSz\nOL,14,\u001bV=d:>z|~zo'\u001bWh%>\u001bSx\nOL,15,\u001bV0\":!\u001bV\"2/o-k\u001bP\u001bW\"\u001bP\u001bSz\nOL,16,\u001bVup0!\u001bV`~?4+/%m4\u001bV(\u001bP\u001bW`\u001bP\u001bS\nOL,17,\u001bV7pp0*/#\u001bV\"?`\u001bP   \u001bT`p\u001bVz\u001bWf>\u001bS\nOL,18,\u001bVoo0k'o}!\u001bP\u001bV+}~}}\u001bP\u001bTka\u001bV*t{\u001bS\nOL,19,\u001bV\"ow0\u001bP      \u001bV\"/}~~~}||4\u001bV`\u001bS##\u001bS###\nOL,20,\u001bP\u001bV\"~}\u001bT1\u001bP \u001bT\"\u001bP   \u001bV###/oo||||t\u001bP\nOL,21,\u001bP \u001bVg?g???#4\u001bT!p`dd``0000\u001bT``\u001bV\"#\"+/#/a\"\nOL,22,\u001bP    \u001bVe`!\u001bT).5\u001bT\")og#*;97;qdloom}<\u001bV+##%\u001bT0h\nOL,23,\u001bP      \u001bT$\u001bT\"\u001bP            \u001bT!\u001bP\u001bT\"\u001bT''&&\"6\u001bT###\nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bW          \"     \u001bVppppp   \u001bF@illarterate \nOL,2,\u001bW YAK    0  \u001bV`8,##     ##,d0\u001bW      `    \nOL,3,\u001bW  IN     \u001bVp&!  \u001bW`       0\u001bV\")p \u001bW        \nOL,4,\u001bWSPAAACE\u001bV`&    \u001bW`?       o4  \u001bV)0\u001bW   \u001bG.  \nOL,5,\u001bW      \u001bV8!`~!  \u001bW~5       j5   \u001bV\"d\u001bW$     \nOL,6,\u001bW     \u001bV8!`% \u001bW 0=`|||||4~5    \u001bV\"d\u001bW     \nOL,7,\u001bW  \u001bG.\u001bVh!`! \u001bW`~5h`?}0   \u001bV\"4\u001bW0   \nOL,8,\u001bW   \u001bV 5 ~%  \u001bW*7 j5jjjt\"    \u001bVj \u001bW \u001bG.\nOL,9,\u001bW   \u001bVj j'    \u001bW  25jj5j0!     \u001bV5\u001bW   \nOL,10,\u001bW ( \u001bV:       \u001bW  55o47 +j5      \u001bVe\u001bW   \nOL,11,\u001bW   \u001bV5    \u001bW`|///o}rpqrx}      \u001bV*\u001bW \" \nOL,12,\u001bW   \u001bV5  \u001bW x'      #+t##x   \u001bS   00   \nOL,13,\u001bW\"  \u001bVe  \u001bWh5\u001bV>}0 x?m\u001bW*%*   \u001bS ~j5`  \nOL,14,\u001bW   \u001bVj  \u001bWju\u001bV \"% '  \u001bW 'z4o   \u001bS j5jt \nOL,15,\u001bW   \u001bV\"4 \u001bWjt0      p~/a45j   \u001bS j5j \nOL,16,\u001bW    \u001bVi \u001bW\"#-,||</#x45a   \u001bS ~uj \nOL,17,\u001bW \u001bG. \u001bV e \u001bW\"o}2-4|4555%~k \u001bS0   \nOL,18,\u001bW      \u001bVe \u001bW +o}ts!/%/%/a~?a~\u001bSjt0o \nOL,19,\u001bW      \u001bV )0 \u001bW \"+//////'sq| \u001bSo~ \nOL,20,\u001bW  !  !  \u001bV\",0\u001bW o'\u001bV,\u001bS+? \nOL,21,\u001bW          \u001bV\"!\u001bW ########## \u001bV! \u001bS \"////#  \nOL,22,\u001bW  \u001bG.  \u001bR\"///////////////////////! px|}\nOL,23,\u001bW $  \u001bRp|v{ssssssssssssssss{wa~\nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bW       \"##+/oj   \nOL,2,\u001bW              \"#+?'{j   \nOL,3,\u001bW        h|pp0  +?#   p|j?   \nOL,4,\u001bW       `?'#cs+//|j5   \nOL,5,\u001bW       *'   (|3d \"&;'# (|v#oo7z5   \nOL,6,\u001bW       h892 z0! \"f>(2 xa|5   \nOL,7,\u001bW       ~gffgcsy||$ \"wdffgci5   \nOL,8,\u001bW      :}999y?99  n})y}5   \nOL,9,\u001bW      \"fo???gfff  o}r{o5}5  \nOL,10,\u001bW        );<999999  {!}  \nOL,11,\u001bW         \"nobffff$ b~?`'u \nOL,12,\u001bW          \"yy99!  9;!~w j \nOL,13,\u001bW           *vv pvfwn5z  \nOL,14,\u001bW            kt0&+ooq<9y(x? \nOL,15,\u001bW             ?7bo! \nOL,16,\u001bW             /#*/'/ 9{o  \nOL,17,\u001bW            h/&qx~|}vo%64k*  \nOL,18,\u001bW           `y0##y|sqs|~'h!u 4 \nOL,19,\u001bW           jgno}0\"////s|' jj~`% \nOL,20,\u001bW           *99%  wa~  \nOL,21,\u001bW            \"\"#o' `jw}~5  \nOL,22,\u001bW\u001bDNikki &    \u001bW  `?! ((h9y  \nOL,23,\u001bW\u001bDBunty       \u001bW ~wo'`tffhb+t \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bT\u001b]\u001bW \u001bZ$\u001bY       \u001bV  `ppp    \u001bW\u001bZ (           \nOL,2,\u001bT\u001b]\u001bW\u001bZ   (  \u001bY\u001bV`x|?|p \u001bW    (       \nOL,3,\u001bT\u001b]\u001bV\u001bW(   \u001bY\u001bV`|{}t0\u001bW\u001bZ      $  \nOL,4,\u001bT\u001b]\u001bV     \u001bVxg0\u001bW\u001bZ  `     \nOL,5,\u001bT\u001b]\u001bW(  \u001bV >?q~\u001b]\u001bP  h$jw\u001bT  +\nOL,6,\u001bT\u001b]\u001bV    ~o?/\u001b]\u001bP  x|z4\u001bT  k\nOL,7,\u001bT\u001b]\u001bV  \u001bVz%t~w\u001b]\u001bP n?g! \u001bT   \nOL,8,\u001bT\u001b]\u001bV  `w`\u001b]\u001bP `,0z5/6i\u001bT  (j\nOL,9,\u001bT\u001b]\u001bV  jj?\u001b]\u001bP *p%\"  )&\u001bT 0 \"\nOL,10,\u001bT\u001b]\u001bV  >}up~4      \nOL,11,\u001bT\u001b]\u001bV  =k?go5      \nOL,12,\u001bT\u001b]\u001bV  } y}?{5      \nOL,13,\u001bT\u001b]\u001bV  j}{?\u001b]\u001bW$\u001bV\u001bT       j\nOL,14,\u001bT!\u001bV \"###+//\u001b]\u001bWd 5`( \u001bV\u001bT ( \nOL,15,\u001bT5 \u001bV   `pp0  ##/\u001b]\u001bW\"}}7  \u001bV\u001bP|t\u001bTz\nOL,16,\u001bT\u001b]\u001bPx\u001b\\\u001bV    \"+o}|tp \u001bW+7\u001bV#/ot \u001bT\"+/\nOL,17,\u001bT'  xu \u001bVl|p  z\u001b]\u001bT   \u001bW`&7\u001bP#+/~\u001b\\\u001bT  #   \nOL,18,\u001bT'  x}0\u001bVo' x\u001b]\u001bT(}   \u001bW $\u001bP x~\nOL,19,\u001bT `~-`&\u001bVz!\u001bTx'!        pp\nOL,20,\u001bT`~\u001b]\u001bP h~?zy\u001bV+.u{?'\u001bPx'c/#    \nOL,21,\u001bT\u001b]\u001bP   #*o? \u001bV  #-//##!\u001bP n?! z'       \nOL,22,\u001bT z\nOL,23,\u001bT\u001b]\u001bV                                     \nOL,24,\u001bANext  \u001bBBack         \u001bDandyuglifruit     ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bD\u001b]\u001bW         (! (`6  !       \u001bX\u001bZ   (lp0`  \nOL,2,\u001bD\u001b]\u001bW       `,  8a& (\u001bS\u001bS\u001bS\u001bS\u001bS,,,$    (   \"#  \nOL,3,\u001bD\u001b]\u001bW  j 0p&! h&x'     \u001bS   #####!         \nOL,4,\u001bU\u001b]\u001bT   7! x&!8'    pp\u001bS,$  \u001bS\u001bS  #-,,,,,,& \nOL,5,\u001bU\u001b]\u001bT zhu,'a8&   (  \u001bR    \"+,$ ,,,,,,$    \nOL,6,\u001bE\u001b]\u001bT`oku(&!  (p \u001bS\u001bR$\u001bR,,,,,  \u001bS     ,,,,,  \nOL,7,\u001bE\u001b]\u001bT~on}l$$  pp \u001bR\u001bR\u001bS      0   `p0        \nOL,8,\u001bE\u001b]\u001bTnkjz   `\u001bW  ,,&! !(, !1,#! $    ( ((\nOL,9,\u001bE\u001b]\u001bTnjjz  $\" `pppp         pp0 \"#! `   \nOL,10,\u001bE\u001b]\u001bTnnzj \u001bQ arr\u001bS\u001bSp  $  $   \u001bT\"o\u001bW t0      \nOL,11,\u001bE\u001b]\u001bTzjon \u001bQ! 8,$\u001bS ,     ``    \u001bW\",s-tp   \nOL,12,\u001bE\u001b]\u001bTj{jjj \u001bQ)c  \"\u001bS\u001bS\u001bS\u001bS\u001bS\u001bS\u001bS\u001bS\u001bS\u001bS\u001bS      \"+|s/|p\nOL,13,\u001bE\u001b]\u001bTkkkj ,, \u001bS,   (,,   ($  (,$ !$! #g|s\nOL,14,\u001bE\u001b]\u001bTzjjk),,,,,\u001bS\"\u001bS\u001bS\u001bS\u001bS,,,,  $\u001bS ,,,,  $ \";\nOL,15,\u001bV\u001b]\u001bTzojjj \u001bW   (,$\u001bW( (,,    ,,,\u001bS\u001bS\u001bS,,$    \nOL,16,\u001bS\u001b]\u001bTojjz \u001bW\u001bW,,,    (,,   (,, , \u001bW\u001bW  `  `0\nOL,17,\u001bA\u001b]\u001bTjojjpp\u001bWppp pp\u001bTp0pt||tppp,,p0xpztx~|\nOL,18,\u001bD\u001b]\u001bW\"$  $\"!  (((     (\"(  $ d $ $%*d,%, 0\nOL,19,\u001bS \u001bT                 p`p```  `` 00  ####c\nOL,20,\u001bT#\u001bT  p000:j&$,(.(            \"! !!\"!!!##\nOL,21,\u001bT \u001bW            \"     ( (    !\"!  \"  \" ! \nOL,22,\u001bT +///.///-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\nOL,23,\u001bT                          \u001bDblippypixel \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bDrusty595   \u001bW`/0\u001bP            \nOL,2,\u001bP           \u001bW~g;i?z}v0\u001bP           \nOL,3,\u001bP          \u001bWhv9ss-./%0\u001bP          \nOL,4,\u001bP         \u001bWxz/!o'\u001bP \u001bWpk}###,,0\u001bP    \nOL,5,\u001bP        \u001bW`'\u001bP        \u001bWo\u001bP   \u001bW\"d\u001bP   \nOL,6,\u001bP        \u001bWz?a\u001bP\u001bW:\u001bP   \u001bW`\u001bP \u001bW/h)0\u001bP \u001bW*0\u001bP  \nOL,7,\u001bP  \u001bUp\u001bP   \u001bW\u001bW5`~!0\u001bP \u001bW5\u001bWe\u001bP \u001bW\"+?\u001bWe\"4\u001bP \u001bW5\u001bP  \nOL,8,\u001bU`0j\u001bP   \u001bW5j`j`\u001bP \u001bWi\u001bW2d\u001bP  \u001bW\"dj0i\u001bP \u001bW5\u001bP  \nOL,9,\u001bUj\u001bP  \u001bWh\u001bWz>y~\"45\u001bP\u001bW\"4*0)0\u001bP\u001bW805e&4\u001bWh!\u001bP  \nOL,10,\u001bU\u001bP  \u001bW:\u001bW4e*0\u001bP\u001bW*0\",2d0\"e5\u001bWu\u001bW:\u001bP   \nOL,11,\u001bU+\u001bP  \u001bW5\u001bW;/g}\"4)0cpb6,2,rw)mk\".&\u001bP    \nOL,12,\u001bP \u001bU#/0\u001bP \u001bWi\u001bW'xuot*t,+}ht.#j\u001bW8!j\u001bP       \nOL,13,\u001bP   \u001bU\"\u001bP \u001bW\"45i4j|7j}*uo5\u001bWj\"\u001bP\u001bWj\u001bP       \nOL,14,\u001bP        \u001bWe5\"\u001bWj5\u001bW!\u001bW?z5\u001bWb~}0\"4\u001bP      \nOL,15,\u001bP        \u001bW\"uopv~otry}5\u001bW*9z!\u001bW*0\u001bP     \nOL,16,\u001bP         \u001bW~//5\u001bWhe%\u001bP \u001bW\")p\u001bP   \nOL,17,\u001bP         \u001bWo',,#!\u001bW\u001bP\u001bW*g\u001bP  \u001bWj,d9\u001bP  \nOL,18,\u001bP          \u001bWo0\u001bP \u001bWxd'\u001bP\u001bW5\u001bW#,2d\u001bW)d\"\u001bP  \nOL,19,\u001bP           \u001bW;ot(/s~/y\u001bWj`%\u001bP \u001bW\"4)0\u001bW)\u001bP  \nOL,20,\u001bP          \u001bW6\u001bP \u001bW+//gy?\u001bW5j\u001bP   \u001bW)d\"d\u001bP   \nOL,21,\u001bP         \u001bWha\u001bP   \u001bWx5g~\u001bW56\u001bP    \u001bW*0*0\u001bP  \nOL,22,\u001bP         \u001bW*85\u001bP  \u001bW57|\u001bW55\u001bW`p,+3!5\u001bW5\u001bP  \nOL,23,\u001bP          \u001bW5e\u001bP \u001bW4?*i\u001bWj`&!\u001bP \u001bWe\u001bW5:\u001bP   \nOL,24,\u001bP         \u001bWj\u001bW\"d\u001bP\u001bW)74hk!j\u001bW*5\u001bW`$\u001bP\u001bWjh!\u001bP    ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bD\u001b]\u001bSpppppppppp   pppp   pppp             \nOL,2,\u001bD\u001b]\u001bS5h~h,,45(~h,,45(jh,<l|||||||| \nOL,3,\u001bD\u001b]\u001bSur{j {5ur{j {5uzzj$1n \nOL,4,\u001bD\u001b]\u001bS         (.,,%  (.,/%  (.,-.//////// \nOL,5,\u001bD\u001b]\u001bW<l,4<,,4<l|4<,lh,,|h,,lh,<lh,,l      \nOL,6,\u001bD\u001b]\u001bW5b 55j 55j5 j 5jj 1jjp1jjp3k\u001bS|||| \nOL,7,\u001bD\u001b]\u001bW-.,%-,,%-,,%-,.*,,/*,-.*,,.*,,.\u001bS% \nOL,8,\u001bD\u001b]\u001bFHolidays full index\u001bB...401\u001bS\"+o/#  \nOL,9,\u001bD\u001b]\u001bFOffers\u001bB402\u001bFCity breaks\u001bB403\u001bS\"   1  \"  \nOL,10,\u001bD\u001b]\u001bV                         \u001bS\"   \u001bS$   \" \nOL,11,\u001bD\u001b]\u001bG           \u001bWh,\u001bGEUROPE SPECIALS '88\u001bW,4\nOL,12,\u001bD\u001b]\u001bR`<~''o|0   \u001bWj\u001bCFRANCE\u001bBParis\u001bF.....406\u001bW5\nOL,13,\u001bD\u001b]\u001bR# xl?|r}$ \u001bWj\u001bCSPAIN\u001bBIbiza\u001bF......407\u001bW5\nOL,14,\u001bD\u001b]\u001bR ~+\"\u001bQx\u001bR{6oq\u001bWj\u001bCITALY\u001bBNaples\u001bF.....409\u001bW5\nOL,15,\u001bD\u001b]\u001bRz\" \u001bQz%\u001bRn%&}\u001bWj\u001bCGERMANY\u001bBBerlin\u001bF...410\u001bW5\nOL,16,\u001bD\u001b]   \u001bQh?\u001bRr7 \":\u001bW*,,,,,,,,,,,,,,,,,,,,,,,%\nOL,17,\u001bD\u001b]   \u001bQ%\u001bR>    \u001bG  Europe index\u001bF.....405  \nOL,18,\u001bD\u001b]  \u001bQj       \u001bW                         \nOL,19,\u001bC\u001b]\u001bQ `7 \u001bV\"#####///oww{{w/ww{\nOL,20,\u001bC\u001b]\u001bQ z5 \u001bT,|p||,     \u001bV\"#+///////////////#\nOL,21,\u001bC\u001b]\u001bT ##////#{'ot\u001bD Departures index\u001bA470  \nOL,22,\u001bS///////////////////////////////////////\nOL,23,\u001bD\u001b]\u001bGTRAVEL HEADLINES 460\u001bG\u001bGMAIN MENU 100  \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bV    +?y=+//y}0  x};?9!#\u001bQppp\u001bV\"#!      \nOL,2,\u001bV$    bn\u001bW`d\u001bV$nf& \u001bQ,//}t\u001bT\u001bV `   \nOL,3,\u001bT    x}#\u001bW(,\u001bT\"/!  +?9! \u001bW|||tp\u001bQ+?}0\u001bTk}0 \nOL,4,\u001bV   \"o%\u001bVx~|0     &\u001bV`~\u001bW*t\u001bUo20\u001bVk'\"\nOL,5,\u001bT     +\u001bRhwf}\u001bTh0  \u001bVh?!5\u001bW\u001bS##+ou\u001bU=j}\u001bT   \nOL,6,\u001bT    `>\u001bR\"}}7\u001bT\"   \u001bVj5\u001bW}0  x\u001bS+u\u001bU\"5\u001bT  \nOL,7,\u001bT   8\u001bW(\u001bS\"+/#\u001bT     \u001bWj'o//|~//t\u001bS'\u001bQ\u001bU*%\u001bT=8\nOL,8,\u001bT `~vm\u001bW\"+l|0\u001bT   `~\u001bW x}5j~}5j~u\u001bT~\u001bW~}\u001bT~\nOL,9,\u001bTy;/!!\u001bWp|?\u001bT   8#!\u001bWh||?/,l?/\u001bT\u001bS+'\u001bT\nOL,10,\u001bT6!\u001bWpl2\u001bT`xt  \u001bWp|tjgs||.t  x?o\u001bTs-l|~vg\nOL,11,\u001bT7\u001bW`>t\u001bT (' \u001bW~'*/s|?{5j;}\u001bTs/}?! \nOL,12,\u001bT&\u001bSh0\"\u001bT    \u001bW>t\"}0~}'og~?!\"o&\u001bT~g   \nOL,13,\u001bT \u001bWnu+\u001bTx0 \u001bWt\"5ku\"#o5+t\u001bS#!p~}0\u001bTx=+/)/-  \nOL,14,\u001bT \u001bWx'\u001bTh'\u001bWk4k0k}~4o0\"o}tpp 0\u001bTn\u001bBMIAU!\u001bTv\nOL,15,\u001bT0\u001bS?}\u001bT*y\u001bW0 k} m0+\u001bSk2ot0\"#ap~\u001bT  +y|||8x~\nOL,16,\u001bT \u001bW`~%\u001bU\"\u001bWt +}o0 \"os#//#x\u001bU `~vog~vo\nOL,17,\u001bT \u001bS(wxt\u001bWjt+}~? +0\u001bS +/4h'!\u001bT8=)=!\nOL,18,\u001bU `\u001bS+?c5 o}2#   *\u001bVh\u001bSk-.!j}>\u001bUjvo'  \"o'  \nOL,19,\u001bUy;}0\u001bSn5\u001bW +tpx\u001bVj4\u001bS}4 ~'\u001bT\u001bU+/?!    x0  \nOL,20,\u001bUv'$\u001bS!*|p\"+?/\u001bV`}\u001bS+u      \u001bU  `~t \nOL,21,\u001bU'!     \u001bS\"o|'at\u001bV+'\u001bS~0j?=0     \u001bU #+?! \nOL,22,\u001bD          \u001bS#-|?!  \u001bSovf +v$\u001bDillarterate\nOL,23,\u001bE                   \u001bW\u001bS#!        \u001bT       \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bS \u001bSo/'##?/?/?/# !  p$    x\nOL,2,\u001bU \u001bS/##+s}|~}9r |~t  p   xt   x\nOL,3,\u001bS ?\u001bSc###p |?kt*4k/#$\"ax|||\nOL,4,\u001bU\u001bS||~}2#/j}2{?w (\"0 x?\nOL,5,\u001bS7\u001bS?+$!*7;duo,<h'd%!i=x\nOL,6,\u001bU\u001bS}#$ }+=`h2/ !` $\"jh \nOL,7,\u001bS\u001bSzo36h!jt(v$$0 & 0(0jj1uk\nOL,8,\u001bU\u001bSa+{=2$z}2m0 04 !  &6h /\nOL,9,\u001bS\u001bSue54eh|3(oqp<$!p|  \nOL,10,\u001bU \u001bS{  j}||  \nOL,11,\u001bS\u001bS t \" #/w||  \nOL,12,\u001bU   \u001bSo|,j? j\nOL,13,\u001bS   \u001bS7qx?//o?  \nOL,14,\u001bU    \u001bS?       \"#o?   \nOL,15,\u001bS    \u001bS0  x~'!x?'   z\nOL,16,\u001bU     \u001bSh/  ~?'     \nOL,17,\u001bS       #!`p~?'      z\nOL,18,\u001bU      |\u001bS~?'       `\nOL,19,\u001bS       k?/#         z\nOL,20,\u001bU      \u001bSt+?/#           z\nOL,21,\u001bS        0   p/           h\nOL,22,\u001bU          7\u001bS           //////\nOL,23,\u001bS/ / / / / / / / / / %   \u001bG  carlos mmxix\nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,2,\u001b^\u001bW\u001b]\u001bS\u001bV\u001bR\u001bU?!\"o\u001bQ\u001bT\u001bP  \u001b\\ \nOL,3,\u001b^\u001bQ\u001bW9;3##c##k###7######k###7##3##cg\u001bS  \nOL,4,\u001b^\u001bQ\u001bWfffd (  j  |},,,,,,~|  5  $ 899\u001bS  \nOL,5,\u001bW   5)99!c##k##//,,,,,,//##7##3\"ff&j    \nOL,6,\u001b^\u001bQ|\u001bW5 b \u001b_(  j\u001bS  `p,,,,p0  \u001bW5  $  1 j    \nOL,7,\u001b^\u001bQ\u001bW7\"j\"\u001b_b\"\"\"\u001bS`&a||0   \")0\u001bW!!!1!!5!k  \nOL,8,\u001b^\u001bQ\u001bW5 j  ,\u001b_\u001bS  6h?y|{\u001bWhh\u001bR`|0\u001bW\u001bZ||\u001bY 5 j  \nOL,9,\u001b^\u001bQ/\u001bW=,n, s\u001b_\u001bS j z5}zz\u001bW{{1>?}\u001bW\u001bZ\u001bY,=,n//  \nOL,10, \u001bW x5 (  ,,\u001bS 6`o5w-?\u001bW** ?~o\u001bW\u001bZ\u001bY $ jt   \nOL,11, \u001bWn=,f, ss\u001bS 5~uo43!\u001bWh  k|'\u001bW\u001bZ\u001bY,9,n=  \nOL,12, \u001bW +5 (  ,,\u001bS ?s-1m j\u001bRh{}\u001bW\u001bZ\u001bY $ j'   \nOL,13,\u001b^\u001bT|\u001bW=,n, s\u001b_\u001bS j5uk6x!\u001bR`{?\u001bW\u001bZ\u001bY,=,n||  \nOL,14,\u001b^\u001bT\u001bW5 j  ,\u001b_\u001bS  %r|?!\u001bR ~'!\u001bW\u001bZ//\u001bY 5 j  \nOL,15,\u001b^\u001bT\u001bWu`j`\u001b_b```\u001bS(2o?\u001bQ'\u001bW00010050z  \nOL,16,\u001b^\u001bT/\u001bW5 b \u001b_(  j\u001bS \",p\u001bQ ?'! \u001bW5  $  1 j    \nOL,17,\u001bW   58990rppzpppppp`0ppppppuppq`ffdj    \nOL,18,\u001b^\u001bT\u001bWfff& (  j   5  j$  j   5  $ )99\u001bS  \nOL,19,\u001b^\u001bT\u001bW9yqpprppzpppuppppppzpppuppqpprv\u001bS  \nOL,20,\u001bW |\u001bR j j j j\u001bW\"o?!\u001bR5 5 5 5 \u001bW|  \nOL,21,\u001bZ\u001bT|| |4 |4 |4 |4 ||4h|| h| h| h| h| ||  \nOL,23,\u001bD beeblepete                      2017  \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1, \u001bT\u001bZ8999\u001b^\u001bY\u001b_999yy/#\u001bRpppp\u001bT##---}999\u001b^\u001bZ999990\nOL,2,\u001bT\u001bZ`ff\u001b^\u001bY\u001b_ffff>'\u001bRx~/p#?,l|p\u001bT+ffff&\u001b^\u001bZffd\nOL,3,\u001bT\u001bZ99\u001b^\u001bY\u001b_999y'\u001bRx?g{|/wy~ggffgd\u001bTm99\u001bRxt\u001bT)9\nOL,4,   \u001bT\"ffffn%\u001bR~}.sy|6*}y}}}yyu\u001bT'\u001bRz7*}\u001bTf\nOL,5, \u001bR~-t\u001bT)997\u001bR>;>{gffffoju )9!!!+`xn;}`{\u001bT9\nOL,6,\u001bRj=0*}p\u001bT\"\u001bRhgff}}/++;){t \u001bWx/m\u001bRk6=#\"\"/!\u001bTf\nOL,7, \u001bRwx>'g/?|=99{'\u001bW`p0\u001bRa~owq\u001bW-\"*%\u001bR\u001bTh998899\nOL,8,  \u001bR#\u001bT`\u001bR\"\"ffff7\u001bWhu(+\u001bR>{t+{y}\u001bTkvf\u001b^\u001bZf\nOL,9,\u001bT\u001bZ9\u001b^\u001bY9\u001b_7\u001bRj99ytdllooa/?#mbou\u001bT=9\u001b^\u001bZ9\nOL,10,\u001bT\u001bZf\u001b^\u001bYf\u001b_5\u001bRwffn}}mmju \"#pp~0){o\u001bTwf\u001b^\u001bZf\nOL,11,\u001bT\u001bZ9\u001b^\u001bY9\u001b_5\u001bR=999;;;999;}|?~}{2n={\u001bT}9\u001b^\u001bZ9\nOL,12,\u001bT\u001bZf\u001b^\u001bYf\u001b_5\u001bRwff\u001b^\u001bZfff\u001bY\u001b_ffuo?z}wn\u001bTjvfff\nOL,13,\u001bT\u001bZ9\u001b^\u001bY9\u001b_5\u001bRm9\u001b^\u001bZ9999\u001bY\u001b_9{''''\"\"\"+o5\u001bT}999\nOL,14,\u001bT\u001bZf\u001b^\u001bYf\u001b_o\u001bRjf\u001b^\u001bZfff\u001bY\u001b_f>!`````dv~{}\u001bTjfff\nOL,15,\u001bT\u001bZ9\u001b^\u001bY9\u001b_;\u001bRj9\u001b^\u001bZ999\u001bY\u001b_9;;=====?;;>\u001bZ\u001bT)99\nOL,16,\u001bT\u001bZfff&&\u001bY\u001bRzf\u001b^\u001bZffffffffffff\u001bY\u001b_fv}\u001bZ\u001bT\"\"\nOL,17,\u001bT\u001bZ!\u001bY\u001bQp<\u001bRhui99\u001b^\u001bZ9999\u001bY\u001b_9yyyyy}}t\u001bQl\nOL,18,  \u001bQp<{\u001bR`wfd+vf\u001b^\u001bZff\u001bY\u001b_f~o}t\nOL,19,\u001bQ9yf$\u001bR\")9992)y9\u001b^\u001bZ999\u001bY\u001b_9;?;??{?{'\nOL,20,\u001bQ?999\u001bWj}\u001bR\"fffd\"+fv\u001b^\u001bZffffff\u001bY\u001b_f>'z?\u001bW`\nOL,21,\u001bQvv~u\u001bWkm0\u001bR)999800##-------/#p~'\u001bWp'\nOL,22,\u001bQ;u\u001bW){t\u001bR\"&f\u001b^\u001bZffddd\u001bY\u001b_ddd|n{'\u001bWpf\u001bQ*\nOL,23,\u001bQ;}ffu\u001bW\"got\u001bR )9\u001b^\u001bZ99\u001bY\u001b_9y{{}/#\u001bW8z9\u001bQ g\nOL,24,\u001bANext  \u001bBBack \u001bCHorsenburger & Rawles     ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bWR   h      j   };5 ?` j\nOL,2,\u001bWA   j   `pp:   u5   j\nOL,3,\u001bWQ   :   5      #######+5  ? z?##\nOL,4,\u001bWU  j  `&        o0* %`\nOL,5,\u001bWE  j  j         \"##sss#o4\"?`!h?###\nOL,6,\u001bWL  j  j \u001bT pppppppppppppp\u001bW  ?#` (,,,,,\nOL,7,\u001bW   j  j \u001bT~?+?o}0\u001bW5  \u001bQ 8||\nOL,8,\u001bWM  j  j \u001bT//.///////////o5\u001bW5  \u001bQj~#d\nOL,9,\u001bWE `&  j \u001bT\u001bW            \u001bTj5\u001bW5  \u001bQ +-,\nOL,10,\u001bWY !  `& \u001bT\u001bW\u001bH  `h|||40 \u001bI\u001bTj5\u001bW!o'    x||\nOL,11,\u001bWE   8!5 \u001bT\u001bW\u001bH 8kj57d\u001bI\u001bTj5\u001bW \"+'   `~\nOL,12,\u001bWR   5 5 \u001bT\u001bW\u001bH 5*u+'z%j\u001bI\u001bTj5\u001bW`~t  ?#a\nOL,13,\u001bWS   5 5 \u001bT\u001bW\u001bH 5a\"mp>!2j\u001bI\u001bTj5\u001bWj  w~\nOL,14,\u001bW h##  5 \u001bT\u001bW\u001bH }6m0`>i~\u001bI\u001bTj5\u001bW\"/'#/ ./////\nOL,15,\u001bW j    5 \u001bT\u001bW\u001bH \"upuszpz!\u001bI\u001bTj5\u001bW||4|||h||h||\nOL,16,\u001bW j    5 \u001bT\u001bW\u001bH  |h4|h4| \u001bI\u001bTj5\u001bW//%///*//*//\nOL,17,\u001bW j    5 \u001bT\u001bW\u001bH  \u001bQ||4||4 \u001bI\u001bTj5\u001bQ pppp0`pppp0\nOL,18,\u001bW j    qp\u001bT\u001bW\u001bH  \u001bQ55 \u001bI\u001bTj5\u001bQ~? 5\nOL,19,\u001bW`&  `~4  p0\u001bH\u001bQ+/%//! \u001bI\u001bW  ||||0\u001bQj5\nOL,20,\u001bWj  x5`>yvd            t\u001bQ+o5\nOL,21,\u001bWj ~'xvo}i        `0 o}0\u001bQ5\nOL,22,\u001bWj ?a~}y'       8y;t +5\u001bQ5\nOL,23,\u001bWj 'x?!       bn?y}0j5\u001bQ//' \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bW               p                   8!  \nOL,2,\u001bW  NOTHING    `& )0 \u001bUpp    p,|,p \u001bW`&  \u001bW`\nOL,3,\u001bW        BUT (1   \"d\u001bUo9p,<!  \u001bW8!\nOL,4,\u001bWDESTRUCTION  \"d    )\u001bUo&  \u001bW`&  \nOL,5,\u001bW          p,,p i~|~||,,,,,,<!  \u001bUx}   \nOL,6,\u001bW        `f||9q|l|ps+//l0 `&  \u001bU`~5\u001bWp\nOL,7,\u001bW,,,,,,,,aooo:1 +3#//t+|!  p|?//'sss\nOL,8,\u001bW,,,,,,,,2eeoi!OO\"d   +m2-,/'q,////##\nOL,9,\u001bWOOOOOOOO\"f//9!O=bOO)0   /4\u001bUh;!\u001bW \nOL,10,\u001bWOOO 040OO ),,&OOO.(OOO\"d  j\u001bU./& \u001bW  \nOL,11,\u001bWOO $$$$$$OOOO\u001bS&$$=+OOOO\u001bW)8!7\u001bU&\u001bW       \nOL,12,\u001bWO891111111100\u001bS\"')=j\"())((()\u001bUo\u001bW  &>\"$  \nOL,13,\u001bVfF 90$|$$$$$$$$&\"$\u001bS2\"!#w\"# \u001bU*$\u001bW (8**  \nOL,14,\u001bW)afFbdaaaa!\u001bVO !f(4l``p`|``` \u001bU~$\u001bW  4$*  \nOL,15,\u001bVOO)(! )(OO(O(( (( ((\"!:;*#\"\u001bUh7\u001bW   4$&  \nOL,16,\u001bW###++++#######\u001bS  =j   8+$  \u001bUj1\u001bW   ,8*  \nOL,17,\u001bW####!bbbb\"#(\"\"\"\"(\u001bS>   %=   \u001bU~5\u001bW   (8** \nOL,18,\u001bWxgs3d (((((  !\" $\u001bS;   5$   \u001bUje\u001bW    44* \nOL,19,\u001bW5j \u001bVl,|l,|ll||<\u001bW   5%   \u001bU:4\u001bW   (0. \nOL,20,\u001bW0+/': \u001bV #``,`|l`d<tz\u001bW\"/$  \u001bUj:\u001bW    4&$\nOL,21,\u001bWb`##d)0      6,246\"\"\"\"%%   \u001bU)&\u001bW    4!> \nOL,22,\u001bWjj K )2,,,,,,($$$9  '  \"(dd4$0000l$412 \nOL,23,\u001bW \u001bDSCRIB.I.AN\u001bW  \"# %  *!     $(((       \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bWa|}{wf~{{~9!a rn~{?vify?ww=;.#\"   `d\nOL,2,\u001bWbf~~w?;& 8yywwv?ww=/!#     p`t0k\nOL,3,\u001bW5ngo/w&``d~{nw=ww-'!   `d `(&#3#3o|\nOL,4,\u001bW599{w{! `lyoos=-#       8y98(a.vp~?l9\nOL,5,\u001bW}\"v-#`  \"..#!! ` `(h0+t4b49ts+wx~\nOL,6,\u001bWu)(bx&!$`    x!xpx7x'z~(:\nOL,7,\u001bW5     88.az?ou~yown\nOL,8,\u001bW  a hs,cwsq|go={\nOL,9,\u001bW5e`) o?5{y/\nOL,10,\u001bW2t?t>f$iouitk\nOL,11,\u001bW}2}2f{{?a}y(?7:{t+\nOL,12,\u001bW}*t*;?%u)!2)))an}*\nOL,13,\u001bWu+4+oj};vv|d`nfmj\nOL,14,\u001bW5o0g?w5~{w>y{4\nOL,15,\u001bW*!\"nfoh}g}.#q~}\nOL,16,\u001bW}|u!yo5~o{n;///#p|wwwn\nOL,17,\u001bWubgouk?&ssp|l|'x\nOL,18,\u001bW$ggo4wwfs+/c?a,?iw\nOL,19,\u001bW?!j\"g2o};ow-c p|p n/\nOL,20,\u001bW'  *u m0+ko}||~a~;jw%\nOL,21,\u001bW?'     o} +t2o{v?5~v\"; \nOL,22,\u001bWHORSENBURGER     *}0\"- ++u=vo/a.! \nOL,23,\u001bW?'          ot   \"-t;|3i;#    \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bU\u001b]         \u001bS`,d\u001bU    \u001bS`,d\u001bU             j\u001b\\\nOL,2,\u001bU\u001b]        \u001bSh!\u001bS(90\u001bU \u001bS8!\u001bS(y\u001bU            j\u001b\\\nOL,3,\u001bU\u001b]        \u001bSj\u001bU \u001bS&-pp89\u001bU \u001bSn\u001bU            j\u001b\\\nOL,4,\u001bU\u001b]        \u001bSj18|{y<8{\u001bH `ppp\u001bU      j\u001b\\\nOL,5,\u001bU\u001b]        \u001bS`??/o55//?u\u001bH ooo5\u001bU     j\u001b\\\nOL,6,\u001bU\u001b]        \u001bSj?\u001bS\"\u001bSkzz!\u001bS!*\u001bH +***!\u001bU     j\u001b\\\nOL,7,\u001bU\u001b]        \u001bSj?////o?//\u001bH jj\u001bU      j\u001b\\\nOL,8,\u001bU\u001b]        \u001bSj?//\u001bSjppz\u001bS*//\u001bH j\u001bU      j\u001b\\\nOL,9,\u001bU\u001b]         \u001bSpzupzuz5\u001bH j\u001bU      j\u001b\\\nOL,10,\u001bU\u001b]         \u001bS\"/o{.' \u001bH j\u001bU      j\u001b\\\nOL,11,\u001bU\u001b]         \u001bS``\u001bU \u001bS`p\u001bU \u001bS`` \u001bH j\u001bU      j\u001b\\\nOL,12,\u001bU\u001b]      \u001bSh}99881z09889{5|\u001bU      j\u001b\\\nOL,13,\u001bU\u001b]      \u001bSvffd+/affff~5w7\u001bU      j\u001b\\\nOL,14,\u001bU\u001b]      \u001bSk?=99999999yo?&\u001bU       j\u001b\\\nOL,15,\u001bU\u001b]      \u001bS`+w'|;4v2fff~?yt\u001bU          j\u001b\\\nOL,16,\u001bU\u001b]      \u001bS}:qo6y~k}1o7~5\u001bU         j\u001b\\\nOL,17,\u001bU\u001b]      \u001bS}2-z?yg>voe5\u001bU         j\u001b\\\nOL,18,\u001bU\u001b]      \u001bSo5?g>xc>o/vj?5\u001bU         j\u001b\\\nOL,19,\u001bU\u001b]      \u001bSk{5kw>qg>);:\"o{!\u001bU         j\u001b\\\nOL,20,\u001bU\u001b]      \u001bS`}t/y7v>rgxu\u001bU          j\u001b\\\nOL,21,\u001bU\u001b]      \u001bS*k774+/}{}?/jkk7?\u001bU          j\u001b\\\nOL,22,\u001bU\u001b]       \u001bS#\"!!!\u001bU\u001bS###!\u001bS\"\"\"!!\u001bU DD       j\u001b\\\nOL,23,\u001bU##########################!DESPENS\"### \nOL,24,\u001bANext  \u001bBBack                            ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "412",
+            "green": "410",
+            "yellow": "410",
+            "blue": "100",
+            "index": "8FF"
+          }
         }
       ]
     },
@@ -138,7 +341,14 @@
       "subpages": [
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,2, ONE SHOW VIEWERS' GALLERY              \nOL,4, Make your teletext art and send it     \nOL,5, to peterkvt80@gmail.com                \nOL,7, You can use edit.tf or                 \nOL,8, zxnet.co.uk/teletext/editor            \nOL,10, To save just copy the URL and email it \nOL,11, to peterkvt80@gmail.com and it might   \nOL,12, appear here.                           ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "410",
+            "green": "411",
+            "yellow": "8FF",
+            "blue": "100",
+            "index": "8FF"
+          }
         }
       ]
     },
@@ -147,11 +357,25 @@
         null,
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX %%# %%b %d %%a \u001bC %H:%M.%S\nOL,1,\u001bQ ppp\u001bRppp\u001bTppp\u001bW   <$p0p0$p0p0p0p0$p0p0   \nOL,2,\u001bQ 5|j\u001bR5|j\u001bT5|j\u001bT\u001b]\u001bW 7 55-5555=%=%5 555-5   \nOL,3,\u001bQ 5/j\u001bR5/j\u001bT5/j\u001bT\u001b]\u001bW #!!!,%!!!#!#!! !!!,%   \nOL,4,\u001bQ ###\u001bR###\u001bT###\u001bW\u001bG      Information        \nOL,5,\u001bFTeletext is being kept alive by many   \nOL,6,\u001bFpeople working behind the scenes       \nOL,7,\u001bFmaintaining the technology. Here are   \nOL,8,\u001bFa few of the people involved.          \nOL,10,\u001bCJason Robertson:\u001bGRecovering teletext   \nOL,11, from old tapes and adding to the       \nOL,12, archives every day.                    \nOL,14,\u001bCAlistair Buxton:\u001bGWrote the Raspberry   \nOL,15, Pi teletext generator raspi-teletext   \nOL,16, for showing teletext on old TVs.       \nOL,18,\u001bCNat Dane:\u001bGManufacturer of teletext     \nOL,19, inserters.                             \nOL,21,\u001bCAlistair Cree:\u001bGTeletext software for   \nOL,22, viewers, editors, recovery that closely\nOL,23, follows the teletext standards.    \u001bC1/2\nOL,24,\u001bANext                       \u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "414",
+            "green": "411",
+            "yellow": "8FF",
+            "blue": "700",
+            "index": "8FF"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX %%# %%b %d %%a \u001bC %H:%M.%S\nOL,1,\u001bQ ppp\u001bRppp\u001bTppp\u001bW   <$p0p0$p0p0p0p0$p0p0   \nOL,2,\u001bQ 5|j\u001bR5|j\u001bT5|j\u001bT\u001b]\u001bW 7 55-5555=%=%5 555-5   \nOL,3,\u001bQ 5/j\u001bR5/j\u001bT5/j\u001bT\u001b]\u001bW #!!!,%!!!#!#!! !!!,%   \nOL,4,\u001bQ ###\u001bR###\u001bT###\u001bW\u001bG      Information        \nOL,5,\u001bCSimon Rawles:\u001bGTeletext enthusiast and  \nOL,6, creator of edit.tf, the most accessible\nOL,7, teletext editor.                       \nOL,9,\u001bCPeter Kwan:\u001bGCreator of the Raspberry   \nOL,10, Pi teletext system VBIT2 and the Teefax\nOL,11, service for showing teletext on TVs.   \nOL,12, Also the wxTED windows teletext editor \nOL,13, and Muttlee - Multi User Tele Text Live\nOL,14, Editing Environment.                   \nOL,16,\u001bFThanks also to the many people who     \nOL,17,\u001bFhave saved equipment and manuals and   \nOL,18,\u001bFwho have documented the history on     \nOL,19,\u001bFwhich we can use to persue everything  \nOL,20,\u001bFteletext.                              \nOL,23,                                    \u001bC2/2\nOL,24,\u001bANext                       \u001bFEngineering",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "414",
+            "green": "411",
+            "yellow": "8FF",
+            "blue": "700",
+            "index": "8FF"
+          }
         }
       ]
     },
@@ -208,7 +432,14 @@
       "subpages": [
         {
           "outputLines": "OL,0,        CEEFAX 1 100 Sat 12 Feb\u001bC13:40/30\nOL,1,\u001bW`ppp`ppp`ppp\u001bT||,,,<,,<,,<,,|,,,|,l<,|||\nOL,2,\u001bWj $zj $zj tz\u001bT\u001b]\u001bS7#jsjsjshs4ouz?\u001bT \nOL,3,\u001bWj %fj %jj 'k\u001bT\u001b]\u001bSupjpjpj j 55j\u001bT \nOL,4,\u001bW\"###\"###\"###\u001bT##########################\nOL,5,\u001bCHome News                              \nOL,6,\u001bMLAUNCH OF CEEFAX AND ORACLE        \u001bC101\nOL,8,\u001bD```````````````````````````````````````\nOL,9,\u001bCA-Z INDEX     \u001bG199\u001bCNEWS HEADLINES  \u001bG101\nOL,10,\u001bCBBC INFO      \u001bG695\u001bCNEWS FOR REGION \u001bG160\nOL,11,\u001bCCHILDREN      \u001bG570\u001bCNEWSROUND       \u001bG571\nOL,12,\u001bCCOOKERY       \u001bG560\u001bCRADIO      \u001bGBBC1\u001bG640\nOL,13,\u001bCCOMMUNITY\u001bGBBC2\u001bG650\u001bCREAD HEAR  \u001bGBBC2\u001bG640\nOL,14,\u001bC                                       \nOL,15,\u001bCENTERTAINMENT \u001bG500\u001bCSPORT           \u001bG300\nOL,16,\u001bCFILMS        \u001bG 540\u001bCSUBTITLING      \u001bG888\nOL,17,\u001bCFINANCE\u001bG  BBC2\u001bG200\u001bCTRAVEL          \u001bG430\nOL,18,\u001bCGAMESTATION   \u001bG550\u001bCTV FEATURES     \u001bG324\nOL,19,\u001bCHORSERACING   \u001bG660\u001bCTV LINKS        \u001bG615\nOL,20,\u001bCLOTTERY       \u001bG555\u001bCTV LISTINGS     \u001bG600\nOL,21,\u001bCMUSIC         \u001bG530\u001bCWEATHER         \u001bG400\nOL,22,\u001bC                  \u001bC                    \nOL,23,\u001bD\u001b]\u001bCCeefax: The world at your fingertips \nOL,24,\u001bAHeadlines \u001bBSport \u001bCWest News \u001bFA-Z Index ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "100",
+            "green": "8FF",
+            "yellow": "8FF",
+            "blue": "8FF",
+            "index": "8FF"
+          }
         }
       ]
     },
@@ -217,11 +448,25 @@
         null,
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,2,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,3,\u001bR`````````ba````````````````````````````\nOL,4,                                     1/2\nOL,5,\u001bCSO WHAT'S THIS ALL ABOUT?              \nOL,6,\u001bFI'm reviewing the last track on every  \nOL,7,\u001bFalbum in the NOW That's What I Call    \nOL,8,\u001bFMusic! series.                         \nOL,9,\u001bB                                       \nOL,10,\u001bCFOR CRYING OUT LOUD, WHY?              \nOL,11,\u001bFIn an age of instant playlists and     \nOL,12,\u001bFSpotify, you might think the           \nOL,13,\u001bFcompilation album dead, but they're    \nOL,14,\u001bFresilient things - cropping up in      \nOL,15,\u001bFsupermarkets, petrol stations and even \nOL,16,\u001bFrecord shops. Why not, then, strike a  \nOL,17,\u001bFblow for curation and look at the      \nOL,18,\u001bFgrandaddy of them all? NOW compilations\nOL,19,\u001bFstill pack a cultural punch, out-      \nOL,20,\u001bFselling most other albums each year.   \nOL,21,\u001bFSo what about the art of creating them?\nOL,23,\u001bD\u001b]\u001bC        NOW reviews: p421            \nOL,24,\u001bANOW reviews \u001bBNew Digi!\u001bC Events\u001bF Archive",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "421",
+            "green": "470",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,2,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,3,\u001bR`````````ba````````````````````````````\nOL,4,                                     2/2\nOL,5,\u001bCSO YOU'RE REVIEWING... THE\u001bELAST\u001bCTRACK? \nOL,6,\u001bFThat's it. See, it's not difficult to  \nOL,7,\u001bFstart a compilation. You need something\nOL,8,\u001bFbig, bombastic, ideally a recent Number\nOL,9,\u001bF1. Probably Queen, to be honest. But   \nOL,10,\u001bFfinishing it? Hmm. Do you go for a pop \nOL,11,\u001bFgem? Opt for classic rock? Or maybe,   \nOL,12,\u001bFgiven there's nothing to lose at this  \nOL,13,\u001bFstage, an experimental or novelty hit? \nOL,14,\u001bFAs we'll see, NOW goes for them all in \nOL,15,\u001bFturn, which makes the last tracks on   \nOL,16,\u001bFthe albums far more fascinating and    \nOL,17,\u001bFvaried than the first ones.            \nOL,18,\u001bF                                       \nOL,19,\u001bFSo let's skip to the end and see what  \nOL,20,\u001bFNOW has to offer the diligent. Hold on \nOL,21,\u001bFto your headphones...                  \nOL,22,\u001bF                                       \nOL,23,\u001bD\u001b]\u001bC        NOW reviews: p421            \nOL,24,\u001bANOW reviews \u001bBNew Digi!\u001bC Events\u001bF Archive",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "421",
+            "green": "470",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         }
       ]
     },
@@ -230,19 +475,47 @@
         null,
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,2,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,3,\u001bR`````````ba````````````````````````````\nOL,5,\u001bENOW 1: CULTURE CLUB - VICTIMS          \nOL,6,\u001bEPeaked at\u001bFNumber 3\u001bEin December 1983    \nOL,8,\u001bGIt was the occult fireside companion,  \nOL,9,\u001bGPrediction magazine, that looked at Boy\nOL,10,\u001bGGeorge's birth star chart in 1984 and  \nOL,11,\u001bGforesaw he would soon stop collecting  \nOL,12,\u001bGdolls, settle down and get a nice wife.\nOL,14,\u001bFHindsight, unlike astrology, is an     \nOL,15,\u001bFexact science, but in spite of his     \nOL,16,\u001bFinterview with Woman magazine where he \nOL,17,\u001bFprofessed relationships with men and   \nOL,18,\u001bFwomen, few outside Culture Club would  \nOL,19,\u001bFhave known about George O'Dowd's       \nOL,20,\u001bFultimately troubled relationship with  \nOL,21,\u001bFthe band's drummer, Jon Moss.          \nOL,22,\u001bF                                   1/4 \nOL,23,\u001bD\u001b]\u001bC                    More follows >>> \nOL,24,\u001bA  About\u001bB   Index\u001bC   Events  \u001bF Archive  ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "420",
+            "green": "400",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,2,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,3,\u001bR`````````ba````````````````````````````\nOL,5,\u001bENOW 1: CULTURE CLUB - VICTIMS          \nOL,7,\u001bFBut that relationship turned out to be \nOL,8,\u001bFthe dynamo behind many of Culture      \nOL,9,\u001bFClub's early hits, and this is probably\nOL,10,\u001bFthe tensest of those. Now 1's already  \nOL,11,\u001bFtreated us to Karma Chameleon (side two\nOL,12,\u001bFtrack one), but the compilation's      \nOL,13,\u001bFcloser couldn't be more different.     \nOL,14,\u001bF                                       \nOL,15,\u001bFSparse and unsparing, Victims majors on\nOL,16,\u001bFsolo piano and strips back the layers  \nOL,17,\u001bFto bare emotional bruising. Culture    \nOL,18,\u001bFClub were always good at this - Karma  \nOL,19,\u001bFChameleon is one of the most upbeat    \nOL,20,\u001bFsongs about alienation you'll ever     \nOL,21,\u001bFhear.                                  \nOL,22,\u001bF                                   2/4 \nOL,23,\u001bD\u001b]\u001bC                    More follows >>> \nOL,24,\u001bA  About\u001bB   Index   \u001bCEvents  \u001bF Archive  ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "420",
+            "green": "400",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,2,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,3,\u001bR`````````ba````````````````````````````\nOL,5,\u001bENOW 1: CULTURE CLUB - VICTIMS          \nOL,6,\u001bE                                       \nOL,7,\u001bFVictims, though, doesn't sugar-coat its\nOL,8,\u001bFbleakness - it pulls back the mask and \nOL,9,\u001bFwhat's revealed is red-raw.            \nOL,10,\u001bG                                       \nOL,11,\u001bFSo it's powerful melodically, and the  \nOL,12,\u001bFlyrics? Ah... not so much. They're     \nOL,13,\u001bFoddly throwaway, George sings of 'those\nOL,14,\u001bFthings' repeatedly, and it's as if the \nOL,15,\u001bFband had 'Finish words to Victims' on a\nOL,16,\u001bFto-do list but didn't quite manage to  \nOL,17,\u001bFget round to it before release. Culture\nOL,18,\u001bFClub's strength in verbal, as well as  \nOL,19,\u001bFvocal, hooks isn't really in evidence  \nOL,20,\u001bFhere, and this smacks of a disposable  \nOL,21,\u001bFalbum track rather than a Top 3 single.\nOL,22,\u001bF                                   3/4 \nOL,23,\u001bD\u001b]\u001bC                    More follows >>> \nOL,24,\u001bA  About\u001bB   Index   \u001bCEvents  \u001bF Archive  ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "420",
+            "green": "400",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         },
         {
           "outputLines": "OL,0,XXXXXXXXTEEFAX mpp DAY dd MTH \u001bC hh:nn.ss\nOL,1,\u001bR~k4~k4hj5   (l0n= j5(l0x$n=  \u001bS  jd  =0\nOL,2,\u001bRj5oz%ozz%p  n{5j5 j5n{5{%j5000\u001bSf; (s% \nOL,3,\u001bR`````````ba````````````````````````````\nOL,5,\u001bENOW 1: CULTURE CLUB - VICTIMS          \nOL,6,\u001bE                                       \nOL,7,\u001bFVictims is also an odd, and possibly   \nOL,8,\u001bFdefining, choice for a Now closing     \nOL,9,\u001bFtrack. Not the obvious smoochy school- \nOL,10,\u001bFdisco finale you might expect, it's a  \nOL,11,\u001bFdeal more challenging than that.       \nOL,12,\u001bFBut it's still an oddly unambitious    \nOL,13,\u001bFway to finish the first in a           \nOL,14,\u001bFcompilation series that certainly      \nOL,15,\u001bFhasn't lacked ambition over the years. \nOL,16,\u001bFWe've got at least 104 more episodes to\nOL,17,\u001bFgo in that story.                      \nOL,18,\u001bF                                       \nOL,19,\u001bCWith thanks to Howard Ingham           \nOL,20,\u001bF                                       \nOL,21,\u001bF                                       \nOL,22,\u001bF                                   4/4 \nOL,23,\u001bD\u001b]\u001bC     NEXT TIME: Paul McCartney       \nOL,24,\u001bA  About\u001bB   Index   \u001bCEvents  \u001bF Archive  ",
-          "encoding": "g0_latin__english"
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "420",
+            "green": "400",
+            "yellow": "800",
+            "blue": "200",
+            "index": "100"
+          }
         }
       ]
     },
@@ -250,6 +523,29 @@
       "subpages": [
         {
           "outputLines": "OL,1,\u001bB TEEFAX Telesoftware Index Placeholder \nOL,3,\u001bR#7!7#!5  7#!7#kj#k57#!#7!5  j 7k 7k 7#!\nOL,4,\u001bR u up0u  up0uppj  5up0 u u 0j`uz0uz0up0\nOL,5,\u001bR          j  5     5jj5 5 5  \nOL,6,\u001bR  p0p0p0upjpp5    puzj5 5 5p0\nOL,8,            \u001bBCOMING SOON *              \nOL,22,   \u001bB* for undefined values of \"soon\"    \nOL,24,\u001bAMain Menu \u001bBNews Index \u001bCEvents \u001bFFeatures",
+          "encoding": "g0_latin__english",
+          "fastext": {
+            "red": "100",
+            "green": "104",
+            "yellow": "800",
+            "blue": "600",
+            "index": "100"
+          }
+        }
+      ]
+    },
+    "46A": {
+      "subpages": [
+        {
+          "outputLines": "OL,1,|B21111|a17CATALOG|i14DATA|l10|s~n5bytes\nOL,2,|s`95BASIC|s`:2~X~X|s~k5Notes|s`<4Text|s\nOL,3,~m3ANY|s`?3BBC|s`E2~W~W'~\\~u~^TEEFAX Tel\nOL,4,esoftware. Details on P460~w~\\~u    ~_ U\nOL,5,se~^Down-Arrow~_for more~[\u001bW~]~YTest~]\u001bQ~b\nOL,6,  2E \u001bV\u001b]~r~X\u001b]`(#~\\k~[***|c               ",
+          "encoding": "g0_latin__english"
+        }
+      ]
+    },
+    "46B": {
+      "subpages": [
+        {
+          "outputLines": "OL,1,|B21111|a14Test|i13BAS|m10~e~X~b~c ~L TE\nOL,2,ST~e~X~l~n ~I \"HELLO WORLD \";~e~X~v~c ~=\nOL,3, `5TT@~e~W|c                            ",
           "encoding": "g0_latin__english"
         }
       ]

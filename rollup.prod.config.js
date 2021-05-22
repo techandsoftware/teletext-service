@@ -4,13 +4,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from "rollup-plugin-terser";
 
-// preamble in the minified source
-const OUTPUT_BANNER = '// TODO output_banner';
-// const OUTPUT_BANNER = `// SPDX${''}-FileCopyrightText: (c) 2021 Tech and Software Ltd.
-// // SPDX${''}-FileCopyrightText: (c) 2017 dosaygo
-// // SPDX${''}-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
-// // LicenseRef-uk.ltd.TechAndSoftware-1.0 refers to https://techandsoftware.robdev.org.uk/LICENSES/LicenseRef-uk.ltd.TechAndSoftware-1.0.txt`;
-
 export default {
   input: {
     "teletext-service": 'src/ServiceView.js'
@@ -43,9 +36,6 @@ export default {
           regex: /^_.+|.+_$/, // ^_.+ for private methods, and .+_$ for internal methods
         },
       },
-      format: {
-        preamble: OUTPUT_BANNER
-      }
     }),
     resolve(),
   ]

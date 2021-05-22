@@ -1,0 +1,386 @@
+SPDX-FileCopyrightText: © 2021 Tech and Software Ltd.
+
+Software Licence
+
+PLEASE READ CAREFULLY BEFORE PROCEEDING TO INSTALL OR USE THIS SOFTWARE
+
+This end-user licence agreement (“Licence”) is a legal agreement between you and Tech and 
+Software Limited, a company formed in accordance with the laws of England with registered 
+office situated at 2nd Floor, The Port House, Port Solent Marina, Portsmouth, Hampshire, 
+United Kingdom, PO6 4TH, with registered company number 10393375 (“Tech and Software”) to 
+use and/or modify a software package which renders teletext in vector graphics and provides 
+an API. This Licence governs your use of the software. We licence our software to you on the 
+basis of this Licence. We do not sell the software. We remain the owners of the Licensed 
+Materials at all times.
+
+IMPORTANT NOTICE:
+
+* By using the software licensed by this agreement, you agree to the terms of this Licence, 
+which will legally bind you. The terms of this Licence include restrictions in your use of 
+the Software and limitations of liability as set out at clause 8 below.
+* If you do not agree to the terms of this licence, you must not use the Licensed Materials, 
+regardless of the way you may have received it.
+* You are able to licence this software under the terms of the Affero General Public Licence 
+(“AGPL”). A copy of the AGPL is available at https://www.gnu.org/licenses/agpl-3.0.en.html. 
+See README.md in the application source code for more information. You are not entitled to 
+licence a modified version of this software on the terms of the AGPL unless the copy of the 
+software you receive was itself licensed under the terms of the AGPL.
+
+1. Definitions
+
+In this Licence, the following terms shall have the following meanings:
+
+Application                  a software application which incorporates the Licensed Materials or
+                             any part of them
+Customer                     a person that engages you to develop, deliver an Application, supply
+                             services which incorporates the Licensed Materials or any part of 
+                             them and/or Modify the Licensed Materials, and in each case whether 
+                             for money or money’s worth or not
+Distribute                   includes without limitation (1) making available the Licensed Software
+                             as a standalone package, whether Modified or not, in combination with
+                             other software, integrated and/or embedded in other software not
+                             produced by Tech and Software; and/or (2) making available the
+                             functionality of the Licensed Materials (in whole or in part) in any
+                             form to a third party as a service or otherwise howsoever.
+Intellectual Property Rights all patents, rights in inventions, rights in designs, trade marks,
+                             trade and business names and all associated goodwill, rights to sue
+                             for passing off, copyright, moral rights and related rights, rights in
+                             databases, domain names, design rights, rights in information
+                             (including know how and trade secrets) and all other similar or
+                             equivalent rights subsisting now or in the future in any part of the
+                             world, in each case whether registered or unregistered and including
+                             all applications for, and renewals or extensions of, such rights for
+                             their full term.
+Licence Fee                  the fee payable to acquire a licence to Use the Licensed Materials for
+                             the Term, payable via techandsoftwareltd@outlook.com
+Licensed Materials           the Software as may be released and updated from time to time
+Minimum Equipment            the hardware and software prerequisites to use the Licensed Materials
+                             as described in the documentation in the package source code, and may
+                             be updated from time to time
+Modify                       modify, change, amend, incorporate, integrate, combine or cause to
+                             interoperate with any other software. “Modified” shall be construed
+                             accordingly.
+Personnel                    employees and third party contractors which perform services for the
+                             party specified
+Repository                   https://bitbucket.org/rahardy/teletext
+Software                     the software licensed by this agreement, named [insert name of the
+                             software product licensed], whereby the current version is published
+                             at the Repository
+Term                         the duration of our permission to you to Use the Licensed Materials[,
+                             which shall be 12 months from the date of the order unless otherwise
+                             specified in the order form used to purchase a licence]
+Trade Marks                  trade marks and trade names incorporated into the Licensed Materials
+                             whether or not used as a trade mark, including but not limited to
+                             “Tech and Software”
+Use                          to store, copy, install, configure, load and/or execute 
+
+2. Commencement 
+
+   2.1. This Agreement comes into effect on the date that you receive, download or use the 
+   Licensed Materials, whichever is the earlier.
+
+   2.2. Tech and Software hereby licenses you to use the Licensed Materials upon the terms 
+   and conditions set out below and not further or otherwise.
+
+
+3. Grant of Licences
+
+   3.1. Tech and Software hereby grants you a non-exclusive, revocable and non-transferable, 
+   personal licence to Use and/or Modify the Licensed Materials in accordance with the 
+   express terms of this Licence and not further or otherwise.
+   
+   3.2 You may Use and Modify the Licensed Materials for the Term upon payment of the 
+   Licence Fee provided that you:
+      
+      3.2.a retain a copy of this Licence in the root directory of the directory containing 
+      the Licensed Materials, and if a copy does not exist in that location in the Licenced 
+      Materials received, cause a copy to be placed and maintained in that location;
+      
+      3.2.b. Use the Licensed Materials in accordance with laws and regulations in force in 
+      the geographic location(s) which the Licensed Materials are Used and/or accessed; and
+      
+      3.2.c. otherwise comply with the terms of this Licence.
+   
+   3.3. Licence to You: Upon payment of the Licence Fee, you may:
+
+      3.3.a. Use and Modify the Licensed Materials for your own internal business purposes; 
+      and
+      
+      3.3.b. authorise your Personnel to Use and Modify Licensed Materials solely for the 
+      purpose of providing services to you, subject in any event to your continued 
+      compliance with all of terms of this Licence.
+
+   3.4. Sublicensing: You may Distribute Licensed Materials and/or Licensed Materials 
+   Modified by your Personnel (whether as part of an Application or not) to a Customer, 
+   provided that:
+      
+      3.4.a. you do not purport to transfer the Intellectual Property Rights vesting the 
+      Licensed Materials;
+
+      3.4.b. you comply with the terms of clause 2.2 at all times;
+
+      3.4.c. the Licence Fee:
+
+         3.4.c.i. is paid by the Customer to Tech and Software to Use and Modify the 
+         Licensed Materials or such part of them supplied to the Customer; or
+
+         3.4.c.ii. you pay the Licence Fee on behalf of your Customer, and you remain liable 
+         to Tech and Software for payment of the then prevailing Licence Fee(s) payable for 
+         Use of the Licensed Materials for the period of time which that third party has 
+         Used the Licensed Materials or any part thereof.
+
+   3.5. You shall not:
+
+      3.5.a. Use or Modify the Licence Materials or any part of them without paying the 
+      Licence Fee;
+
+      3.5.b. alter, remove, obfuscate or suppress any Trade Mark which appears as part of 
+      the functioning of the Licensed Materials;
+
+      3.5.c. attempt to sublicence the Licensed Materials in the absence of paying the 
+      Licence Fee;
+
+      3.5.d. modify, adapt, translate, develop or make derivative works of the Licensed 
+      Materials, and/or combine, link to, incorporate and/or monitor the Licensed Materials 
+      in any way before paying the applicable Licence Fees;
+
+      3.5.e. extract or use any part of the Licensed Materials as part of another software 
+      application or device without a paying the applicable Licence Fees in advance;
+
+      3.5.f. use the Licensed Materials or any part of it to create, support similar 
+      functionality or facilitate similar services to that provided by the Licensed 
+      Materials; and/or
+      
+      3.5.g. accept payment or raise any charge for supplying, using or making available the 
+      Licensed Materials other than for the Licence Fee.
+
+   3.6. If you Use the Licensed Materials or any part of it contrary to the terms of this 
+   Licence, this Licence and any sublicence granted under it shall automatically terminate 
+   and you will not be entitled to Use the Licensed Materials or any part of them.
+
+4. Warranties
+
+   4.1. You shall: 
+
+      4.1.a. ensure that the Licensed Materials are used with equipment and on systems for 
+      which it is designed, in a proper manner by competent and expert Personnel only or by 
+      persons under their supervision;
+
+      4.1.b. not use any advertising materials and promotional literature containing the 
+      Trade Marks or other references to the Licensed Materials, without the prior written 
+      consent of Tech and Software;
+
+      4.1.c. shall not make any written statement as to the quality or capabilities of Tech 
+      and Software and/or the Licensed Materials without the prior written approval of Tech 
+      and Software;
+
+      4.1.d. use the Licensed Materials using hardware and software which satisfy the 
+      requirements of the Minimum Equipment;
+
+      4.1.e. at your own expense comply with all laws and regulations relating to your 
+      activities, as they may change from time to time, and with any conditions binding on 
+      you in any applicable licences, registrations, permits and/or approvals; and
+
+      4.1.f. observe all recommendations given to you by Tech and Software in relation to 
+      the Use of the Licensed Materials;
+
+   4.2. You shall not engage in or cooperate with any deceptive, misleading or unethical 
+   practices that are, or might be, detrimental to Tech and Software, the Licensed Materials 
+   or the public and you shall not publish, employ, contribute to, entice or co-operate in 
+   the publication or employment of any false, misleading or deceptive advertising material 
+   or other representations or statements with regard to Tech and Software and/or the 
+   Licensed Materials.
+
+   4.3. The Licensed Materials have not been developed for your particular needs. No 
+   warranty is given by Tech and Software that the Licensed Materials will be suitable for 
+   any particular purpose.
+
+
+5. Intellectual Property Rights
+
+   5.1. The Intellectual Property Rights vesting in the Licensed Materials are and shall 
+   remain the property of Tech and Software.
+
+   5.2. The Intellectual Property Rights vesting in modifications to the Licensed Materials 
+   made by you while you are properly licensed to Use the Licensed Materials under this 
+   License are and shall remain your property and shall otherwise be owned by Tech and 
+   Software.
+
+   5.3. You shall not do or authorise any third party to do any act which would or might 
+   invalidate or be inconsistent with any Intellectual Property Rights of Tech and Software 
+   and you shall not omit or authorise any third party to omit to do any act which, by its 
+   omission, would have that effect or character.
+
+   5.4. You shall not remove or obscure in any way copyright and trade mark notices 
+   incorporated into the Licensed Materials by Tech and Software.
+
+6. Termination
+
+Tech and Software may terminate this Licence at any time without notice by any means and 
+without cause or reason, whereupon you shall permanently cease to use the Licensed Materials 
+and irretrievably delete all copies in your possession or control and those to whom you have 
+made available copies.
+
+7. Consequences of Termination
+
+   7.1. Upon the expiry or termination of this Licence for whatever reason:
+
+      7.1.a. any rights, remedies, obligations or liabilities of the parties that have 
+      accrued up to the date of termination or expiry, including the right to claim damages 
+      and/or interim injunctive relief in respect of any breach of the agreement which 
+      existed at or before the date of termination or expiry shall not be affected or 
+      prejudiced;
+
+      7.1.b.  the continuation after termination of any provision expressly stated to 
+      survive or implicitly surviving termination shall not be affected or prejudiced; and
+
+      7.1.c. all rights and licences granted to you and/or your Personnel under this 
+      agreement shall terminate immediately.
+
+   7.2. The rights and remedies provided to you under this Licence are your sole remedies 
+   under this Licence and inclusive of any rights or remedies provided by law.
+
+8. Limitations of Liability
+
+   8.1. The following provisions set out the entire financial liability of Tech and Software 
+   including without limitation any liability for the acts or omissions of its employees, 
+   agents, directors and sub-contractors in respect of:
+
+         8.1.a. any breach of this Licence howsoever arising;
+
+         8.1.b. any use made by your or your Personnel of the Licensed Materials or any part 
+         of them; and/or
+
+         8.1.c. any representation (whether innocent or negligent), statement or tortious 
+         act or omission (including without limitation negligence) arising under or in 
+         connection with this Licence.
+
+   8.2. Nothing in this clause 8 shall limit either party's liability for death or personal 
+   injury resulting from negligence or for fraud, fraudulent misstatement or fraudulent 
+   misrepresentation.
+
+   8.3. Except as expressly provided in this Licence (a) the Licensed Materials are provided 
+   on an “as is” basis, (b) you assume responsibility for the use and results of use of the 
+   Licensed Materials and for the conclusions drawn from such use, and (c) all warranties, 
+   conditions and other terms including those implied by statute or common law are to the 
+   fullest extent permitted by law are excluded.
+
+   8.4. Tech and Software shall not be liable (in contract, tort (including negligence) or 
+   for breach of statutory duty or in any other way) for loss of profits, loss of business, 
+   depletion of goodwill or similar losses, loss of anticipated savings, loss of goods, loss 
+   of use, loss or corruption of data or information; any loss of goodwill or reputation; or 
+   any special, indirect, consequential loss, or pure economic loss, costs, damages, charges 
+   or expenses suffered or incurred by the other party arising out of or in connection with 
+   the use of the Licensed Materials, or any other matter arising under or connected with 
+   this Licence.
+
+   8.5. Other than in relation to any liability under clause 8.2, the Licensor’s total 
+   aggregate liability in contract, tort (including negligence or breach of statutory duty 
+   howsoever arising), misrepresentation (whether innocent or negligent), restitution or 
+   otherwise, arising in connection with the performance or contemplated performance of this 
+   agreement shall in all circumstances be limited to £100.00.
+
+   8.6. Tech and Software shall not be responsible for the maintenance, accuracy or good 
+   running of any version of the Licensed Materials.
+
+   8.7. You shall indemnify Tech and Software against all liabilities, claims, costs and 
+   expenses which Tech and Software may be suffered arising from or connected to misuse, 
+   unlawful use of the Licensed Materials, breach of the terms of this agreement and/or your 
+   use of third party Intellectual Property Rights.
+
+   8.8. The express terms of this Licence are in lieu of all warranties, conditions, terms, 
+   undertakings and obligations implied by statute, common law, custom, trade usage, course 
+   of dealing or otherwise all of which are hereby excluded to the fullest extent permitted 
+   by law.
+
+   8.9. The provisions of this clause 8 shall continue to apply notwithstanding the 
+   termination or expiry of this Licence for any reason or cause.
+
+9. Export Control
+
+Neither party shall export, directly or indirectly, any technical data or information 
+acquired from the other party under this Licence (or any products, including software, 
+incorporating any such data) in breach of any applicable laws or regulations, including the 
+Export Control Act and export laws and regulations of any country, to any country for which 
+the government or any agency thereof at the time of export requires an export licence or 
+other governmental approval without first obtaining such licence or approval.
+
+10. Entire agreement
+
+This Agreement supersedes all prior agreements, arrangements and undertakings between the 
+parties and constitutes the entire agreement between the parties relating to its subject 
+matter.  Each party acknowledges that in entering into this agreement it does not rely on, 
+and shall have no remedies in respect of, any statement, representation, assurance or 
+warranty (whether made innocently or negligently) that is not set out in this agreement. 
+Each party agrees that it shall have no claim for innocent or negligent misrepresentation or 
+negligent misstatement based on any statement in this agreement. No variation of this 
+agreement shall be effective unless it is in writing and signed by the parties.
+
+11. Waiver
+
+Unless a party expressly waives its rights in writing, no delay, neglect or forbearance by 
+either party in enforcing against the other party any term or condition of this Licence 
+shall either be or be deemed to be a waiver or in any way prejudice any right of that party 
+under this Licence. No right, power or remedy in this Licence conferred upon or reserved for 
+either party is exclusive of any other right, power or remedy available to that party.
+
+12. Agency
+
+Nothing in this Licence is intended to or shall be deemed to establish any partnership or 
+joint venture between any of the parties, constitute any party the agent of another party, 
+or authorise any party to make or enter into any commitments for or on behalf of any other 
+party, save as expressly set out herein.
+
+13. Notices
+
+All notices which are required to be given hereunder shall be in writing and may be sent to 
+any known email address of the party. If an email address is not known for the party, notice 
+may be delivered to the last known email address of the party and/or posted such other 
+online presence as the recipient may have. Any such notice may also be delivered personally 
+or by first class pre-paid letter and shall be deemed to have been served if by hand when 
+delivered if by first class post 48 hours after posting and if by email or post when 
+dispatched or posted.
+
+14. Updates
+
+Tech and Software may update the terms of this time from time to time. Should you not 
+approve of the terms of the then amended Licence, you must cease to use the Licensed 
+Materials.
+
+15. Interpretation 
+
+   15.1. In this Licence: 
+
+      15.1.a. reference to any statute or statutory provision includes a reference to that 
+      statute or statutory provision as from time to time amended extended or re-enacted;
+
+      15.1.b. words importing the singular include the plural, words importing any gender 
+      include every gender and words importing persons include bodies corporate and 
+      unincorporate; and (in each case) vice versa;
+
+      15.1.c. the headings to the Clauses are for ease of reference only and shall not 
+      affect the interpretation or construction of this Licence;
+
+      15.1.d. a reference to a person includes a natural person, corporate or unincorporated 
+      body (whether or not having separate legal personality);
+
+      15.1.e. a reference to a you shall include any company, corporation or other body 
+      corporate, wherever and however incorporated or established; and
+
+      15.1.f. a reference to writing or written includes email.
+
+16. Third parties
+
+No one other than a party to this Licence shall have any right to enforce this agreement.
+
+17. Choice of Law and Jurisdiction
+
+This Licence is governed by English law and you irrevocably submit to the exclusive 
+jurisdiction of English Courts to decide any dispute or claim arising out of or in 
+connection with this agreement or its subject matter or formation, including non-contractual 
+claims.  Tech and Software may issue proceedings in the Courts of any place where 
+infringement of its rights takes place or the terms of this contract are breached by you or 
+your Personnel.
+
+
+END

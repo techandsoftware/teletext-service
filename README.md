@@ -1,3 +1,6 @@
+<!-- SPDX-FileCopyrightText: © 2021 Tech and Software Ltd. -->
+<!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
+
 The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) and [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster).  It adds subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher.
 
 This implements the display portion of teletext and wraps it up as a web app.  It's not an emulator as it doesn't decode the VBI transmission  part like a TV or teletext display adapter.
