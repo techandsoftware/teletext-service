@@ -5,7 +5,7 @@ import { Teletext, Level } from '@techandsoftware/teletext';
 
 const DEFAULT_HEADER = '       %%#  %%a %e %%b \x1bC%H:%M/%S';
 
-export class Service {
+export class TeletextService {
     constructor(options) {
         if (typeof options != 'object') throw new Error("E8 Service.constructor: options object required");
         if (!('DOMSelector' in options)) throw new Error("E9 Service.constructor DOMSelector property required");

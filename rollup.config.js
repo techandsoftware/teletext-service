@@ -6,20 +6,19 @@ import browsersync from 'rollup-plugin-browsersync';
 
 export default {
   input: {
-    ViewerApp: 'src/ViewerApp.js',
+    "teletext-service": 'src/ServiceView.js'
   },
   output: {
     entryFileNames: '[name].js',
-    dir: 'public/dist',
+    dir: 'dist',
     format: 'es',
     sourcemap: true,
-    preserveModules: true,
-    preserveModulesRoot: 'src',
   },
   plugins: [
     resolve(),
     browsersync({
-      server: 'public'
+      server: '.',
+      startPath: "./public/viewer.html"
     }),
-  ],
+  ]
 };
