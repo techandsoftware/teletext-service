@@ -1,15 +1,23 @@
 {
-  "name": "teletext-viewer",
+  "name": "@techandsoftware/teletext-service",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Teletext service API and web application to view pages and navigate between them",
+  "module": "dist/teletext-service.min.js",
   "type": "module",
   "scripts": {
     "start": "rollup -c -w",
-    "build": "rollup -c rollup.prod.config.js"
+    "build": "rollup -c rollup.prod.config.js",
+    "reuselint": "reuse lint"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "Tech & Software Ltd. <techandsoftwareltd@outlook.com>",
+  "license": "((AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0) AND CC0-1.0 AND LGPL-2.1-or-later)",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/rahardy/teletext-service-viewer.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/rahardy/teletext-service-view/issues"
+  },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
     "eslint": "^7.25.0",
@@ -18,8 +26,14 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
-    "@techandsoftware/teletext": "file:../teletext",
+    "@techandsoftware/teletext": "^0.12.0",
     "@techandsoftware/teletext-caster": "^0.10.0",
-    "@techandsoftware/teletext-plugin-smooth-mosaic": "^0.1.2"
-  }
+    "@techandsoftware/teletext-plugin-smooth-mosaic": "^0.1.4"
+  },
+  "files": [
+    "LICENSES",
+    "public",
+    "dist",
+    "package.json.license"
+  ]
 }
