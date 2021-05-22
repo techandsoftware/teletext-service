@@ -1,7 +1,7 @@
 <!-- SPDX-FileCopyrightText: © 2021 Tech and Software Ltd. -->
 <!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
 
-The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext).  It adds page numbers, subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher. It supports casting pages to Chromecast using and [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster), and higher-resolution mosaic graphics using a pixel-art scaling algorithm via [@techandsoftware/teletext-plugin-smooth-mosaic](https://www.npmjs.com/package/@techandsoftware/teletext-plugin-smooth-mosaic).
+The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext).  It adds page numbers, subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher. It supports casting pages to Chromecast using [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster), and higher-resolution mosaic graphics using a pixel-art scaling algorithm via [@techandsoftware/teletext-plugin-smooth-mosaic](https://www.npmjs.com/package/@techandsoftware/teletext-plugin-smooth-mosaic).
 
 This implements the display portion of teletext and wraps it up as a web app.  It's not an emulator as it doesn't decode the VBI transmission  part like a TV or teletext display adapter.
 
