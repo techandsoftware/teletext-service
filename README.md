@@ -1,7 +1,7 @@
 <!-- SPDX-FileCopyrightText: © 2021 Tech and Software Ltd. -->
 <!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
 
-The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) and [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster).  It adds subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher.
+The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext).  It adds page numbers, subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher. It supports casting pages to Chromecast using and [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster), and higher-resolution mosaic graphics using a pixel-art scaling algorithm via [@techandsoftware/teletext-plugin-smooth-mosaic](https://www.npmjs.com/package/@techandsoftware/teletext-plugin-smooth-mosaic).
 
 This implements the display portion of teletext and wraps it up as a web app.  It's not an emulator as it doesn't decode the VBI transmission  part like a TV or teletext display adapter.
 
@@ -71,6 +71,15 @@ You might need to modify the script to change the regex used for getting the lis
 If you get the error `Error [ERR_REQUIRE_ESM]: Must use import to load ES Module` when you run, then check the node version, as you need v16.
 
 If you're looking where to get the .tti files, then see https://zxnet.co.uk/teletext/emulators/ for some sources from various repositories, such as Teefax.
+
+# Licensing
+
+The core project is licensed under GNU Affero General Public License 3 ([AGPL-3.0-only](https://www.gnu.org/licenses/agpl-3.0.en.html)), or under a commercial software license ([LicenseRef-uk.ltd.TechAndSoftware-1.0](https://techandsoftware.robdev.org.uk/LICENSES/LicenseRef-uk.ltd.TechAndSoftware-1.0.txt)) if you have paid a licensing fee to Tech and Software Ltd. If you combine your own software with this package and distribute publically (whether via network access or not), the AGPL requires that your software is covered by AGPL; the commercial license does not have that requirement. In order to pay the fee for the commercial license, contact <techandsoftwareltd@outlook.com> for enquiries. The text of the licenses is in the `LICENSES` directory.
+
+Dependencies:
+* The fonts supplied in the `public/fonts` directory have their own licenses. See the `*.license` files in that directory.
+* @techandsoftware/teletext-plugin-smooth-mosaic uses LGPL-2.1-or-later
+* js-hqx uses LGPL-2.1-or-later
 
 # TeletextService API
 
