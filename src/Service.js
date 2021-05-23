@@ -118,22 +118,26 @@ export class TeletextService {
         const subpage = this._page.subpages[this._subPageNumber];
         const encoding = 'encoding' in subpage ? subpage.encoding : this._defaultG0Charset;
         const header = this._header.generate_(this._pageNumber);
+        let casterDisplay = {
+            defaultG0Charset: encoding,
+            header: header,
+        };
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
+
         if ('ouputLines' in subpage) {
             const outputLines = subpage.outputLines.split("\n");
             this._ttx.setPageFromOutputLines(outputLines, header);
-            if (this._caster) {
-                this._caster.display({
-                    defaultG0Charset: encoding,
-                    header: header,
-                    outputLines: outputLines
-                });
-            }
+            casterDisplay.outputLines = outputLines;
         } else if ('packed' in subpage) {
             const packed = subpage.packed;
-            this._ttx.loadPageFromEncodedString(packed);
+            this._ttx.loadPageFromEncodedString(packed, header);
+            casterDisplay.packed = packed;
+        } else {
+            casterDisplay = null;
         }
+
+        if (casterDisplay && this._caster) this._caster.display(casterDisplay);
 
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
     }
