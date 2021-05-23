@@ -13,7 +13,7 @@ export class TeletextServiceViewer {
     constructor() {
         this._service = new TeletextService({
             defaultG0Charset: 'g0_latin__english',
-            header: 'TEEFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
+            header: 'FAXFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
             caster: ttxcaster,
             DOMSelector: '#teletextscreen'
         });
