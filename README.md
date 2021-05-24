@@ -286,3 +286,4 @@ An example is in `public/1.json`, or see the URL hash at https://edit.tf (the pa
   * Some example headers can be seen in https://github.com/peterkvt80/vbit2/blob/master/example-vbit.conf
 * The attribute character encoding used for the header and the page data is taken from the Output Line format in MRG's .tti file spec - https://zxnet.co.uk/teletext/documents/ttiformat.pdf
 * The packed page data format is taken from the hash format used by Simon Rawles online teletext editor - https://github.com/rawles/edit.tf
+* Engineering test page in the example 1.json from Ceefax via Teletext Archeologist - https://archive.teletextarchaeologist.org/
