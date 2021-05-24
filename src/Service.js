@@ -19,7 +19,6 @@ export class TeletextService {
         this._ttx.setDefaultG0Charset(this._defaultG0Charset);
         this._ttx.setLevel(Level[1.5]);
         this._ttx.addTo(options.DOMSelector);
-        this._ttx.showTestPage();
 
         this._page = null;
         this._pageNumber = null;

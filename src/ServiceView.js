@@ -10,15 +10,29 @@ import { ttxcaster } from '@techandsoftware/teletext-caster';
 const HELP_PAGE = "OoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6RQIECBAgQYOHDhw4cOHDhw4cOHDhw4cOHBAgQIECBAgQIDo0igQIECBBqAy8vnFvw8siDHv3dOW_ZzI_2qBAgQIECBAgQIECBAgQIEHdAgQIECBAgQIECDjz9IECBAgQIECBAgQIECA6RQIECBAgQIl69evXr169evXr169evXr169KgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOhECCTmQed_VBow9sqDCg15fOLfh5ZFiDrzyoOmjKgQIECA6EQIN3Xbiy8kGvL55oMO7Ig6aMqDXl880GLLs390CBAgQIDoFAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOlNSNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjRo0aNGjR_2iA6U1BECBA_QIECCll7ZcOxAgQIECBAgQIECBAUQIECBB_aoDpTUEQIEG1AgQIJunwgQIECBAgQIECBAgQIEBRAgQIEH9qgOlNQRAgQW0CBAgocsvbTv680HPri4Yc-VAgQFECBAgQf2qA6U1BECBBdQIECCdl8dEHPri4Yc-VAgQIECAogQIECBB_aoDpTUE5L86_yvxIIe_Zv68kGLr06b93NAgQIEBRAgQIEH9qgOlNQRAgQaUCBAgk7smXwgxdenTfuQIECBAgQFECBAgQf2qA6U1BECBB0QIECCpl5ctObTjQZ-WHho04-aDfuX782Yp_aoDpTUEQIEGZAgQII2_d0Qc--npj0IECBAgQIEBRAgQIEH9qgOlNSBAgQIECBAgQIECBAgQIECBAgQIECBAgQFECBAgQf2qA6URL169evXr169evXr169evXr169evXr169evXr169evSoDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA6gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIDqBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgOoECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECA";
 
 export class TeletextServiceViewer {
-    constructor() {
-        this._service = new TeletextService({
+    constructor(options) {
+        const serviceOptions = {
             defaultG0Charset: 'g0_latin__english',
             header: 'FAXFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
             caster: ttxcaster,
             DOMSelector: '#teletextscreen'
-        });
+        };
+        let frontPageNumber = "";
+        if (typeof options == 'object') {
+            for (const prop of ['defaultG0Charset', 'header', 'DOMSelector']) {
+                if (prop in options) serviceOptions[prop] = options[prop];
+            }
+            if ('frontPage' in options) {
+                if (typeof options.frontPage == 'number') frontPageNumber = String(options.frontPage);
+                else if (typeof options.frontPage == 'string') frontPageNumber = options.frontPage;
+                else if (options.frontPage == null) frontPageNumber == "null";
+            }
+        }
+        if (frontPageNumber == "") frontPageNumber = '100';
 
-        this._pageNumber = 'XXX';
+        this._service = new TeletextService(serviceOptions);
+
+        this._pageNumber = frontPageNumber.length == 3 ? frontPageNumber : 'XXX';
         this._fontIndex = 0;
         this._viewIndex = 0;
 
@@ -26,6 +40,7 @@ export class TeletextServiceViewer {
         ttxcaster.castStateChanged.attach(() => this._castStateChanged.call(this));
 
         this._initEventListeners();
+        this._newPage();
     }
 
     _castStateChanged() {
