@@ -13,10 +13,10 @@
   "license": "((AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0) AND CC0-1.0 AND LGPL-2.1-or-later)",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/rahardy/teletext-service-viewer.git"
+    "url": "https://github.com/techandsoftware/teletext-service.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/rahardy/teletext-service-viewer/issues"
+    "url": "https://github.com/techandsoftware/teletext-service/issues"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
