@@ -230,6 +230,7 @@ class TeletextServiceViewer {
             DOMSelector: '#teletextscreen'
         };
         let frontPageNumber = "";
+        let useSmoothMosaics = false;
         if (typeof options == 'object') {
             for (const prop of ['defaultG0Charset', 'header', 'DOMSelector']) {
                 if (prop in options) serviceOptions[prop] = options[prop];
@@ -239,6 +240,7 @@ class TeletextServiceViewer {
                 else if (typeof options.frontPage == 'string') frontPageNumber = options.frontPage;
                 else if (options.frontPage == null) ;
             }
+            if ('smoothMosaics' in options && options.smoothMosaics) useSmoothMosaics = true;
         }
         if (frontPageNumber == "") frontPageNumber = '100';
 
@@ -252,6 +254,7 @@ class TeletextServiceViewer {
         s.castStateChanged.attach(() => this._castStateChanged.call(this));
 
         this._initEventListeners();
+        if (useSmoothMosaics) this._toggleSmoothMosaics();
         this._newPage();
     }
 
@@ -284,7 +287,6 @@ class TeletextServiceViewer {
     }
 
     _initEventListeners() {
-        window.addEventListener('keypress', e => handleKeyPress.call(this, e));
         window.addEventListener('keydown', e => handleKeyDown.call(this, e));
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -355,7 +357,14 @@ class TeletextServiceViewer {
             this._updatePageNumber();
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
+            this._updateFocus();
         }
+    }
+
+    // FUDGE Firefox keeps focus on disabled element which blocks keyboard entry
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1712587
+    _updateFocus() {
+        if (document.activeElement.disabled) document.activeElement.blur();
     }
 
     _updateSubpageNav(meta) {
@@ -404,10 +413,29 @@ class TeletextServiceViewer {
         const bg = `linear-gradient(${deg}deg, hsl(${hue} 100% 7%) 0%, hsl(${hue} 83% 52%) 86%, hsl(${hue} 100% 85%) 100%)`;
         document.body.style.background = bg;
     }
+
+    async _toggleSmoothMosaics() {
+        if (this._smoothPluginIsLoaded) {
+            this._service.teletextInstance.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
+            this._smoothPluginIsLoaded = false;
+            s.setBlockMosaics();
+        } else if (this._viewIndex == 0) {  // plugin works on the graphical mosaic view
+            // Loading the plugin as a dynamic import as it's large
+            // This also avoids having to bundle it with the application lib at build time
+            try {
+                const module = await import('./teletext-plugin-smooth-mosaic.min-06b88500.js');
+                this._service.teletextInstance.registerViewPlugin(module.SmoothMosaicPlugin);
+                this._smoothPluginIsLoaded = true;
+                s.setSmoothMosaics();
+            } catch (e) {
+                console.error('TeletextServiceViewer: Failed to use smooth mosaic plugin: import failed:', e.message);
+            }
+        }
+    }
 }
 
-
-async function handleKeyPress(e) {
+function handleKeyDown(e) {
+    if (e.altKey || e.metaKey || e.ctrlKey) return;
     switch (e.key) {
         case '1':
         case '2':
@@ -454,22 +482,7 @@ async function handleKeyPress(e) {
             break;
 
         case 't': // 'terrific' graphics: pixel art upscaling
-            if (this._smoothPluginIsLoaded) {
-                this._service.teletextInstance.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
-                this._smoothPluginIsLoaded = false;
-                s.setBlockMosaics();
-            } else if (this._viewIndex == 0) {  // plugin works on the graphical mosaic view
-                // Loading the plugin as a dynamic import as it's large
-                // This also avoids having to bundle it with the application lib at build time
-                try {
-                    const module = await import('./teletext-plugin-smooth-mosaic.min-06b88500.js');
-                    this._service.teletextInstance.registerViewPlugin(module.SmoothMosaicPlugin);
-                    this._smoothPluginIsLoaded = true;
-                    s.setSmoothMosaics();
-                } catch (e) {
-                    console.error('App: Failed to use smooth mosaic plugin: import failed:', e.message);
-                }
-            }
+            this._toggleSmoothMosaics();
             break;
 
         case 'r':
@@ -495,28 +508,18 @@ async function handleKeyPress(e) {
         case '=':
         case '+':
         case '>':
+        case "ArrowRight":
             this._nextSubPage();
             break;
 
         case '-':
         case '<':
+        case "ArrowLeft":
             this._previousSubPage();
             break;
 
         case 'c':
             this._generateBackground();
-            break;
-    }
-    
-}
-
-function handleKeyDown(e) {
-    switch (e.key) {
-        case "ArrowLeft":
-            this._previousSubPage();
-            break;
-        case "ArrowRight":
-            this._nextSubPage();
             break;
     }
 }
