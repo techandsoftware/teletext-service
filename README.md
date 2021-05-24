@@ -34,11 +34,12 @@ The JSON structure needed is described below.
 
 ## TeletextServiceViewer module
 
-`TeletextServiceViewer` is a web app wrapper around `TeletextService`. It's tightly-coupled to the HTML so it's not really an API.  It's most likely you'll use the code as it is or fork it.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
+`TeletextServiceViewer` is a web app wrapper around `TeletextService`. It's tightly-coupled to the HTML so it's not really an API but it does support some options.  It's most likely you'll use the code as it is or fork it.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
 
 The Javascript code is invoked with:
 
 ```html
+<div id="teletextscreen"></div>
 <script type="module">
   import { TeletextServiceViewer } from './dist/teletext-service.min.js';
   new TeletextServiceViewer();
@@ -81,17 +82,27 @@ Dependencies:
 * @techandsoftware/teletext-plugin-smooth-mosaic uses LGPL-2.1-or-later
 * js-hqx uses LGPL-2.1-or-later
 
-# TeletextService API
+# TeletextService and TeletextServiceViewer API
 
 ## new TeletextService(options)
 
 Creates a teletext service instance. `options` is required, and has the following properties:
 
-* `DOMSelector` : string (required).  This is a selector string for the teletext screen container, e.g. `#teletextscreen`
-* `defaultG0Charset` : string (optional). Sets the default G0 character set on the teletext instance. If not passed in, the default character set is `g0_latin`. See `setDefaultG0Charset()` in [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) for the available values
-* `caster` : object (optional). Pass in a `ttxcaster` from [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) and this will be used to show pages on the connected Chromecast
-* `header`: string (optional). The string to use as the header row. If not passed in, a default header row is used. See below for tokens that can be used in the header.
-* `fetcher`: object (optional). Pass in an object used to fetch teletext pages. If this is not passed in, then pages are expected to be in JSON and retrieved from same directory of the web page containing the teletext instance.  See the 'Default page data source' section on the expected data format for the default fetcher. See the 'fetcher object' section below for details on passing in your own fetcher.
+```
+{
+    DOMSelector: string,
+    defaultG0Charset?: string,
+    caster?: object,
+    header?: string,
+    fetcher?: object
+}
+```
+
+* `DOMSelector` is required, and is a selector string for the teletext screen container, e.g. `#teletextscreen`
+* `defaultG0Charset` sets the default G0 character set on the teletext instance. If not passed in, the default character set is `g0_latin`. See `setDefaultG0Charset()` in [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) for the available values
+* `caster` - pass in a `ttxcaster` from [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) and this will be used to show pages on the connected Chromecast
+* `header` is the string to use as the header row. If not passed in, a default header row is used. See below for tokens that can be used in the header.
+* `fetcher` - pass in an object used to fetch teletext pages. If this is not passed in, then pages are expected to be in JSON and retrieved from same directory of the web page containing the teletext instance.  See the 'Default page data source' section on the expected data format for the default fetcher. See the 'fetcher object' section below for details on passing in your own fetcher.
 
 ### `header` format
 
@@ -134,6 +145,7 @@ If using the default fetcher, this will get the magazine JSON containing the pag
 Response is a promise. When resolved, the value is:
 * `null` - if the page couldn't be retrieved for any reason. This could be because the page number is invalid, or the magazine JSON couldn't be retrieved, or the page isn't in the JSON, or the page has no subpages.
 * `meta`: object with the following properties:
+
   * `pageNumber`: string - the current page number (100 to 8FF)
   * `subPage`: number - the current subpage number
   * `numSubPages`: number - how many subpages in total for the page
@@ -162,6 +174,23 @@ If the page doesn't have the link, the promise resolves to `null`.
 ## service.teletextInstance property
 
 Returns the teletext instance object (an instance of `@techandsoftware/teletext`), so you can call methods on this directly, for example to change the font, draw pages or any other API calls you need direct access to. For the API, see https://www.npmjs.com/package/@techandsoftware/teletext
+
+## new TeletextServiceViewer(options)
+
+Creates a teletext service viewer instance. `options` is optional and has the following properties:
+```
+{
+    DOMSelector?: string,
+    defaultG0Charset?: string,
+    header?: string
+    frontPage?: string | null
+}
+```
+
+* `DOMSelector` is a selector string for the teletext screen container. Default is `#teletextscreen`
+* `defaultG0Charset` sets the default G0 character set on the teletext instance. Defaults to `g0_latin__english`. See `setDefaultG0Charset()` in [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) for the available values
+* `header`: header row to replace the default header row. See the "`header` format" section above for the format
+* `frontPage`: The front page number, which will be shown automatically. Defaults to page 100.  Pass in null to not show the front page automatically
 
 # Default page data source
 
@@ -247,13 +276,13 @@ In this:
 
 ### `packed` format
 
-String. The contents is a base64-encoded string of 7-bit characters for the 25 rows x 40 characters concatenated together. The encoded string uses the character repertoire defined in the [base64url encoding](https://tools.ietf.org/html/rfc4648#section-5). This format is taken from the edit.tf editor querystring format - see further details here: https://github.com/rawles/edit.tf
+String. The contents is a base64-encoded string of 7-bit characters for the 25 rows x 40 characters concatenated together. The encoded string uses the character repertoire defined in the [base64url encoding](https://tools.ietf.org/html/rfc4648#section-5). This format is taken from the edit.tf editor URL hash segment - see further details here: https://github.com/rawles/edit.tf
 
-An example is in `public/1.json`, or see the querystring at https://edit.tf (the part after the colon)
+An example is in `public/1.json`, or see the URL hash at https://edit.tf (the part after the colon)
 
 # Credits
 
 * The tokens used by the header were taken from vbit2's header config - https://github.com/peterkvt80/vbit2/
   * Some example headers can be seen in https://github.com/peterkvt80/vbit2/blob/master/example-vbit.conf
 * The attribute character encoding used for the header and the page data is taken from the Output Line format in MRG's .tti file spec - https://zxnet.co.uk/teletext/documents/ttiformat.pdf
-* The packed page data format is taken from the querystring format used by Simon Rawles online teletext editor - https://github.com/rawles/edit.tf
+* The packed page data format is taken from the hash format used by Simon Rawles online teletext editor - https://github.com/rawles/edit.tf
