@@ -143,7 +143,14 @@ export class TeletextServiceViewer {
             this._updatePageNumber();
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
+            this._updateFocus();
         }
+    }
+
+    // FUDGE Firefox keeps focus on disabled element which blocks keyboard entry
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1712587
+    _updateFocus() {
+        if (document.activeElement.disabled) document.activeElement.blur();
     }
 
     _updateSubpageNav(meta) {
