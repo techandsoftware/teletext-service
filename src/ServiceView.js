@@ -18,6 +18,7 @@ export class TeletextServiceViewer {
             DOMSelector: '#teletextscreen'
         };
         let frontPageNumber = "";
+        let useSmoothMosaics = false;
         if (typeof options == 'object') {
             for (const prop of ['defaultG0Charset', 'header', 'DOMSelector']) {
                 if (prop in options) serviceOptions[prop] = options[prop];
@@ -27,6 +28,7 @@ export class TeletextServiceViewer {
                 else if (typeof options.frontPage == 'string') frontPageNumber = options.frontPage;
                 else if (options.frontPage == null) frontPageNumber == "null";
             }
+            if ('smoothMosaics' in options && options.smoothMosaics) useSmoothMosaics = true;
         }
         if (frontPageNumber == "") frontPageNumber = '100';
 
@@ -40,6 +42,7 @@ export class TeletextServiceViewer {
         ttxcaster.castStateChanged.attach(() => this._castStateChanged.call(this));
 
         this._initEventListeners();
+        if (useSmoothMosaics) this._toggleSmoothMosaics();
         this._newPage();
     }
 
@@ -198,9 +201,29 @@ export class TeletextServiceViewer {
         const bg = `linear-gradient(${deg}deg, hsl(${hue} 100% 7%) 0%, hsl(${hue} 83% 52%) 86%, hsl(${hue} 100% 85%) 100%)`;
         document.body.style.background = bg;
     }
+
+    async _toggleSmoothMosaics() {
+        if (this._smoothPluginIsLoaded) {
+            this._service.teletextInstance.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
+            this._smoothPluginIsLoaded = false;
+            ttxcaster.setBlockMosaics();
+        } else if (this._viewIndex == 0) {  // plugin works on the graphical mosaic view
+            // Loading the plugin as a dynamic import as it's large
+            // This also avoids having to bundle it with the application lib at build time
+            try {
+                const module = await import('@techandsoftware/teletext-plugin-smooth-mosaic');
+                this._service.teletextInstance.registerViewPlugin(module.SmoothMosaicPlugin);
+                this._smoothPluginIsLoaded = true;
+                ttxcaster.setSmoothMosaics();
+            } catch (e) {
+                console.error('TeletextServiceViewer: Failed to use smooth mosaic plugin: import failed:', e.message);
+            }
+        }
+    }
 }
 
-async function handleKeyDown(e) {
+function handleKeyDown(e) {
+    if (e.altKey || e.metaKey || e.ctrlKey) return;
     switch (e.key) {
         case '1':
         case '2':
@@ -247,22 +270,7 @@ async function handleKeyDown(e) {
             break;
 
         case 't': // 'terrific' graphics: pixel art upscaling
-            if (this._smoothPluginIsLoaded) {
-                this._service.teletextInstance.setView(VIEWS[this._viewIndex]); // resetting the view removes the plugin
-                this._smoothPluginIsLoaded = false;
-                ttxcaster.setBlockMosaics();
-            } else if (this._viewIndex == 0) {  // plugin works on the graphical mosaic view
-                // Loading the plugin as a dynamic import as it's large
-                // This also avoids having to bundle it with the application lib at build time
-                try {
-                    const module = await import('@techandsoftware/teletext-plugin-smooth-mosaic');
-                    this._service.teletextInstance.registerViewPlugin(module.SmoothMosaicPlugin);
-                    this._smoothPluginIsLoaded = true;
-                    ttxcaster.setSmoothMosaics();
-                } catch (e) {
-                    console.error('App: Failed to use smooth mosaic plugin: import failed:', e.message);
-                }
-            }
+            this._toggleSmoothMosaics();
             break;
 
         case 'r':
