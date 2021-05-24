@@ -289,7 +289,9 @@
 <script type="module">
   import { TeletextServiceViewer } from '../dist/teletext-service.min.js';
   // import { TeletextServiceViewer } from '../dist/teletext-service.js';
-  new TeletextServiceViewer();
+  new TeletextServiceViewer({
+    smoothMosaics: true
+  });
 </script>
 <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 
