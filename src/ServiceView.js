@@ -72,7 +72,6 @@ export class TeletextServiceViewer {
     }
 
     _initEventListeners() {
-        window.addEventListener('keypress', e => handleKeyPress.call(this, e));
         window.addEventListener('keydown', e => handleKeyDown.call(this, e));
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -201,8 +200,7 @@ export class TeletextServiceViewer {
     }
 }
 
-
-async function handleKeyPress(e) {
+async function handleKeyDown(e) {
     switch (e.key) {
         case '1':
         case '2':
@@ -290,11 +288,13 @@ async function handleKeyPress(e) {
         case '=':
         case '+':
         case '>':
+        case "ArrowRight":
             this._nextSubPage();
             break;
 
         case '-':
         case '<':
+        case "ArrowLeft":
             this._previousSubPage();
             break;
 
@@ -302,19 +302,6 @@ async function handleKeyPress(e) {
             this._generateBackground();
             break;
 
-        default:
-    }
-    
-}
-
-function handleKeyDown(e) {
-    switch (e.key) {
-        case "ArrowLeft":
-            this._previousSubPage();
-            break;
-        case "ArrowRight":
-            this._nextSubPage();
-            break;
         default:
     }
 }
