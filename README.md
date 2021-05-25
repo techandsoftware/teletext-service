@@ -84,7 +84,7 @@ The core project is licensed under GNU Affero General Public License 3 ([AGPL-3.
 Dependencies:
 * The fonts in @techandsoftware/teletext-fonts are public domain
 * @techandsoftware/teletext-plugin-smooth-mosaic is loaded via cdn.jsdelivr.net, and uses [LGPL-2.1-or-later](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
-  * js-hqx uses LGPL-2.1-or-later [LGPL-2.1-or-later](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+  * js-hqx uses [LGPL-2.1-or-later](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
 
 # TeletextService and TeletextServiceViewer API
 
