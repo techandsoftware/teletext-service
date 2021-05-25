@@ -31,7 +31,7 @@
   },
   "files": [
     "LICENSES",
-    "public/viewer.html",
+    "public/index.html",
     "public/dist",
     "package.json.license"
   ],
