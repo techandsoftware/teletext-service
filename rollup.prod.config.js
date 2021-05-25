@@ -16,7 +16,7 @@ export default {
   output: [
     {
       entryFileNames: '[name].min.js',
-      dir: 'dist',
+      dir: 'public/dist',
       format: 'es',
       sourcemap: true,
       sourcemapExcludeSources: true,
