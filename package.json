@@ -31,8 +31,8 @@
   },
   "files": [
     "LICENSES",
-    "public",
-    "dist",
+    "public/viewer.html",
+    "public/dist",
     "package.json.license"
   ],
   "dependencies": {
