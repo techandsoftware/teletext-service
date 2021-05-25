@@ -5,8 +5,10 @@
   "module": "dist/teletext-service.min.js",
   "type": "module",
   "scripts": {
+    "postinstall": "npm run copyfonts",
     "start": "rollup -c -w",
     "build": "rollup -c rollup.prod.config.js",
+    "copyfonts": "cp -nr node_modules/@techandsoftware/teletext-fonts/* public/fonts",
     "reuselint": "reuse lint"
   },
   "author": "Tech & Software Ltd. <techandsoftwareltd@outlook.com>",
@@ -20,20 +22,20 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "@techandsoftware/teletext": "^0.12.0",
+    "@techandsoftware/teletext-caster": "^0.10.0",
     "eslint": "^7.25.0",
     "rollup": "^2.47.0",
     "rollup-plugin-browsersync": "^1.3.1",
     "rollup-plugin-terser": "^7.0.2"
-  },
-  "dependencies": {
-    "@techandsoftware/teletext": "^0.12.0",
-    "@techandsoftware/teletext-caster": "^0.10.0",
-    "@techandsoftware/teletext-plugin-smooth-mosaic": "^0.1.4"
   },
   "files": [
     "LICENSES",
     "public",
     "dist",
     "package.json.license"
-  ]
+  ],
+  "dependencies": {
+    "@techandsoftware/teletext-fonts": "^1.0.0"
+  }
 }
