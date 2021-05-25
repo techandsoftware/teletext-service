@@ -11,34 +11,33 @@ See https://teletext-service.netlify.app/
 
 # Usage
 
+`TeletextService` handles page retrieval and display. `TeletextServiceViewer` is higher level with support for page numbers, subpages and fastext (coloured button links).
+
 ## TeletextService module
 
 Minimum code needed to use the `TeletextService` module:
 
-HTML:
 ```html
 <div id="teletextscreen"></div>
-```
 
-Javascript:
-```javascript
+<script type="module">
 import { TeletextService } from './dist/teletext-service.min.js';
 
 const service = new TeletextService({
-    defaultG0Charset: 'g0_latin__english',
-    header: 'NPMFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
     DOMSelector: '#teletextscreen'
 });
 
 service.showPage("100");
-// Will fetch 1.json and get page 100 from that, and display in the HTML <div>
+// Will fetch 1.json and get page 100 from that,
+// and display in the HTML <div>
+</script>
 ```
 
 The JSON structure needed is described below.
 
 ## TeletextServiceViewer module
 
-`TeletextServiceViewer` is a web app wrapper around `TeletextService`. It's tightly-coupled to the HTML so it's not really an API but it does support some options.  It's most likely you'll use the code as it is or fork it.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
+`TeletextServiceViewer` is a web app wrapper around `TeletextService`.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It's tightly-coupled to the HTML so it's not really an API but it does support some options.  It's most likely you'll use the code as it is or fork it. The module also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
 
 The Javascript code is invoked with:
 
