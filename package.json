@@ -2,7 +2,7 @@
   "name": "@techandsoftware/teletext-service",
   "version": "0.1.0",
   "description": "Teletext service API and web application to view pages and navigate between them",
-  "module": "dist/teletext-service.min.js",
+  "module": "public/dist/teletext-service.min.js",
   "type": "module",
   "scripts": {
     "postinstall": "npm run copyfonts",
