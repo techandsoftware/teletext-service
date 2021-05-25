@@ -19,7 +19,6 @@ export default {
       dir: 'public/dist',
       format: 'es',
       sourcemap: true,
-      sourcemapExcludeSources: true,
       compact: true,
       preferConst: true,
     }
