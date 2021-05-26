@@ -49,7 +49,7 @@ The Javascript code is invoked with:
 </script>
 ```
 
-For the rest of HTML needed, see `public/viewer.html` in the repo.
+For the rest of HTML needed, see `public/index.html` in the repo.
 
 To run locally, clone the project then run `npm install` and `npm start` .
 
