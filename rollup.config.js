@@ -6,7 +6,7 @@ import browsersync from 'rollup-plugin-browsersync';
 
 export default {
   input: {
-    "teletext-service": 'src/ServiceView.js'
+    "teletext-service": 'src/ModuleExports.js'
   },
   output: {
     entryFileNames: '[name].js',

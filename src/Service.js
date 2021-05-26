@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
 
 import { Teletext, Level } from '@techandsoftware/teletext';
+import { PageFetcher } from './PageFetcher.js';
+import { Header } from './Header.js';
 
 const DEFAULT_HEADER = '       %%#  %%a %e %%b \x1bC%H:%M/%S';
 
@@ -139,68 +141,5 @@ export class TeletextService {
         if (casterDisplay && this._caster) this._caster.display(casterDisplay);
 
         this._fastext = 'fastext' in subpage ? subpage.fastext : null;
-    }
-}
-
-class PageFetcher {
-    constructor() {
-        this._magazine = null;
-        this._magazineData = null;
-    }
-
-    async fetchPage(pageNumber) {
-        const matches = pageNumber.match(/([1-8])[0-9A-Fa-f]{2}/);
-        const magazine = matches[1];
-        if (this._magazine != magazine) {
-            try {
-                const res = await fetch(`${magazine}.json`);
-                if (res.ok) {
-                    this._magazineData = await res.json();
-                    this._magazine = magazine;
-                } else console.warn(`W143 fetchPage: failed to load magazine data from ${magazine}.json : ${res.status} ${res.statusText}`);
-            } catch (e) {
-                console.warn(`W145 fetchPage: failed to load magazine data from ${magazine}.json :`, e.message);
-            }
-        }
-
-        if (this._magazine == magazine && pageNumber in this._magazineData.pages) {
-            return this._magazineData.pages[pageNumber];
-        }
-        return null;
-    }
-}
-
-class Header {
-    constructor(string) {
-        this._template = string;
-        this._days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        this._months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    }
-
-    _tokens () {
-        const now = new Date();
-        return {
-            '%%a': this._days[now.getDay()],
-            '%%b': this._months[now.getMonth()],
-            '%d': String(now.getDate()).padStart(2, 0),
-            '%e': String(now.getDate()).padStart(2, " "),
-            '%m': String(now.getMonth() + 1).padStart(2, " "),
-            "%y": String(now.getFullYear()).substring(2, 2),
-            "%H": String(now.getHours()).padStart(2, 0),
-            "%M": String(now.getMinutes()).padStart(2, 0),
-            "%S": String(now.getSeconds()).padStart(2, 0)
-        };
-    }
-
-    generate_(pageNumber) {
-        const tokens = this._tokens();
-        let t = this._template;
-        for (const token of Object.keys(tokens)) {
-            t = t.replace(token, tokens[token]);
-        }
-
-        if (typeof pageNumber != 'undefined')
-            t = t.replace("%%#", pageNumber);
-        return t;
     }
 }

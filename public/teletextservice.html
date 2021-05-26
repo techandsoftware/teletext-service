@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- SPDX-FileCopyrightText: © 2021 Tech and Software Ltd. -->
+<!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>@techandsoftware/teletext-service module demo</title>
+</head>
+
+<body>
+
+<div id="teletextscreen"></div>
+
+<script type="module">
+  // import { TeletextService } from './dist/teletext-service.min.js';
+  import { TeletextService } from '../dist/teletext-service.js';
+
+  const service = new TeletextService({
+    DOMSelector: '#teletextscreen'
+  });
+  service.showPage('100');
+</script>
+
+</body>
+
+</html>

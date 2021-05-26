@@ -11,7 +11,7 @@ const PREAMBLE = `// SPDX${''}-FileCopyrightText: (c) 2021 Tech and Software Ltd
 
 export default {
   input: {
-    "teletext-service": 'src/ServiceView.js'
+    "teletext-service": 'src/ModuleExports.js'
   },
   output: [
     {
