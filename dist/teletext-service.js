@@ -49,7 +49,6 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 class Header {
     constructor(string) {
         this._template = string;
-
     }
 
     _tokens () {
