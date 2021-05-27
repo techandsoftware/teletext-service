@@ -195,7 +195,7 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
 * `defaultG0Charset` sets the default G0 character set on the teletext instance. Defaults to `g0_latin__english`. See `setDefaultG0Charset()` in [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) for the available values
 * `header` is the header row to replace the default header row. See the "`header` format" section above for the format
 * `frontPage` is the front page number, which will be shown automatically. Defaults to page 100.  Pass in null to not show the front page automatically
-* `smoothMosaics` - if true will use a pixel-art scaling algorithm to generate smoother mosaic graphics when the service starts
+* `smoothMosaics` - if true will use a pixel-art scaling algorithm to generate smoother mosaic graphics when the service starts. Default is false
 
 # Default page data source
 
