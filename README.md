@@ -281,7 +281,7 @@ In this:
 
 ### `packed` format
 
-String. The contents is a base64-encoded string of 7-bit characters for the 25 rows x 40 characters concatenated together. The encoded string uses the character repertoire defined in the [base64url encoding](https://tools.ietf.org/html/rfc4648#section-5). This format is taken from the edit.tf editor URL hash segment - see further details here: https://github.com/rawles/edit.tf
+String. The contents is a base64-encoded string of 7-bit characters for the 25 rows x 40 characters concatenated together. The encoded string uses the character repertoire defined in the [base64url encoding](https://tools.ietf.org/html/rfc4648#section-5). This format is taken from the edit.tf editor URL hash fragment - see further details here: https://github.com/rawles/edit.tf
 
 An example is in `public/1.json`, or see the URL hash at https://edit.tf (the part after the colon)
 
