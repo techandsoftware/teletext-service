@@ -1,18 +1,20 @@
 // SPDX-FileCopyrightText: © 2021 Tech and Software Ltd.
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
 
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 export class Header {
     constructor(string) {
         this._template = string;
-        this._days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        this._months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
     }
 
     _tokens () {
         const now = new Date();
         return {
-            '%%a': this._days[now.getDay()],
-            '%%b': this._months[now.getMonth()],
+            '%%a': DAYS[now.getDay()],
+            '%%b': MONTHS[now.getMonth()],
             '%d': String(now.getDate()).padStart(2, 0),
             '%e': String(now.getDate()).padStart(2, " "),
             '%m': String(now.getMonth() + 1).padStart(2, " "),
