@@ -23,7 +23,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@techandsoftware/teletext": "^0.12.0",
-    "@techandsoftware/teletext-caster": "^0.10.0",
+    "@techandsoftware/teletext-caster": "^0.10.1",
     "eslint": "^7.25.0",
     "rollup": "^2.47.0",
     "rollup-plugin-browsersync": "^1.3.1",
