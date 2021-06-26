@@ -5,8 +5,8 @@
   "module": "public/dist/teletext-service.min.js",
   "type": "module",
   "scripts": {
-    "prestart": "npm run copyfonts",
-    "start": "rollup -c -w",
+    "predev": "npm run copyfonts",
+    "dev": "rollup -c -w",
     "build": "rollup -c rollup.prod.config.js",
     "copyfonts": "cp -nr node_modules/@techandsoftware/teletext-fonts/* public/fonts",
     "reuselint": "reuse lint"
