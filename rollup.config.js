@@ -17,7 +17,7 @@ export default {
     resolve(),
     browsersync({
       server: '.',
-      startPath: "./public/"
+      startPath: "/public/"
     }),
   ]
 };
