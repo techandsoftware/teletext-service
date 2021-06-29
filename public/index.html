@@ -84,6 +84,12 @@
     #lrnav button:disabled {
       visibility: hidden;
     }
+    #maxheightwrap {
+      width: 100%;
+      max-height: calc(100vh - 150px);
+      max-width: calc((6/5) * (100vh - 150px));
+      margin: auto;
+    }
     #teletextscreen {
       width: 100%;
       padding-top: 83.33%; /* keeps 6:5 aspect ratio */
@@ -221,6 +227,9 @@
         font-size: 10pt;
       }
     }
+    /* #remote {
+      display: none;
+    } */
   </style>
 </head>
 
@@ -239,7 +248,9 @@
       <span id="subpage"></span>
       <button id="right" title="Next subpage" disabled>↷</button>
     </div>
-    <div id="teletextscreen"></div>
+    <div id="maxheightwrap">
+      <div id="teletextscreen"></div>
+    </div>
     <div id="fastext">
       <button id="red" disabled>Red</button>
       <button id="green" disabled>Green</button>
