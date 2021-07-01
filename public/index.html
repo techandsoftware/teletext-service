@@ -240,6 +240,33 @@
         width: 33%;
       }
     }
+
+    @media (min-width: 645px) and (max-height: 500px) {
+      /* squash screenwrap vertically on landscape mobile */
+      #screenwrap {
+        align-self: stretch;
+      }
+      #maxheightwrap {
+        max-height: calc(100vh - 78px);
+        max-width: calc((6/5) * (100vh - 78px));
+      }
+      #lrnav, #fastext {
+        height: min-content;
+      }
+      #lrnav button, #fastext button, #otherButtons button {
+        height: 20px;
+      }
+      #lrnav button {
+        font-size: 12pt;
+      }
+      #otherButtons {
+        height: min-content;
+        margin-top: 5px;
+      }
+      #lrnav {
+        margin: 0;
+      }
+    }
   </style>
 </head>
 
@@ -254,9 +281,9 @@
           <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
         </svg>
       </span>
-      <button id="left" title="Previous subpage" disabled>↶</button>
-      <span id="subpage"></span>
-      <button id="right" title="Next subpage" disabled>↷</button>
+      <button id="xleft" title="Previous subpage" xdisabled>↶</button>
+      <span id="xsubpage">2</span>
+      <button id="xright" title="Next subpage" xdisabled>↷</button>
     </div>
     <div id="maxheightwrap">
       <div id="teletextscreen"></div>
