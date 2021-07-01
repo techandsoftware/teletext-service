@@ -264,7 +264,6 @@ class TeletextServiceViewer {
         this._pageNumber = frontPageNumber.length == 3 ? frontPageNumber : 'XXX';
         this._fontIndex = 0;
         this._viewIndex = 0;
-        this._zenMode = false;
 
         s.available.attach(() => this._castAvailable.call(this));
         s.castStateChanged.attach(() => this._castStateChanged.call(this));
@@ -450,18 +449,7 @@ class TeletextServiceViewer {
     }
 
     _toggleZenMode() {
-        const selectors = ['#lrnav', '#fastext', '#remote', '#otherButtons'];
-        if (this._zenMode) {
-            selectors.forEach(selector =>
-                document.querySelector(selector).style.display = ''
-            );
-            this._zenMode = false;
-        } else {
-            selectors.forEach(selector =>
-                document.querySelector(selector).style.display = 'none'
-            );
-            this._zenMode = true;
-        }
+        document.body.classList.toggle('zen');
     }
 }
 
