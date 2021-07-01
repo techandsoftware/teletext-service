@@ -221,7 +221,7 @@
         height: 30px;
       }
       #remote {
-        height: inherit; /* fudge - needed for height: 100% to work on button */
+        height: inherit; /* fudge - needed for height: 100% to work on button in Chrome */
         width: 90%;
         margin: 0;
         margin-top: 5px;
@@ -229,12 +229,15 @@
       }
       #remote button {
         font-size: 10pt;
-        height: 100%; /* button height is ignored in Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=1598458) */
+        height: 100%; /* bug - button height is ignored in Firefox as the containing td is auto-sized https://bugzilla.mozilla.org/show_bug.cgi?id=1598458 */
         width: 100%;
       }
       td {
         padding-top: 0;
         padding-bottom: 0;
+      }
+      td #index {
+        width: 33%;
       }
     }
   </style>
