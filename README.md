@@ -7,15 +7,15 @@ This implements the display portion of teletext and wraps it up as a web app.  I
 
 # Live demo
 
-See https://teletext-service.netlify.app/
+See https://teletextmoduledemo.tech-and-software.ltd.uk/teletext-service-demo.html
 
 # Usage
 
-`TeletextService` handles page retrieval and display. `TeletextServiceViewer` is higher level with support for page numbers, subpages and fastext (coloured button links).
+The `TeletextService` class handles page retrieval and display. The `TeletextServiceViewer`  class is higher level with support for page numbers, subpages and fastext (coloured button links), and is tightly coupled to the provided HTML UI.
 
-## TeletextService module
+## TeletextService class
 
-Minimum code needed to use the `TeletextService` module:
+Minimum code needed to use the `TeletextService` class:
 
 ```html
 <div id="teletextscreen"></div>
@@ -33,11 +33,13 @@ service.showPage("100");
 </script>
 ```
 
+You will need to supply your own page number entry method.
+
 The JSON structure needed is described below.
 
-## TeletextServiceViewer module
+## TeletextServiceViewer class
 
-`TeletextServiceViewer` is a web app wrapper around `TeletextService`.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It's tightly-coupled to the HTML so it's not really an API but it does support some options.  It's most likely you'll use the code as it is or fork it. The module also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
+`TeletextServiceViewer` is a web app wrapper around `TeletextService`.  It handles page number entry, subpage nav, fastext button state changes and entry, reveal and mix, with control using the webapp UI or keyboard shortcuts. It's tightly-coupled to the HTML so it's not really an API but it does support some options.  It's most likely you'll use the code as it is or fork it. The class also incorporates [teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) so that pages can be viewed on a Chromecast in supporting browsers.
 
 The Javascript code is invoked with:
 
@@ -51,7 +53,7 @@ The Javascript code is invoked with:
 
 For the rest of HTML needed, see `public/index.html` in the repo.
 
-To run locally, clone the project then run `npm install` and `npm start` .
+To run locally, clone the project then run `npm install` and `npm run dev` .
 
 Use `scripts/tti2json.js` to generate the JSON files needed as the page data source, or create your own.  The JSON structure needed is documented below in the 'Default page data source' section.
 
