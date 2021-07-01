@@ -10,14 +10,13 @@ export default {
   },
   output: {
     entryFileNames: '[name].js',
-    dir: 'dist',
+    dir: 'public/dist',
     format: 'es',
   },
   plugins: [
     resolve(),
     browsersync({
-      server: '.',
-      startPath: "/public/"
+      server: 'public',
     }),
   ]
 };

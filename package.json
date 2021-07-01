@@ -32,7 +32,7 @@
   "files": [
     "LICENSES",
     "public/index.html",
-    "public/dist",
+    "public/dist/teletext-service.min.*",
     "package.json.license"
   ],
   "dependencies": {
