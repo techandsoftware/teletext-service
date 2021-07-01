@@ -192,6 +192,16 @@
       width: 4rem;
       font-size: 12pt;
     }
+    .zen #lrnav, .zen #fastext, .zen #remote, .zen #otherButtons {
+      display: none;
+    }
+    .zen #screenwrap {
+      flex-grow: 1;
+    }
+    .zen #maxheightwrap {
+      max-height: 100vh;
+      max-width: calc((6/5) * 100vh);
+    }
 
     @media (max-width: 645px) {
       /* switch to columnular layout with stretchy remote */
@@ -238,6 +248,12 @@
       }
       td #index {
         width: 33%;
+      }
+      .zen main {
+        justify-content: center;
+      }
+      .zen #screenwrap {
+        flex-grow: 0;
       }
     }
 
