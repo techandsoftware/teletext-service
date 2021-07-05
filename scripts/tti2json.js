@@ -24,6 +24,10 @@ class Service {
             this.pages[page].subpages[subpage].fastext = fastext.object();
     }
 
+    get hasPages() {
+        return Object.keys(this.pages).length != 0;
+    }
+
     clear() {
         this.pages = {};
     }
@@ -141,7 +145,9 @@ function go(sourceDir, outputDir) {
             getPagesFromTti(buffer);
         }
 
-        writeFileSync(path.join(outputDir, `${magazine}.json`), JSON.stringify(service, null, 2));
+        if (service.hasPages) {
+            writeFileSync(path.join(outputDir, `${magazine}.json`), JSON.stringify(service, null, 2));
+        }
         service.clear();
     }
 }
