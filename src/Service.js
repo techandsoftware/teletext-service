@@ -126,7 +126,7 @@ export class TeletextService {
         this._ttx.clearScreen(false);
         this._ttx.setDefaultG0Charset(encoding, false);
 
-        if ('ouputLines' in subpage) {
+        if ('outputLines' in subpage) {
             const outputLines = subpage.outputLines.split("\n");
             this._ttx.setPageFromOutputLines(outputLines, header);
             casterDisplay.outputLines = outputLines;
@@ -135,6 +135,7 @@ export class TeletextService {
             this._ttx.loadPageFromEncodedString(packed, header);
             casterDisplay.packed = packed;
         } else {
+            console.error('E138 _update: outputLines or packed properties expected in subpage');
             casterDisplay = null;
         }
 
