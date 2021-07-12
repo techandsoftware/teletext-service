@@ -9,12 +9,14 @@ class Service {
         this.pages = {};
     }
 
-    setSubpage(page, subpage, outputLines, encoding, fastext) {
+    setSubpage(page, subpage, outputLines, encoding, fastext, webUrl) {
         if (!(page in this.pages)) {
             this.pages[page] = {
                 subpages: []
             };
         }
+        if (webUrl != null)
+            this.pages[page].webUrl = webUrl;
 
         this.pages[page].subpages[subpage] = {
             outputLines: outputLines,
@@ -98,6 +100,7 @@ function bufferToLines(buffer) {
 }
 
 // *.tti file format  https://zxnet.co.uk/teletext/documents/ttiformat.pdf
+// extended with WL command for a web url
 function getPagesFromTti(buffer) {
     const lines = bufferToLines(buffer);
     let pageNumber = 100;
@@ -105,6 +108,7 @@ function getPagesFromTti(buffer) {
     let outputLines = [];
     let encoding = null;
     let fastext = null;
+    let webUrl = null;
     for (const line of [...lines]) {
         const matches = line.match(/([A-Z]{2}),(.+)/);
         if (matches != null) {
@@ -114,7 +118,7 @@ function getPagesFromTti(buffer) {
                 const m = data.match(/(\d[0-9A-Fa-f]{2})(\d\d)/);
                 if (m != null) {
                     if (outputLines.length) {
-                        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding, fastext);
+                        service.setSubpage(pageNumber, subPage, outputLines.join("\n"), encoding, fastext, webUrl);
                     }
                     pageNumber = m[1].toUpperCase();
                     subPage = parseInt(m[2]);
@@ -128,6 +132,8 @@ function getPagesFromTti(buffer) {
                 encoding = ps.encoding();
             } else if (command == 'FL') {
                 fastext = new Fastext(data);
+            } else if (command == 'WL') {
+                webUrl = data;
             }
         }
     }
