@@ -111,7 +111,8 @@ export class TeletextService {
             pageNumber: this._pageNumber,
             subPage: this._subPageNumber,
             numSubPages: this._page.subpages.filter(s => s != null).length,
-            fastext: this._fastext
+            fastext: this._fastext,
+            webUrl: 'webUrl' in this._page ? this._page.webUrl : null
         };
     }
 

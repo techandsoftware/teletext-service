@@ -146,6 +146,7 @@ export class TeletextServiceViewer {
             this._updatePageNumber();
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
+            this._updateWebLink(meta.webUrl);
             this._updateFocus();
         }
     }
@@ -174,6 +175,17 @@ export class TeletextServiceViewer {
             let disabled = true;
             if (ft != null && link in ft) disabled = false;
             document.querySelector(`#${link}`).disabled = disabled;
+        }
+    }
+
+    _updateWebLink(url) {
+        const link = document.querySelector('#webicon');
+        if (url == null) {
+            link.style.display = 'none';
+            link.href = '';
+        } else {
+            link.href = url;
+            link.style.display = '';
         }
     }
 
