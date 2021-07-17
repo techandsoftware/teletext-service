@@ -21,7 +21,7 @@ export class TeletextServiceViewer {
         let frontPageNumber = "";
         let useSmoothMosaics = false;
         if (typeof options == 'object') {
-            for (const prop of ['defaultG0Charset', 'header', 'DOMSelector']) {
+            for (const prop of ['defaultG0Charset', 'header', 'DOMSelector', 'baseURL']) {
                 if (prop in options) serviceOptions[prop] = options[prop];
             }
             if ('frontPage' in options) {

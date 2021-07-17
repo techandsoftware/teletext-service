@@ -99,7 +99,8 @@ Creates a teletext service instance. `options` is required, and has the followin
     defaultG0Charset?: string,
     caster?: object,
     header?: string,
-    fetcher?: object
+    fetcher?: object,
+    baseURL?: string
 }
 ```
 
@@ -108,6 +109,7 @@ Creates a teletext service instance. `options` is required, and has the followin
 * `caster` - pass in a `ttxcaster` from [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster) and this will be used to show pages on the connected Chromecast
 * `header` is the string to use as the header row. If not passed in, a default header row is used. See below for tokens that can be used in the header.
 * `fetcher` - pass in an object used to fetch teletext pages. If this is not passed in, then pages are expected to be in JSON and retrieved from same directory of the web page containing the teletext instance.  See the 'Default page data source' section on the expected data format for the default fetcher. See the 'fetcher object' section below for details on passing in your own fetcher.
+* `baseURL` - if you use the default fetcher, then you can pass in a URL to use as the base URL for getting JSON content. The default base URL is the current directory of the URL running the javascript code.  The URL should include a trailing `/`
 
 ### `header` format
 
@@ -189,7 +191,8 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
     defaultG0Charset?: string,
     header?: string
     frontPage?: string | null,
-    smoothMosaics?: boolean
+    smoothMosaics?: boolean,
+    baseURL?: string
 }
 ```
 
@@ -198,6 +201,7 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
 * `header` is the header row to replace the default header row. See the "`header` format" section above for the format
 * `frontPage` is the front page number, which will be shown automatically. Defaults to page 100.  Pass in null to not show the front page automatically
 * `smoothMosaics` - if true will use a pixel-art scaling algorithm to generate smoother mosaic graphics when the service starts. Default is false
+* `baseURL` - pass in a URL to use as the base URL for getting JSON content. The default base URL is the current directory of the URL running the javascript code.  The URL should include a trailing `/`
 
 # Default page data source
 
