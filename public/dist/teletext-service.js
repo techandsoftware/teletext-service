@@ -251,6 +251,7 @@ class TeletextServiceViewer {
         };
         let frontPageNumber = "";
         let useSmoothMosaics = false;
+        this._fonts = FONTS;
         if (typeof options == 'object') {
             for (const prop of ['defaultG0Charset', 'header', 'DOMSelector', 'baseURL']) {
                 if (prop in options) serviceOptions[prop] = options[prop];
@@ -261,6 +262,7 @@ class TeletextServiceViewer {
                 else if (options.frontPage == null) ;
             }
             if ('smoothMosaics' in options && options.smoothMosaics) useSmoothMosaics = true;
+            if (Array.isArray(options.fontList)) this._fonts = options.fontList;
         }
         if (frontPageNumber == "") frontPageNumber = '100';
 
@@ -274,6 +276,7 @@ class TeletextServiceViewer {
         s.castStateChanged.attach(() => this._castStateChanged.call(this));
 
         this._initEventListeners();
+        this._service.teletextInstance.setFont(this._fonts[0]);
         if (useSmoothMosaics) this._toggleSmoothMosaics();
         this._newPage();
     }
@@ -468,6 +471,10 @@ class TeletextServiceViewer {
     _toggleZenMode() {
         document.body.classList.toggle('zen');
     }
+
+    get teletextInstance() {
+        return this._service.teletextInstance;
+    }
 }
 
 function handleKeyDown(e) {
@@ -497,9 +504,9 @@ function handleKeyDown(e) {
 
         case 'f': // rotate through fonts
             this._fontIndex++;
-            if (this._fontIndex == FONTS.length) this._fontIndex = 0;
-            console.debug('setting font to', FONTS[this._fontIndex]);
-            this._service.teletextInstance.setFont(FONTS[this._fontIndex]);
+            if (this._fontIndex == this._fonts.length) this._fontIndex = 0;
+            console.debug('setting font to', this._fonts[this._fontIndex]);
+            this._service.teletextInstance.setFont(this._fonts[this._fontIndex]);
             break;
 
         case 'w': // for wipe
