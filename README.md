@@ -156,7 +156,8 @@ Response is a promise. When resolved, the value is:
   * `pageNumber`: string - the current page number (100 to 8FF)
   * `subPage`: number - the current subpage number
   * `numSubPages`: number - how many subpages in total for the page
-  * `fastext`: object - if the current page has fastext (coloured) links, the object will have corresponding properties. The property names are `red`, `green`, `yellow`, `blue` and `index`. The values for each are the linked page numbers.
+  * `fastext`: object - if the current page has fastext (coloured) links, the object will have corresponding properties. The property names are `red`, `green`, `yellow`, `blue` and `index`. The values for each are the linked page numbers
+  * `webUrl`: string - the `webUrl` property from the current page JSON if any. It's not part of teletext, but could be used to link to the original content source if there is one
 
 ## service.nextSubPage()
 
@@ -192,7 +193,8 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
     header?: string
     frontPage?: string | null,
     smoothMosaics?: boolean,
-    baseURL?: string
+    baseURL?: string,
+    fontList? : array
 }
 ```
 
@@ -201,7 +203,8 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
 * `header` is the header row to replace the default header row. See the "`header` format" section above for the format
 * `frontPage` is the front page number, which will be shown automatically. Defaults to page 100.  Pass in null to not show the front page automatically
 * `smoothMosaics` - if true will use a pixel-art scaling algorithm to generate smoother mosaic graphics when the service starts. Default is false
-* `baseURL` - pass in a URL to use as the base URL for getting JSON content. The default base URL is the current directory of the URL running the javascript code.  The URL should include a trailing `/`
+* `baseURL` - URL to use as the base URL for getting JSON content. The default base URL is the current directory of the URL running the javascript code.  The URL should include a trailing `/`
+* `fontList` - an array of CSS font families. The teletext screen will used the first one automatically. The others are selected if 'f' is pressed. If not specified the default list is used - see FONTS in `ServiceView.js` in the repo
 
 # Default page data source
 
@@ -264,7 +267,8 @@ The outermost object has a `pages` key.
 
 ## `page` object
 
-Has one key:
+Has up to two keys:
+* `webUrl` key is  optional. A URL corresponding to the page. The `TeletextServiceViewer` uses this in the UI to link to
 * `subpages` key is required. Its value is an array of 1 or more `subpage` objects.  Any of the subpages can be `null`
 
 ## `subpage` object
