@@ -1,6 +1,6 @@
 {
   "name": "@techandsoftware/teletext-service",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Teletext service API and web application to view pages and navigate between them",
   "module": "public/dist/teletext-service.min.js",
   "type": "module",
