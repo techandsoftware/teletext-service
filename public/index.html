@@ -34,9 +34,12 @@
     #screenwrap {
       flex: 0 0 47%;
     }
-    #remote {
+    #remotewrap {
       height: min-content;
       margin: 20px;
+    }
+    #remote {
+      margin: 0;
     }
 
     button {
@@ -201,7 +204,7 @@
       width: 4rem;
       font-size: 12pt;
     }
-    .zen #lrnav, .zen #fastext, .zen #remote, .zen #otherButtons {
+    .zen #lrnav, .zen #fastext, .zen #remotewrap, .zen #otherButtons {
       display: none;
     }
     .zen #screenwrap {
@@ -218,6 +221,12 @@
         flex-direction: column;
         justify-content: flex-start;
         flex-wrap: nowrap;
+      }
+      #remotewrap {
+        flex-grow: 1;
+        margin: 0;
+        margin-top: 5px;
+        width: 100%
       }
       #lrnav {
         margin: 0;
@@ -240,11 +249,10 @@
         height: 30px;
       }
       #remote {
-        height: inherit; /* fudge - needed for height: 100% to work on button in Chrome */
+        height: 100%;
         width: 90%;
         margin: 0;
-        margin-top: 5px;
-        flex-grow: 1;
+        margin-left: 5%;
       }
       #remote button {
         font-size: 10pt;
@@ -336,35 +344,37 @@
     </div>
   </div>
 
-  <table id="remote">
-    <tr class="centredrow">
-      <td colspan="3" id="pageNumber">- - -</td>
-    </tr>
-    <tr>
-      <td><button id="b1" data-num="1">1</button></td>
-      <td><button id="b2" data-num="2">2</button></td>
-      <td><button id="b3" data-num="3">3</button></td>
-    </tr>
-    <tr>
-      <td><button id="b4" data-num="4">4</button></td>
-      <td><button id="b5" data-num="5">5</button></td>
-      <td><button id="b6" data-num="6">6</button></td>
-    </tr>
-    <tr>
-      <td><button id="b7" data-num="7">7</button></td>
-      <td><button id="b8" data-num="8">8</button></td>
-      <td><button id="b9" data-num="9">9</button></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><button id="b0" data-num="0">0</button></td>
-    </tr>
-    <tr class="centredrow">
-      <td colspan="3">
-        <button id="index" disabled>Index</button>
-      </td>
-    </tr>
-  </table>
+  <div id="remotewrap"> <!-- FUDGE the wrap is needed for Safari as the table doesn't size properly as a flex item -->
+    <table id="remote">
+      <tr class="centredrow">
+        <td colspan="3" id="pageNumber">- - -</td>
+      </tr>
+      <tr>
+        <td><button id="b1" data-num="1">1</button></td>
+        <td><button id="b2" data-num="2">2</button></td>
+        <td><button id="b3" data-num="3">3</button></td>
+      </tr>
+      <tr>
+        <td><button id="b4" data-num="4">4</button></td>
+        <td><button id="b5" data-num="5">5</button></td>
+        <td><button id="b6" data-num="6">6</button></td>
+      </tr>
+      <tr>
+        <td><button id="b7" data-num="7">7</button></td>
+        <td><button id="b8" data-num="8">8</button></td>
+        <td><button id="b9" data-num="9">9</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button id="b0" data-num="0">0</button></td>
+      </tr>
+      <tr class="centredrow">
+        <td colspan="3">
+          <button id="index" disabled>Index</button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </main>
 
   <footer></footer>
