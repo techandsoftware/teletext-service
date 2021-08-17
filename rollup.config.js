@@ -17,6 +17,7 @@ export default {
     resolve(),
     browsersync({
       server: 'public',
+      single: true
     }),
   ]
 };

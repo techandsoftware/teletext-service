@@ -37,9 +37,10 @@ export class TeletextServiceViewer {
 
         this._service = new TeletextService(serviceOptions);
 
-        this._pageNumber = frontPageNumber.length == 3 ? frontPageNumber : 'XXX';
+        this._initPageNumber(frontPageNumber);
         this._fontIndex = 0;
         this._viewIndex = 0;
+        this._inhibitUpdateHistoryState = false;
 
         ttxcaster.available.attach(() => this._castAvailable.call(this));
         ttxcaster.castStateChanged.attach(() => this._castStateChanged.call(this));
@@ -48,6 +49,31 @@ export class TeletextServiceViewer {
         this._service.teletextInstance.setFont(this._fonts[0]);
         if (useSmoothMosaics) this._toggleSmoothMosaics();
         this._newPage();
+    }
+
+    _initPageNumber(frontPageNumber) {
+        const defaultPageNumber = frontPageNumber.length == 3 ? frontPageNumber : 'XXX';
+
+        const url = new URL(window.location);
+        const path = url.pathname;
+        // no page number in url
+        if (path == '/') {
+            this._pageNumber = defaultPageNumber;
+            return;
+        }
+        
+        const matches = path.match(/^\/(?<pageNumber>[1-8][0-9A-Fa-f]{2})$/);
+        if (matches) {
+            // valid page number in url
+            this._pageNumber = matches.groups.pageNumber;
+            return;
+        } else {
+            // invalid page number in url
+            url.pathname = '/';
+            history.replaceState({}, "", url);
+            this._pageNumber = defaultPageNumber;
+            return;
+        }
     }
 
     _castStateChanged() {
@@ -80,6 +106,7 @@ export class TeletextServiceViewer {
 
     _initEventListeners() {
         window.addEventListener('keydown', e => handleKeyDown.call(this, e));
+        window.addEventListener('popstate', e => this._handlePopState(e));
 
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#revealButton').addEventListener('click', () => this._reveal());
@@ -150,6 +177,7 @@ export class TeletextServiceViewer {
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
             this._updateWebLink(meta.webUrl);
+            this._updateHistoryState();
             this._updateFocus();
         }
     }
@@ -190,6 +218,26 @@ export class TeletextServiceViewer {
             link.href = url;
             link.style.display = '';
         }
+    }
+
+    _updateHistoryState() {
+        if (this._inhibitUpdateHistoryState) {
+            this._inhibitUpdateHistoryState = false;
+            return;
+        }
+
+        const state = {
+            pageNumber: this._pageNumber
+        };
+        const title = '';
+        const url = new URL(window.location);
+        const previousPathname = url.pathname;
+        url.pathname = `/${this._pageNumber}`;
+
+        if (previousPathname == '/' || previousPathname == url.pathname)
+            history.replaceState(state, title, url);
+        else
+            history.pushState(state, title, url);
     }
 
     async _handleFastext(link) {
@@ -243,6 +291,14 @@ export class TeletextServiceViewer {
 
     get teletextInstance() {
         return this._service.teletextInstance;
+    }
+
+    _handlePopState(e) {
+        if ('pageNumber' in e.state) {
+            this._pageNumber = e.state.pageNumber;
+            this._inhibitUpdateHistoryState = true;
+            this._newPage();
+        }
     }
 }
 
