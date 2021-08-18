@@ -95,7 +95,7 @@ class TeletextService {
         this._defaultG0Charset = 'defaultG0Charset' in options ? options.defaultG0Charset : 'g0_latin';
         this._header = 'header' in options ? new Header(options.header) : new Header(DEFAULT_HEADER);
         this._fetcher = 'fetcher' in options ? options.fetcher : new PageFetcher(options.baseURL);
-        this._baseURL = 'baseURL' in options ? options.baseUrl : './';
+        this._baseURL = 'baseURL' in options ? options.baseURL : './';
 
         this._ttx = Ct();
         this._ttx.setDefaultG0Charset(this._defaultG0Charset);
