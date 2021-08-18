@@ -158,6 +158,7 @@ Response is a promise. When resolved, the value is:
   * `numSubPages`: number - how many subpages in total for the page
   * `fastext`: object - if the current page has fastext (coloured) links, the object will have corresponding properties. The property names are `red`, `green`, `yellow`, `blue` and `index`. The values for each are the linked page numbers
   * `webUrl`: string - the `webUrl` property from the current page JSON if any. It's not part of teletext, but could be used to link to the original content source if there is one
+  * `image`: string - the `image` property from the current page JSON if any. It's not part of teletext, but could be used for meta tags or semantic markup
 
 ## service.nextSubPage()
 
@@ -195,6 +196,7 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
     smoothMosaics?: boolean,
     baseURL?: string,
     fontList? : array
+    serviceName? : string
 }
 ```
 
@@ -205,6 +207,7 @@ Creates a teletext service viewer instance. `options` is optional and has the fo
 * `smoothMosaics` - if true will use a pixel-art scaling algorithm to generate smoother mosaic graphics when the service starts. Default is false
 * `baseURL` - URL to use as the base URL for getting JSON content. The default base URL is the current directory of the URL running the javascript code.  The URL should include a trailing `/`
 * `fontList` - an array of CSS font families. The teletext screen will used the first one automatically. The others are selected if 'f' is pressed. If not specified the default list is used - see FONTS in `ServiceView.js` in the repo
+* `serviceName` - the teletext service name, used in the page title and meta tags. Default is 'FAXFAX'
 
 # Default page data source
 
