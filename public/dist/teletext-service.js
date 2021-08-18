@@ -95,6 +95,7 @@ class TeletextService {
         this._defaultG0Charset = 'defaultG0Charset' in options ? options.defaultG0Charset : 'g0_latin';
         this._header = 'header' in options ? new Header(options.header) : new Header(DEFAULT_HEADER);
         this._fetcher = 'fetcher' in options ? options.fetcher : new PageFetcher(options.baseURL);
+        this._baseURL = 'baseURL' in options ? options.baseUrl : './';
 
         this._ttx = Ct();
         this._ttx.setDefaultG0Charset(this._defaultG0Charset);
@@ -191,7 +192,8 @@ class TeletextService {
             subPage: this._subPageNumber,
             numSubPages: this._page.subpages.filter(s => s != null).length,
             fastext: this._fastext,
-            webUrl: 'webUrl' in this._page ? this._page.webUrl : null
+            webUrl: 'webUrl' in this._page ? this._page.webUrl : null,
+            image: 'image' in this._page ? this._baseURL + this._page.image : null
         };
     }
 
@@ -247,11 +249,12 @@ class TeletextServiceViewer {
             defaultG0Charset: 'g0_latin__english',
             header: 'FAXFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
             caster: s,
-            DOMSelector: '#teletextscreen'
+            DOMSelector: '#teletextscreen',
         };
         let frontPageNumber = "";
         let useSmoothMosaics = false;
         this._fonts = FONTS;
+        this._serviceName = 'FAXFAX';
         if (typeof options == 'object') {
             for (const prop of ['defaultG0Charset', 'header', 'DOMSelector', 'baseURL']) {
                 if (prop in options) serviceOptions[prop] = options[prop];
@@ -263,14 +266,16 @@ class TeletextServiceViewer {
             }
             if ('smoothMosaics' in options && options.smoothMosaics) useSmoothMosaics = true;
             if (Array.isArray(options.fontList)) this._fonts = options.fontList;
+            if ('serviceName' in options) this._serviceName = options.serviceName;
         }
         if (frontPageNumber == "") frontPageNumber = '100';
 
         this._service = new TeletextService(serviceOptions);
 
-        this._pageNumber = frontPageNumber.length == 3 ? frontPageNumber : 'XXX';
+        this._initPageNumber(frontPageNumber);
         this._fontIndex = 0;
         this._viewIndex = 0;
+        this._inhibitUpdateHistoryState = false;
 
         s.available.attach(() => this._castAvailable.call(this));
         s.castStateChanged.attach(() => this._castStateChanged.call(this));
@@ -279,6 +284,31 @@ class TeletextServiceViewer {
         this._service.teletextInstance.setFont(this._fonts[0]);
         if (useSmoothMosaics) this._toggleSmoothMosaics();
         this._newPage();
+    }
+
+    _initPageNumber(frontPageNumber) {
+        const defaultPageNumber = frontPageNumber.length == 3 ? frontPageNumber : 'XXX';
+
+        const url = new URL(window.location);
+        const path = url.pathname;
+        // no page number in url
+        if (path == '/') {
+            this._pageNumber = defaultPageNumber;
+            return;
+        }
+        
+        const matches = path.match(/^\/(?<pageNumber>[1-8][0-9A-Fa-f]{2})$/);
+        if (matches) {
+            // valid page number in url
+            this._pageNumber = matches.groups.pageNumber;
+            return;
+        } else {
+            // invalid page number in url
+            url.pathname = '/';
+            history.replaceState({}, "", url);
+            this._pageNumber = defaultPageNumber;
+            return;
+        }
     }
 
     _castStateChanged() {
@@ -311,6 +341,7 @@ class TeletextServiceViewer {
 
     _initEventListeners() {
         window.addEventListener('keydown', e => handleKeyDown.call(this, e));
+        window.addEventListener('popstate', e => this._handlePopState(e));
 
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#revealButton').addEventListener('click', () => this._reveal());
@@ -381,6 +412,8 @@ class TeletextServiceViewer {
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
             this._updateWebLink(meta.webUrl);
+            this._updateMetaTags(meta.image);
+            this._updateHistoryState();
             this._updateFocus();
         }
     }
@@ -421,6 +454,40 @@ class TeletextServiceViewer {
             link.href = url;
             link.style.display = '';
         }
+    }
+
+    _updateMetaTags(image) {
+        document.querySelectorAll('[data-meta]').forEach(el => {
+            el.remove();
+        });
+        const title = this._serviceName + ' ' + this._pageNumber;
+        document.title = title;
+        createMetaElement('twitter:title', title);
+
+        if (image != null) {
+            createMetaElement('twitter:card', 'summary_large_image');
+            createMetaElement('twitter:image', image);
+        }
+    }
+
+    _updateHistoryState() {
+        if (this._inhibitUpdateHistoryState) {
+            this._inhibitUpdateHistoryState = false;
+            return;
+        }
+
+        const state = {
+            pageNumber: this._pageNumber
+        };
+        const title = '';
+        const url = new URL(window.location);
+        const previousPathname = url.pathname;
+        url.pathname = `/${this._pageNumber}`;
+
+        if (previousPathname == '/' || previousPathname == url.pathname)
+            history.replaceState(state, title, url);
+        else
+            history.pushState(state, title, url);
     }
 
     async _handleFastext(link) {
@@ -475,6 +542,22 @@ class TeletextServiceViewer {
     get teletextInstance() {
         return this._service.teletextInstance;
     }
+
+    _handlePopState(e) {
+        if ('pageNumber' in e.state) {
+            this._pageNumber = e.state.pageNumber;
+            this._inhibitUpdateHistoryState = true;
+            this._newPage();
+        }
+    }
+}
+
+function createMetaElement(name, content) {
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', name);
+    meta.setAttribute('content', content);
+    meta.setAttribute('data-meta', '');
+    document.head.appendChild(meta);
 }
 
 function handleKeyDown(e) {
