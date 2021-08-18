@@ -16,6 +16,7 @@ export class TeletextService {
         this._defaultG0Charset = 'defaultG0Charset' in options ? options.defaultG0Charset : 'g0_latin';
         this._header = 'header' in options ? new Header(options.header) : new Header(DEFAULT_HEADER);
         this._fetcher = 'fetcher' in options ? options.fetcher : new PageFetcher(options.baseURL);
+        this._baseURL = 'baseURL' in options ? options.baseUrl : './';
 
         this._ttx = Teletext();
         this._ttx.setDefaultG0Charset(this._defaultG0Charset);
@@ -112,7 +113,8 @@ export class TeletextService {
             subPage: this._subPageNumber,
             numSubPages: this._page.subpages.filter(s => s != null).length,
             fastext: this._fastext,
-            webUrl: 'webUrl' in this._page ? this._page.webUrl : null
+            webUrl: 'webUrl' in this._page ? this._page.webUrl : null,
+            image: 'image' in this._page ? this._baseURL + this._page.image : null
         };
     }
 

@@ -16,11 +16,12 @@ export class TeletextServiceViewer {
             defaultG0Charset: 'g0_latin__english',
             header: 'FAXFAX %%#  %%a %e %%b \x1bC%H:%M/%S',
             caster: ttxcaster,
-            DOMSelector: '#teletextscreen'
+            DOMSelector: '#teletextscreen',
         };
         let frontPageNumber = "";
         let useSmoothMosaics = false;
         this._fonts = FONTS;
+        this._serviceName = 'FAXFAX';
         if (typeof options == 'object') {
             for (const prop of ['defaultG0Charset', 'header', 'DOMSelector', 'baseURL']) {
                 if (prop in options) serviceOptions[prop] = options[prop];
@@ -32,6 +33,7 @@ export class TeletextServiceViewer {
             }
             if ('smoothMosaics' in options && options.smoothMosaics) useSmoothMosaics = true;
             if (Array.isArray(options.fontList)) this._fonts = options.fontList;
+            if ('serviceName' in options) this._serviceName = options.serviceName;
         }
         if (frontPageNumber == "") frontPageNumber = '100';
 
@@ -177,6 +179,7 @@ export class TeletextServiceViewer {
             this._updateSubpageNav(meta);
             this._updateButtonState(meta);
             this._updateWebLink(meta.webUrl);
+            this._updateMetaTags(meta.image);
             this._updateHistoryState();
             this._updateFocus();
         }
@@ -217,6 +220,20 @@ export class TeletextServiceViewer {
         } else {
             link.href = url;
             link.style.display = '';
+        }
+    }
+
+    _updateMetaTags(image) {
+        document.querySelectorAll('[data-meta]').forEach(el => {
+            el.remove();
+        });
+        const title = this._serviceName + ' ' + this._pageNumber;
+        document.title = title;
+        createMetaElement('twitter:title', title);
+
+        if (image != null) {
+            createMetaElement('twitter:card', 'summary_large_image');
+            createMetaElement('twitter:image', image);
         }
     }
 
@@ -300,6 +317,14 @@ export class TeletextServiceViewer {
             this._newPage();
         }
     }
+}
+
+function createMetaElement(name, content) {
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', name);
+    meta.setAttribute('content', content);
+    meta.setAttribute('data-meta', '');
+    document.head.appendChild(meta);
 }
 
 function handleKeyDown(e) {

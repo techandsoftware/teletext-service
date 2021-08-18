@@ -3,4 +3,5 @@
 
 node_modules
 public/fonts/*
-
+public/g1*
+public/?.json
