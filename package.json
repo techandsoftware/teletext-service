@@ -15,7 +15,7 @@
   "license": "(AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/techandsoftware/teletext-service.git"
+    "url": "git+https://github.com/techandsoftware/teletext-service.git"
   },
   "bugs": {
     "url": "https://github.com/techandsoftware/teletext-service/issues"
