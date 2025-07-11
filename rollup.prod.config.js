@@ -1,13 +1,12 @@
-// SPDX-FileCopyrightText: © 2021 Tech and Software Ltd.
+// SPDX-FileCopyrightText: © 2025 Rob Hardy.
 // SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
 
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 
-const PREAMBLE = `// SPDX${''}-FileCopyrightText: (c) 2021 Tech and Software Ltd.
+const PREAMBLE = `// SPDX${''}-FileCopyrightText: (c) 2025 Rob Hardy
 // SPDX${''}-FileCopyrightText: (c) 2017 dosaygo
-// SPDX${''}-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
-// LicenseRef-uk.ltd.TechAndSoftware-1.0 refers to https://tech-and-software.ltd.uk/LICENSES/LicenseRef-uk.ltd.TechAndSoftware-1.0.txt`;
+// SPDX${''}-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0`;
 
 export default {
   input: {
@@ -20,7 +19,6 @@ export default {
       format: 'es',
       sourcemap: true,
       compact: true,
-      preferConst: true,
     }
   ],
   plugins: [

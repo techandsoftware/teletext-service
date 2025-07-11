@@ -1,4 +1,4 @@
-<!-- SPDX-FileCopyrightText: © 2021 Tech and Software Ltd. -->
+<!-- SPDX-FileCopyrightText: © 2025 Rob Hardy
 <!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
 
 The package represents a teletext service, and is a wrapper for [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext).  It adds page numbers, subpage and fastext navigation (colour buttons). By default, pages are fetched as JSON over HTTP, but that can be overriden by your own page fetcher. It supports casting pages to Chromecast using [@techandsoftware/teletext-caster](https://www.npmjs.com/package/@techandsoftware/teletext-caster), and higher-resolution mosaic graphics using a pixel-art scaling algorithm via [@techandsoftware/teletext-plugin-smooth-mosaic](https://www.npmjs.com/package/@techandsoftware/teletext-plugin-smooth-mosaic).
@@ -7,7 +7,7 @@ This implements the display portion of teletext and wraps it up as a web app.  I
 
 # Live demo
 
-See https://teletextmoduledemo.tech-and-software.ltd.uk/teletext-service-demo.html
+See https://teletextmoduledemo.robdev.org.uk/teletext-service-demo.html
 
 # Usage
 
@@ -80,7 +80,7 @@ If you're looking where to get the .tti files, then see https://zxnet.co.uk/tele
 
 # Licensing
 
-The core project is licensed under GNU Affero General Public License 3 ([AGPL-3.0-only](https://www.gnu.org/licenses/agpl-3.0.en.html)), or under a commercial software license ([LicenseRef-uk.ltd.TechAndSoftware-1.0](https://tech-and-software.ltd.uk/LICENSES/LicenseRef-uk.ltd.TechAndSoftware-1.0.txt)) if you have paid a licensing fee to Tech and Software Ltd. If you combine your own software with this package and distribute publically (whether via network access or not), the AGPL requires that your software is covered by AGPL; the commercial license does not have that requirement. In order to pay the fee for the commercial license, contact <techandsoftwareltd@outlook.com> for enquiries. The text of the licenses is in the `LICENSES` directory.
+The core project is licensed under GNU Affero General Public License 3 ([AGPL-3.0-only](https://www.gnu.org/licenses/agpl-3.0.en.html)), or under a commercial software license ([LicenseRef-uk.ltd.TechAndSoftware-1.0](https://raw.githubusercontent.com/techandsoftware/teletext-service/refs/heads/master/LICENSES/LicenseRef-uk.ltd.TechAndSoftware-1.0.txt)) if you have paid a licensing fee. If you combine your own software with this package and distribute publically (whether via network access or not), the AGPL requires that your software is covered by AGPL; the commercial license does not have that requirement. In order to pay the fee for the commercial license, contact <techandsoftwareltd@outlook.com> for enquiries. The text of the licenses is in the `LICENSES` directory.
 
 Dependencies:
 * The fonts in @techandsoftware/teletext-fonts are public domain
