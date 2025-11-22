@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!-- SPDX-FileCopyrightText: © 2025 Rob Hardy -->
+<!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
+<!-- This page is for previewing the generated library locally;
+     launch with `npm run libpreview` -->
+<!-- Module at https://www.npmjs.com/package/@techandsoftware/teletext-service -->
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>@techandsoftware/teletext-service javascript module preview</title>
+  <style>
+    html, body, main {
+      height: 100%;
+    }
+    :focus {
+      outline: 0 !important;
+    }
+    body {
+      background: rgb(2,0,36);
+      background: linear-gradient(280deg, hsl(243 100% 7%) 0%, hsl(243 83% 52%) 86%, hsl(243 100% 85%) 100%);
+      color: white;
+      background-attachment: fixed;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+    #screenwrap {
+      flex: 0 0 47%;
+    }
+    #remotewrap {
+      height: min-content;
+      margin: 20px;
+    }
+    #remote {
+      margin: 0;
+    }
+
+    button {
+      color: white;
+      background-color: transparent;
+      border-radius: 15px;
+      border: 0.8px solid #ffffff88;
+      cursor: pointer;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      transition: all .1s ease; 
+      transition: background-color 0.8s ease;
+    }
+    button:hover {
+      border: 0.8px solid #ffffffff;
+      box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 0px 0px 5px white;
+    }
+    button:active {
+      color: black;
+      background-color: white;
+      box-shadow: 6px 6px 10px rgba(255, 255, 255, 0.7);
+    }
+    button:focus, button:hover:focus {
+      border: 0.8px solid #ffffffff;
+    }
+
+    /* screenwrap */
+    #icons {
+      margin-right: auto;
+    }
+    #helpicon {
+      cursor: pointer;
+      margin-right: 20px;
+    }
+    #webicon {
+      cursor: pointer;
+    }
+    #webicon:link, #webicon:visited {
+      color: white;
+    }
+    #lrnav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    #lrnav button {
+      font-size: 20pt;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    #lrnav button:disabled {
+      visibility: hidden;
+    }
+    /* this enforces a max height on the teletext screen to avoid scrolling */
+    #maxheightwrap {
+      width: 100%;
+      max-height: calc(100vh - 150px);
+      max-width: calc((6/5) * (100vh - 150px));
+      margin: auto;
+    }
+    /* sets keeps the aspect ratio of the screen as it scales */
+    #teletextscreen {
+      width: 100%;
+      padding-top: 83.33%; /* keeps 6:5 aspect ratio */
+      position: relative;
+    }
+    #teletextscreen svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      border: 0;
+    }
+    #fastext {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+    }
+    #fastext button {
+      width: 7rem;
+    }
+    #lrnav button, #fastext button, #otherButtons button {
+      height: 2rem;
+    }
+    #otherButtons {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 50px;
+    }
+    #otherButtons button {
+      padding: 0 1rem 0 1rem;
+    }
+    #red {
+      background-color: #ff6060;
+      color: white;
+    }
+    #green {
+      background-color: #60ff60;
+      color: black;
+    }
+    #yellow {
+      background-color: #ffff60;
+      color: black;
+    }
+    #blue {
+      background-color: #6060ff;
+      color: white;
+    }
+    #castOuter {
+      margin-left: 50px;
+      display: none;
+      width: 25px;
+      height: 30px;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background: #ffffff10;
+    }
+    google-cast-launcher {
+      display: block;
+      width: 25px;
+      height: 2rem;
+      --connected-color: #3bb4e7;
+      --disconnected-color: white;
+    }
+    button:disabled, button:disabled:hover, button:disabled:active,
+    #fastext button:disabled, #fastext button:disabled:hover, #fastext button:disabled:active {
+      background-color: transparent;
+      color: #aaa;
+      border: 0.8px solid transparent;
+      text-shadow: none;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      cursor: default;
+    }
+    
+    /* remote */
+    #remote button {
+      height: 3rem;
+    }
+    #remote button {
+      width: 3rem;
+      font-size: 14pt;
+    }
+    #pageNumber {
+      width: 9.5rem;
+      text-align: center;
+      background-color: #ffffffaa;
+      color: black;
+      margin: 0;
+      padding: 1rem 0 1rem;
+      font-size: 14pt;
+      border-radius: 25px;
+    }
+    .centredrow {
+      text-align: center;
+    }
+    td #index {
+      width: 4rem;
+      font-size: 12pt;
+    }
+    .zen #lrnav, .zen #fastext, .zen #remotewrap, .zen #otherButtons {
+      display: none;
+    }
+    .zen #screenwrap {
+      flex-grow: 1;
+    }
+    .zen #maxheightwrap {
+      max-height: 100vh;
+      max-width: calc((6/5) * 100vh);
+    }
+
+    @media (max-width: 645px) {
+      /* switch to columnular layout with stretchy remote */
+      main {
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+      }
+      #remotewrap {
+        flex-grow: 1;
+        margin: 0;
+        margin-top: 5px;
+        width: 100%
+      }
+      #lrnav {
+        margin: 0;
+      }
+      #lrnav button {
+        font-size: 12pt;
+      }
+      #screenwrap {
+        width: 100%;
+        align-self: flex-start;
+      }
+      #otherButtons {
+        font-size: 8pt;
+        padding: 0 5% 0 5%;
+      }
+      #pageNumber {
+        font-size: 12pt;
+        margin: 0;
+        padding: 0;
+        height: 30px;
+      }
+      #remote {
+        height: 100%;
+        width: 90%;
+        margin: 0;
+        margin-left: 5%;
+      }
+      #remote button {
+        font-size: 10pt;
+        height: 100%; /* bug - button height is ignored in Firefox as the containing td is auto-sized https://bugzilla.mozilla.org/show_bug.cgi?id=1598458 */
+        width: 100%;
+      }
+      td {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      td #index {
+        width: 33%;
+      }
+      .zen main {
+        justify-content: center;
+      }
+      .zen #screenwrap {
+        flex-grow: 0;
+      }
+    }
+
+    @media (min-width: 645px) and (max-height: 500px) {
+      /* squash screenwrap vertically on landscape mobile */
+      #screenwrap {
+        align-self: stretch;
+      }
+      #maxheightwrap {
+        max-height: calc(100vh - 78px);
+        max-width: calc((6/5) * (100vh - 78px));
+      }
+      #lrnav, #fastext {
+        height: min-content;
+      }
+      #lrnav button, #fastext button, #otherButtons button {
+        height: 20px;
+      }
+      #lrnav button {
+        font-size: 12pt;
+      }
+      #otherButtons {
+        height: min-content;
+        margin-top: 5px;
+      }
+      #lrnav {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main>
+  <div id="screenwrap">
+    <div id="lrnav">
+      <span id="icons">
+        <span id="helpicon" title="Keyboard help (h)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </span>
+        <a id="webicon" href="" title="View web version on external site" style="display: none" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg>
+        </a>
+      </span>
+      <button id="left" title="Previous subpage" disabled>←</button>
+      <span id="subpage"></span>
+      <button id="right" title="Next subpage" disabled>→</button>
+    </div>
+    <div id="maxheightwrap">
+      <div id="teletextscreen"></div>
+    </div>
+    <div id="fastext">
+      <button id="red" disabled>Red</button>
+      <button id="green" disabled>Green</button>
+      <button id="yellow" disabled>Yellow</button>
+      <button id="blue" disabled>Blue</button>
+    </div>
+    <div id="otherButtons">
+      <button id="revealButton">Reveal</button>
+      <button id="mixButton">Mix</button>
+      <span id="castOuter" title="Cast to Chromecast">
+        <google-cast-launcher id="castbutton"></google-cast-launcher>
+      </span>
+    </div>
+  </div>
+
+  <div id="remotewrap"> <!-- FUDGE the wrap is needed for Safari as the table doesn't size properly as a flex item -->
+    <table id="remote">
+      <tr class="centredrow">
+        <td colspan="3" id="pageNumber">- - -</td>
+      </tr>
+      <tr>
+        <td><button id="b1" data-num="1">1</button></td>
+        <td><button id="b2" data-num="2">2</button></td>
+        <td><button id="b3" data-num="3">3</button></td>
+      </tr>
+      <tr>
+        <td><button id="b4" data-num="4">4</button></td>
+        <td><button id="b5" data-num="5">5</button></td>
+        <td><button id="b6" data-num="6">6</button></td>
+      </tr>
+      <tr>
+        <td><button id="b7" data-num="7">7</button></td>
+        <td><button id="b8" data-num="8">8</button></td>
+        <td><button id="b9" data-num="9">9</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button id="b0" data-num="0">0</button></td>
+      </tr>
+      <tr class="centredrow">
+        <td colspan="3">
+          <button id="index" disabled>Index</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</main>
+
+  <footer></footer>
+
+<script type="module">
+  import { TeletextServiceViewer } from './teletext-service.js';
+  
+  new TeletextServiceViewer({
+    smoothMosaics: true
+  });
+</script>
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+
+</body>
+
+</html>

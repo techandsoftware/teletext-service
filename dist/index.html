@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!-- SPDX-FileCopyrightText: © 2025 Rob Hardy -->
 <!-- SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0 -->
+<!-- This page is for development mode with vite's live reload;
+     launch with `npm run dev` -->
 <!-- Module at https://www.npmjs.com/package/@techandsoftware/teletext-service -->
 <html>
 
@@ -300,6 +302,7 @@
       }
     }
   </style>
+  <script type="module" crossorigin src="/assets/index-DLrTkd5D.js"></script>
 </head>
 
 <body>
@@ -378,13 +381,6 @@
 
   <footer></footer>
 
-<script type="module">
-  import { TeletextServiceViewer } from './dist/teletext-service.min.js';
-  // import { TeletextServiceViewer } from './dist/teletext-service.js'; // dev
-  new TeletextServiceViewer({
-    smoothMosaics: true
-  });
-</script>
 <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 
 </body>
