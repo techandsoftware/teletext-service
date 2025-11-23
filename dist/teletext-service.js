@@ -1,8 +1,3 @@
-/*! @techandsoftware/teletext-service
-    SPDX-FileCopyrightText: (c) 2025 Rob Hardy
-    SPDX-License-Identifier: AGPL-3.0-only */
-/*! SPDX-FileCopyrightText: (c) 2025 Rob Hardy
-    SPDX-License-Identifier: AGPL-3.0-only */
 let G = class At {
   static tt(t, e) {
     const s = (t = t.replace(/-/g, "+").replace(/_/g, "/")).length % 4;

@@ -2,20 +2,39 @@
   "name": "@techandsoftware/teletext-service",
   "version": "0.2.8",
   "type": "module",
+  "description": "Teletext service API and web application to view pages and navigate between them",
+  "module": "dist/teletext-service.js",
+  "author": "Rob Hardy <techandsoftwareltd@outlook.com>",
+  "license": "(AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techandsoftware/teletext-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/techandsoftware/teletext-service/issues"
+  },
   "scripts": {
+    "predev": "cp -nr node_modules/@techandsoftware/teletext-fonts/* dist/fonts",
     "dev": "vite",
-    "build": "vite build && npm run lib:build",
+    "build": "vite build",
     "preview": "vite preview",
-    "lib:build": "vite build --config vite.lib.config.js",
-    "lib:preview": "vite preview --config vite.lib.config.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "reuselint": "reuse lint"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@techandsoftware/teletext": "^1.2.0",
     "@techandsoftware/teletext-caster": "^0.10.3",
-    "eslint": "^9.37.0",
-    "globals": "^16.4.0",
-    "vite": "^7.1.7"
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "vite": "^7.2.4"
+  },
+  "files": [
+    "LICENSES",
+    "dist",
+    "package.json.license"
+  ],
+  "dependencies": {
+    "@techandsoftware/teletext-fonts": "^1.0.0"
   }
 }

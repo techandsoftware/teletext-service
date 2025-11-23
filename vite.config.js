@@ -16,10 +16,16 @@ const BANNER = `/*! @techandsoftware/teletext-service
 export default defineConfig({
   build: {
     sourcemap: true,
-    outDir: 'dist',
+    emptyOutDir: false,
+    lib: {
+      entry: resolve(__dirname, 'lib/ModuleExports.js'),
+      name: '@techandsoftware/teletext-service',
+      fileName: 'teletext-service',
+      formats: ['es']
+    },
     rollupOptions: {
       output: {
-        banner: BANNER,
+        banner: BANNER, /* not working https://github.com/vitejs/vite/issues/21076 */
       }
     }
   }
