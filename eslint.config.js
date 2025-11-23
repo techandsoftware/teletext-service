@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: © 2025 Rob Hardy.
-// SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
+// SPDX-FileCopyrightText: © 2025 Rob Hardy
+// SPDX-License-Identifier: AGPL-3.0-only
 
 import js from "@eslint/js";
 import globals from "globals";

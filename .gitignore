@@ -1,6 +1,8 @@
-# SPDX-FileCopyrightText: © 2021 Tech and Software Ltd.
-# SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-uk.ltd.TechAndSoftware-1.0
+# SPDX-FileCopyrightText: © 2025 Rob Hardy
+# SPDX-License-Identifier: AGPL-3.0-only
 
 node_modules
 dist/fonts/*
+dist/1.json
+dist/1.json.license
 public/?.json
