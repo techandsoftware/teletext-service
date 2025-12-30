@@ -20,11 +20,6 @@ export default defineConfig({
       name: '@techandsoftware/teletext-service',
       fileName: 'teletext-service',
       formats: ['es']
-    },
-    rollupOptions: {
-      output: {
-        banner: BANNER, /* not working https://github.com/vitejs/vite/issues/21076 */
-      }
     }
   },
   esbuild: {
