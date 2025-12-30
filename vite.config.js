@@ -26,5 +26,8 @@ export default defineConfig({
         banner: BANNER, /* not working https://github.com/vitejs/vite/issues/21076 */
       }
     }
+  },
+  esbuild: {
+    banner: BANNER
   }
 });

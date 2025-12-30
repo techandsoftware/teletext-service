@@ -1,3 +1,6 @@
+/*! @techandsoftware/teletext-service
+    SPDX-FileCopyrightText: (c) 2025 Rob Hardy
+    SPDX-License-Identifier: AGPL-3.0-only */
 let G = class At {
   static tt(t, e) {
     const s = (t = t.replace(/-/g, "+").replace(/_/g, "/")).length % 4;
@@ -286,13 +289,13 @@ function _t(r) {
   if (r.tagName !== "rect") throw Error("SVG:wrapSVGElement Unable to wrap SVG element " + r.tagName);
   return t = new q(r), t;
 }
-const A = { BLACK: Symbol(), RED: Symbol(), GREEN: Symbol(), YELLOW: Symbol(), BLUE: Symbol(), MAGENTA: Symbol(), CYAN: Symbol(), WHITE: Symbol() };
+const A = { BLACK: /* @__PURE__ */ Symbol(), RED: /* @__PURE__ */ Symbol(), GREEN: /* @__PURE__ */ Symbol(), YELLOW: /* @__PURE__ */ Symbol(), BLUE: /* @__PURE__ */ Symbol(), MAGENTA: /* @__PURE__ */ Symbol(), CYAN: /* @__PURE__ */ Symbol(), WHITE: /* @__PURE__ */ Symbol() };
 Object.freeze(A);
-const o = { Tt: Symbol(), qt: Symbol(), zt: Symbol(), Vt: Symbol() };
+const o = { Tt: /* @__PURE__ */ Symbol(), qt: /* @__PURE__ */ Symbol(), zt: /* @__PURE__ */ Symbol(), Vt: /* @__PURE__ */ Symbol() };
 Object.freeze(o);
-const C = { Jt: Symbol(), Kt: Symbol(), Yt: Symbol(), Xt: Symbol() };
+const C = { Jt: /* @__PURE__ */ Symbol(), Kt: /* @__PURE__ */ Symbol(), Yt: /* @__PURE__ */ Symbol(), Xt: /* @__PURE__ */ Symbol() };
 Object.freeze(C);
-const B = { 0: Symbol(), 1: Symbol(), 1.5: Symbol(), 2.5: Symbol() };
+const B = { 0: /* @__PURE__ */ Symbol(), 1: /* @__PURE__ */ Symbol(), 1.5: /* @__PURE__ */ Symbol(), 2.5: /* @__PURE__ */ Symbol() };
 Object.freeze(B);
 class l {
   static charFromTextColour(t) {
@@ -311,7 +314,7 @@ class l {
 function W(r) {
   return ut[r];
 }
-Object.assign(l, { TEXT_COLOUR: o.ALPHA, MOSAIC_COLOUR: Symbol(), NEW_BACKGROUND: Symbol(), BLACK_BACKGROUND: Symbol(), CONTIGUOUS_GRAPHICS: o.qt, SEPARATED_GRAPHICS: o.zt, ESC: Symbol(), FLASH: Symbol(), STEADY: Symbol(), NORMAL_SIZE: C.Jt, DOUBLE_HEIGHT: C.Kt, DOUBLE_WIDTH: C.Yt, DOUBLE_SIZE: C.Xt, CONCEAL: Symbol(), HOLD_MOSAICS: Symbol(), RELEASE_MOSAICS: Symbol(), START_BOX: Symbol(), END_BOX: Symbol(), Zt: Symbol() });
+Object.assign(l, { TEXT_COLOUR: o.ALPHA, MOSAIC_COLOUR: /* @__PURE__ */ Symbol(), NEW_BACKGROUND: /* @__PURE__ */ Symbol(), BLACK_BACKGROUND: /* @__PURE__ */ Symbol(), CONTIGUOUS_GRAPHICS: o.qt, SEPARATED_GRAPHICS: o.zt, ESC: /* @__PURE__ */ Symbol(), FLASH: /* @__PURE__ */ Symbol(), STEADY: /* @__PURE__ */ Symbol(), NORMAL_SIZE: C.Jt, DOUBLE_HEIGHT: C.Kt, DOUBLE_WIDTH: C.Yt, DOUBLE_SIZE: C.Xt, CONCEAL: /* @__PURE__ */ Symbol(), HOLD_MOSAICS: /* @__PURE__ */ Symbol(), RELEASE_MOSAICS: /* @__PURE__ */ Symbol(), START_BOX: /* @__PURE__ */ Symbol(), END_BOX: /* @__PURE__ */ Symbol(), Zt: /* @__PURE__ */ Symbol() });
 const ut = { [A.BLACK]: "#000", [A.RED]: "#f00", [A.GREEN]: "#0f0", [A.YELLOW]: "#ff0", [A.BLUE]: "#00f", [A.MAGENTA]: "#f0f", [A.CYAN]: "#0ff", [A.WHITE]: "#fff" };
 Object.freeze(ut);
 const F = { "\0": A.BLACK, "": A.RED, "": A.GREEN, "": A.YELLOW, "": A.BLUE, "": A.MAGENTA, "": A.CYAN, "\x07": A.WHITE };
