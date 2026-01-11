@@ -26,8 +26,8 @@
     "@techandsoftware/teletext": "^1.2.0",
     "@techandsoftware/teletext-caster": "^0.10.3",
     "eslint": "^9.39.2",
-    "globals": "^16.5.0",
-    "vite": "^7.3.0"
+    "globals": "^17.0.0",
+    "vite": "^7.3.1"
   },
   "files": [
     "LICENSES",
